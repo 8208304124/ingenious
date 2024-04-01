@@ -1,0 +1,34 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": ["@typescript-eslint", "react"],
+  "rules": {
+    "react/react-in-jsx-scope": 0,
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/ban-types": "off",
+    "@typescript-eslint/comma-dangle": "off",
+    // allow .js files to contain JSX code
+    "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx", ".js", ".jsx","prettier", "prettier/react"] }],
+    // prevent eslint to complain about the "styles" variable being used before it was defined
+    "no-use-before-define": ["error", { "variables": false }],
+    // ignore errors for the react-navigation package
+    "react/prop-types": ["error", { "ignore": ["navigation", "navigation.navigate"] }],
+    "no-console": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "quotes": ["error", "single"]
+  }
+}
