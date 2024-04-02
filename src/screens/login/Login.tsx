@@ -8,6 +8,7 @@ import Switch_ from '../../components/elements/switch/Switch';
 type LoginProps = {
   navigation: NavigationProp<ParamListBase>; // You should replace 'any' with the correct navigation prop type.
 };
+console.log('huskycheck');
 
 const Login = ({ navigation }: LoginProps) => {
   const theme = useTheme();
