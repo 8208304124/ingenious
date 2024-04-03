@@ -4,6 +4,11 @@
     "UNIFY00002": "Username",
     "UNIFY00003": "Password",
     "UNIFY00004": "Enter URL and Port",
-    "UNIFY00005": "Enter Mac Id"
+    "UNIFY00005": "Enter Mac Id",
+    "UNIFY00006": "Product Version:",
+    "UNIFY00007": "Release Date:",
+    "UNIFY00008": "Build No:",
+    "UNIFY00009": "Build Date:",
+    "UNIFY00010": "Welcome back! to Mobile Store"
   }
 }
