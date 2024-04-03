@@ -18,6 +18,12 @@ const Login = ({ navigation }: LoginProps) => {
       <TouchableOpacity onPress={() => navigation.navigate('DashBoard')}>
         <Text>Navigate to DashBoard</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('VersionInfo')}>
+        <Text> VersionInfo</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('ProfileView')}>
+        <Text> ProfileView</Text>
+      </TouchableOpacity>
     </View>
   );
 };
