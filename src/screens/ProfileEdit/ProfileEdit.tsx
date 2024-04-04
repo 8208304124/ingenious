@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, styleheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import UserIcon from 'react-native-vector-icons/FontAwesome6';
 import styles from './styles';
@@ -39,7 +39,6 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ route }) => {
   return (
     // profileEdit
     <View style={style.container} testID="profileEdit">
-
       {/* profileImage */}
       <TouchableOpacity
         testID="profileImage"
@@ -67,7 +66,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ route }) => {
         onChangeText={setEmail}
         placeholder="Email"
       />
-      
+
       {/* Update Profile */}
       <TouchableOpacity testID="button" style={style.button} onPress={handleUpdateProfile}>
         <Text style={style.buttonText}>Update Profile</Text>

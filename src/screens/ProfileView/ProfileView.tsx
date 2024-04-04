@@ -50,3 +50,4 @@ const ProfileView: React.FC<ProfileViewProps> = ({ navigation }) => {
 };
 
 export default ProfileView;
+ 

@@ -6,30 +6,37 @@ const styles = (theme: ThemeType) =>
     header: {
       alignSelf: 'center',
       paddingVertical: 10,
-      fontSize: 20,
-      color: theme.colors.TEXT_COLOR,
+      fontSize: theme.typography.size.M,
+      color: theme.colors.TEXT,
+      marginTop:'10%'
+    },
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: '15%',
     },
     inputContainer: {
       flexDirection: 'row',
-      alignItems: 'center', 
+      alignItems: 'center',
       marginVertical: 10,
     },
     label: {
-      paddingLeft: 15,
       width: 120,
-      color: theme.colors.TEXT_COLOR,
-      fontSize: 20,
+      color: theme.colors.TEXT,
+      fontSize: 15,
     },
     input: {
-      marginLeft: 25,
-      height: 50,
+      marginLeft: 2,
+      height: 40,
       width: 250,
-      fontSize: 18,
+      fontSize: 13,
       borderColor: 'gray',
       borderWidth: 1,
       borderRadius: 5,
       paddingHorizontal: 10,
-      color: theme.colors.TEXT_COLOR,
+      color: theme.colors.TEXT,
     },
   });
+
 export default styles;
