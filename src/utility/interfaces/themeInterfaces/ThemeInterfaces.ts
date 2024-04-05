@@ -89,6 +89,7 @@ export type colorsType = {
   SELECT_STORE_BACKGROUND_COLOR: string;
   SELECT_COUNTER_BACKGROUND_COLOR: string;
   STAR: string;
+  TEXT_COLOR:string
 };
 export interface ThemeType {
   colors: colorsType;
