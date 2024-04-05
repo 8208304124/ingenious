@@ -8,7 +8,7 @@ const styles = (theme: ThemeType) =>
       paddingVertical: 10,
       fontSize: theme.typography.size.M,
       color: theme.colors.TEXT,
-      marginTop:'10%'
+      marginTop: '10%',
     },
     container: {
       flex: 1,
@@ -25,14 +25,16 @@ const styles = (theme: ThemeType) =>
       width: 120,
       color: theme.colors.TEXT,
       fontSize: 15,
+      marginLeft: 20,
     },
     input: {
-      marginLeft: 2,
-      height: 40,
-      width: 250,
+      // marginLeft: 10, // Adjusted marginLeft
+      // marginRight: 20, // You can adjust marginRight if needed
+      height: 50,
+      width: 280,
       fontSize: 13,
       borderColor: 'gray',
-      borderWidth: 1,
+      // borderWidth: 1,
       borderRadius: 5,
       paddingHorizontal: 10,
       color: theme.colors.TEXT,
