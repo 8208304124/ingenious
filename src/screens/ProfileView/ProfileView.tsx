@@ -30,19 +30,22 @@ const ProfileView: React.FC<ProfileViewProps> = ({ navigation }) => {
 
   return (
     // ProfileView
-    <View style={style.container} testID='ProfileView'>
-
+    <View style={style.container} testID="ProfileView">
       {/* profileImage */}
-      <User name={user.profileIcon} style={style.profileImage} testID='profileIcon' />
+      <User name={user.profileIcon} style={style.profileImage} testID="profileIcon" />
 
       {/* name */}
-      <Text testID='name' style={style.name}>{user.name}</Text>
+      <Text testID="name" style={style.name}>
+        {user.name}
+      </Text>
 
       {/* email */}
-      <Text testID='email' style={style.email}>{user.email}</Text>
-      
+      <Text testID="email" style={style.email}>
+        {user.email}
+      </Text>
+
       {/* handleEditProfile */}
-      <TouchableOpacity testID='button' style={style.button} onPress={handleEditProfile}>
+      <TouchableOpacity testID="button" style={style.button} onPress={handleEditProfile}>
         <Text style={style.buttonText}>Edit Profile</Text>
       </TouchableOpacity>
     </View>
@@ -50,4 +53,3 @@ const ProfileView: React.FC<ProfileViewProps> = ({ navigation }) => {
 };
 
 export default ProfileView;
- 

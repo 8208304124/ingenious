@@ -18,11 +18,12 @@ const VersionInfo: React.FC = () => {
     // versionInfo
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
+        {/* header */}
         <Text style={style.header} testID="header_VersionIfo">
           {i18next.t('UNIFY00010')}
         </Text>
         {/* inputContainer */}
-        <View>
+        <View style={style.container}>
           {/* Product Version */}
           <View style={style.inputContainer}>
             <Text style={style.label}>{i18next.t('UNIFY00006')}</Text>
