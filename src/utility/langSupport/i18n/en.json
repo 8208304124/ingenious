@@ -4,6 +4,12 @@
     "UNIFY00002": "Username",
     "UNIFY00003": "Password",
     "UNIFY00004": "Enter URL and Port",
-    "UNIFY00005": "Enter Mac Id"
+    "UNIFY00005": "Enter Mac Id",
+    "UNIFY00006":"VersionInfo",
+    "UNIFY00007":"Theme",
+    "UNIFY00008":"Logout",
+    "UNIFY00009": "error occurred during login",
+    "UNIFY00010":"Error",
+    "UNIFY00011": "error occurred during logout"
   }
 }
