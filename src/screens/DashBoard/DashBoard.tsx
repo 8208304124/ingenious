@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import Button from '../../components/elements/button/Button';
 import i18next from 'i18next';
 import styles from './styles';
@@ -44,9 +44,6 @@ const DashBoard = ({ navigation }: DashboardProps) => {
   return (
     <SafeAreaView style={[commonStyles.Flex1]}>
       <View style={style.container}>
-        <Text testID={'Dashboard_Text'} style={style.DashBoardText}>
-          DashBoard
-        </Text>
         <Button testID={'Login_Btn'} title={i18next.t('UNIFY00008')} onPress={handleLogout} />
       </View>
       <Alert options={alertOptions} setOptions={setAlertOptions} />

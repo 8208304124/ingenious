@@ -170,7 +170,7 @@ const Login = ({ navigation }: LoginProps) => {
         <View style={style.VersionInfoContainer}>
           <TouchableOpacity
             style={style.VersionInfoText}
-            onPress={() => navigation.navigate('DashBoard')}
+            onPress={() => navigation.navigate('DrawerStack')}
           >
             <Text testID={'VersionInfo_Text'} style={{ color: theme.colors.BUTTON }}>
               {i18next.t('UNIFY00006')}

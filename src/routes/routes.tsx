@@ -1,5 +1,5 @@
-import DashBoard from '../screens/DashBoard/DashBoard';
 import Login from '../screens/login/Login';
+import DashBoard from '../screens/DashBoard';
 
 const routes = [
   {
