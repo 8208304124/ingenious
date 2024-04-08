@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import Button from '../../components/elements/button/Button';
 import i18next from 'i18next';
 import styles from './styles';
@@ -47,6 +47,9 @@ const DashBoard = ({ navigation }: DashboardProps) => {
           DashBoard
         </Text>
         <Button testID={'Login_Btn'} title={i18next.t('UNIFY00008')} onPress={handleLogout} />
+        <TouchableOpacity onPress={() => navigation.navigate('ProfileView')}>
+          <Text> ProfileView</Text>
+        </TouchableOpacity>
       </View>
       <Alert options={alertOptions} setOptions={setAlertOptions} />
     </SafeAreaView>
