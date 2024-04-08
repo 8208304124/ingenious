@@ -4,6 +4,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import User from 'react-native-vector-icons/FontAwesome6';
 import styles from './styles';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 interface User {
   name: string;
@@ -12,7 +13,7 @@ interface User {
 }
 
 interface ProfileViewProps {
-  navigation: any;
+  navigation: NavigationProp<ParamListBase>;
 }
 
 const user: User = {
