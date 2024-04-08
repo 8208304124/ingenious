@@ -10,6 +10,7 @@ import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
 import { commonStyles } from '../../assets/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import ScreenFooter from '../../components/common/screenFooter/ScreenFooter';
 
 type DashboardProps = {
   navigation: NavigationProp<ParamListBase>;
@@ -41,14 +42,49 @@ const DashBoard = ({ navigation }: DashboardProps) => {
   };
 
   return (
-    <SafeAreaView style={[style.container, commonStyles.Flex1]}>
-      <View>
+    <SafeAreaView style={[commonStyles.Flex1]}>
+      <View style={style.container}>
         <Text testID={'Dashboard_Text'} style={style.DashBoardText}>
           DashBoard
         </Text>
         <Button testID={'Login_Btn'} title={i18next.t('UNIFY00008')} onPress={handleLogout} />
       </View>
       <Alert options={alertOptions} setOptions={setAlertOptions} />
+      <ScreenFooter
+        showBottomNavigation={true}
+        bottomNavigationOptions={{
+          icons: [
+            {
+              label: 'Back',
+              icon: 'arrow-back-circle-sharp',
+              vector: true,
+              useRippleEffect: false,
+              onPress: () => {
+                //
+              },
+            },
+            {
+              label: 'Menu',
+              icon: 'menu',
+              vector: true,
+              useRippleEffect: false,
+              onPress: () => {
+                //
+              },
+            },
+            {
+              label: 'settings',
+              icon: 'settings',
+              vector: true,
+              // showButton: true,
+              useRippleEffect: false,
+              onPress: () => {
+                //
+              },
+            },
+          ],
+        }}
+      />
     </SafeAreaView>
   );
 };
