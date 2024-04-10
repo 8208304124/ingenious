@@ -90,6 +90,7 @@ export type colorsType = {
   SELECT_COUNTER_BACKGROUND_COLOR: string;
   STAR: string;
   TEXT_COLOR: string;
+  SIDE_NAV_BAR: string;
 };
 export interface ThemeType {
   colors: colorsType;
