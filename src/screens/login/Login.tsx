@@ -172,7 +172,7 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
         <View style={style.VersionInfoContainer}>
           <TouchableOpacity
             style={style.VersionInfoText}
-            onPress={() => navigation.navigate('Dashboard')}
+            onPress={() => navigation.navigate('VersionInfo')}
           >
             <Text testID={'VersionInfo_Text'} style={{ color: theme.colors.BUTTON }}>
               {i18next.t('UNIFY00006')}

@@ -1,6 +1,8 @@
 import DrawerNavigation from '../components/common/customDrawer/DrawerNavigation';
-
-import Login from '../screens/login';
+import Login from '../screens/login/Login';
+import VersionInfo from '../screens/VersionInfo/VersionInfo';
+import ProfileView from '../screens/ProfileView/ProfileView';
+import ProfileEdit from '../screens/ProfileEdit/ProfileEdit';
 
 const routes = [
   {
@@ -15,6 +17,33 @@ const routes = [
     component: DrawerNavigation, // done
     options: {
       headerShown: false,
+    },
+  },
+  {
+    key: 'VersionInfo',
+    name: 'VersionInfo',
+    component: VersionInfo, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
+    },
+  },
+  {
+    key: 'ProfileView',
+    name: 'ProfileView',
+    component: ProfileView, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
+    },
+  },
+  {
+    key: 'ProfileEdit',
+    name: 'ProfileEdit',
+    component: ProfileEdit, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
     },
   },
 ];
