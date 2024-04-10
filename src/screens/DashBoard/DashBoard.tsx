@@ -28,6 +28,7 @@ const DashBoard = ({ navigation }: DashboardProps) => {
   const handleLogout = async () => {
     try {
       await AsyncStorage.removeItem('token');
+
       // Navigate to login screen
       navigation.navigate('login');
     } catch (error) {
