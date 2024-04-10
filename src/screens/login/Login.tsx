@@ -35,7 +35,7 @@ interface languageType {
   label: string;
 }
 
-const Login = ({ navigation }: LoginProps) => {
+const Login: React.FC<LoginProps> = ({ navigation }) => {
   const style = useThemedStyles(styles);
   const translate = useLanguage();
   const theme = useTheme();
@@ -69,7 +69,8 @@ const Login = ({ navigation }: LoginProps) => {
   const checkToken = async () => {
     const token = await AsyncStorage.getItem('token');
     if (token) {
-      navigation.navigate('DashBoard');
+      // setIsAuthenticated(true);
+      //  navigation.navigate('DrawerNavigation', { screen: 'DashBoard' });
     }
   };
 
@@ -88,7 +89,8 @@ const Login = ({ navigation }: LoginProps) => {
       if (response.ok) {
         // Save token to AsyncStorage
         await AsyncStorage.setItem('token', data.token);
-        navigation.navigate('DashBoard');
+
+        navigation.navigate('DrawerNavigation', { screen: 'DashBoard' });
       }
     } catch (error) {
       setAlertOptions({
@@ -170,7 +172,7 @@ const Login = ({ navigation }: LoginProps) => {
         <View style={style.VersionInfoContainer}>
           <TouchableOpacity
             style={style.VersionInfoText}
-            onPress={() => navigation.navigate('DrawerStack')}
+            onPress={() => navigation.navigate('Dashboard')}
           >
             <Text testID={'VersionInfo_Text'} style={{ color: theme.colors.BUTTON }}>
               {i18next.t('UNIFY00006')}

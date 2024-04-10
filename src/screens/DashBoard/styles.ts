@@ -5,8 +5,8 @@ const styles = (theme: ThemeType) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      // justifyContent: 'center',
-      // alignItems: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     DashBoardText: {
       fontSize: theme.typography.size.SR,

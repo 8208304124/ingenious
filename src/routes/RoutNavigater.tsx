@@ -29,10 +29,11 @@ export const RouteNavigater = () => {
       <Stack.Navigator>
         {routes.map((route) => (
           <Stack.Screen
-            key={route.name}
+            key={route.key}
             name={route.name}
             component={route.component}
             options={{
+              headerShown: false,
               headerStyle: {
                 backgroundColor: theme.colors.BACKGROUND,
               },

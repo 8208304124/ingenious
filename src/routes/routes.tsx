@@ -1,20 +1,20 @@
-import Login from '../screens/login/Login';
-import DashBoard from '../screens/DashBoard';
+import DrawerNavigation from '../components/common/customDrawer/DrawerNavigation';
+
+import Login from '../screens/login';
 
 const routes = [
   {
-    key: 'login',
-    name: 'login',
+    key: 'Login',
+    name: 'Login',
     component: Login, // done
     options: { headerShown: false },
   },
   {
-    key: 'DashBoard',
-    name: 'DashBoard',
-    component: DashBoard, // done
+    key: 'DrawerNavigation',
+    name: 'DrawerNavigation',
+    component: DrawerNavigation, // done
     options: {
-      headerShown: true,
-      headerShadowVisible: false,
+      headerShown: false,
     },
   },
 ];
