@@ -116,7 +116,7 @@ const light = {
   SELECT_COUNTER_BACKGROUND_COLOR: '#F5F5F5',
   STAR: '#E82D2D',
   TEXT_COLOR: '#000000',
-  SIDE_NAV_BAR:'#8200d6'
+  SIDE_NAV_BAR: '#8200d6',
 };
 
 const dark = {
