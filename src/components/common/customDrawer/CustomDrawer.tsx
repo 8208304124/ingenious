@@ -23,6 +23,17 @@ export type Props = {
   descriptors: DrawerDescriptorMap;
 };
 
+interface UserType {
+  name: string;
+  email: string;
+  profileIcon: string;
+}
+
+const user: UserType = {
+  name: 'John Doe',
+  email: 'john.doe@example.com',
+  profileIcon: 'user-large',
+};
 const CustomDrawer = (props: Props) => {
   const navigation = useNavigation();
 
@@ -47,12 +58,15 @@ const CustomDrawer = (props: Props) => {
       });
     }
   };
+  const handleEditProfile = () => {
+    navigation.navigate('ProfileEdit', { user });
+  };
   return (
     <View style={styles.container}>
       <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#8200d6' }}>
         <View style={styles.topContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('ProfileView')}>
-            <User width={50} height={50} />
+          <TouchableOpacity onPress={() => navigation.navigate('ProfileView', { user })}>
+            <User width={60} height={60} />
           </TouchableOpacity>
           <View style={commonStyles.FlexDirectionRow}>
             <View style={styles.profileNameContainer}>
@@ -60,7 +74,7 @@ const CustomDrawer = (props: Props) => {
                 John Doe
               </Text>
             </View>
-            <TouchableOpacity onPress={() => navigation.navigate('ProfileEdit')}>
+            <TouchableOpacity onPress={handleEditProfile}>
               <Edit name="edit-3" size={22} color={'#fff'} />
             </TouchableOpacity>
           </View>
@@ -102,6 +116,7 @@ export default CustomDrawer;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#ffffff',
   },
   drawerItemList: { flex: 1, paddingTop: 10 },
   topContainer: { padding: 10 },

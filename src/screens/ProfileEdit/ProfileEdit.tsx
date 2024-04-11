@@ -33,8 +33,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ route }) => {
   };
 
   const handleUpdateProfile = () => {
-    const updatedUser: User = { name, email, profileIcon };
-    navigation.navigate('ProfileView', { updatedUser });
+    navigation.goBack();
   };
 
   return (

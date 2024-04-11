@@ -1,9 +1,10 @@
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import useTheme from '../../utility/hooks/useTheme';
 import styles from './styles';
+import { loginValidation } from '../../utility/validations/Validations';
 import Text from '../../components/elements/text';
 import Switch_ from '../../components/elements/switch/Switch';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -15,19 +16,15 @@ import { langList } from '../../constants';
 import useLanguage from '../../utility/hooks/useLanguage';
 import TextInput from '../../components/elements/input/TextInput';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { post } from '../../Services/HttpServices';
 import i18next from 'i18next';
 import Button from '../../components/elements/button/Button';
 import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
 
-type loginInfoType = {
-  userName: string;
-  password: string;
-};
 type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
-  loginInfo: loginInfoType;
 };
 interface languageType {
   id: number;
@@ -35,7 +32,7 @@ interface languageType {
   label: string;
 }
 
-const Login: React.FC<LoginProps> = ({ navigation }) => {
+const Login = ({ navigation }: LoginProps) => {
   const style = useThemedStyles(styles);
   const translate = useLanguage();
   const theme = useTheme();
@@ -52,9 +49,9 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
     message: '',
   });
 
-  useEffect(() => {
-    checkToken();
-  }, []);
+  // useEffect(() => {
+  //   checkToken();
+  // }, []);
   const handleLangFun = (selectedValue: languageType) => {
     translate.changeLanguage(selectedValue.value);
   };
@@ -66,42 +63,46 @@ const Login: React.FC<LoginProps> = ({ navigation }) => {
     }));
   };
 
-  const checkToken = async () => {
-    const token = await AsyncStorage.getItem('token');
-    if (token) {
-      // setIsAuthenticated(true);
-      //  navigation.navigate('DrawerNavigation', { screen: 'DashBoard' });
-    }
-  };
-
   const handleLogin = async () => {
     setShowLoader(true);
-    try {
-      const response = await fetch('https://dummyjson.com/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          username: FormDataInfo.userName,
-          password: FormDataInfo.password,
-        }),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        // Save token to AsyncStorage
-        await AsyncStorage.setItem('token', data.token);
 
-        navigation.navigate('DrawerNavigation', { screen: 'DashBoard' });
+    if (!loginValidation(FormDataInfo.userName, FormDataInfo.password, setAlertOptions)) {
+      // Validation failed, return early
+      setShowLoader(false);
+      return;
+    }
+    try {
+      setShowLoader(true);
+      const requestBody = {
+        username: FormDataInfo.userName,
+        password: FormDataInfo.password,
+        expiresInMins: 30,
+      };
+      const response = await post(requestBody, setShowLoader, setAlertOptions);
+
+      setShowLoader(false);
+      if (response && response.token) {
+        await AsyncStorage.setItem('token', response.token);
+
+        navigation.navigate('DrawerNavigation');
+      } else {
+        // Handle case where token is not present in the response
+        setAlertOptions({
+          visible: true,
+          title: i18next.t('UNIFY00010'),
+          message: 'Token not found in response',
+        });
       }
     } catch (error) {
+      setShowLoader(false);
       setAlertOptions({
         visible: true,
         title: i18next.t('UNIFY00010'),
         message: i18next.t('UNIFY00009'),
-        // error occurred during login
       });
     }
-    setShowLoader(false);
   };
+
   return (
     <GestureHandlerRootView style={commonStyles.Flex1}>
       <SafeAreaView style={[style.container, commonStyles.Flex1]}>
