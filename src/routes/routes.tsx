@@ -1,4 +1,4 @@
-import DashBoard from '../screens/DashBoard/DashBoard';
+import DrawerNavigation from '../components/common/customDrawer/DrawerNavigation';
 import Login from '../screens/login/Login';
 import VersionInfo from '../screens/VersionInfo/VersionInfo';
 import ProfileView from '../screens/ProfileView/ProfileView';
@@ -6,18 +6,17 @@ import ProfileEdit from '../screens/ProfileEdit/ProfileEdit';
 
 const routes = [
   {
-    key: 'login',
-    name: 'login',
+    key: 'Login',
+    name: 'Login',
     component: Login, // done
     options: { headerShown: false },
   },
   {
-    key: 'DashBoard',
-    name: 'DashBoard',
-    component: DashBoard, // done
+    key: 'DrawerNavigation',
+    name: 'DrawerNavigation',
+    component: DrawerNavigation, // done
     options: {
-      headerShown: true,
-      headerShadowVisible: false,
+      headerShown: false,
     },
   },
   {

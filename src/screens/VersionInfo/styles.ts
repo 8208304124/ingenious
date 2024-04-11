@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../utility/interfaces/themeInterfaces/ThemeInterfaces';
 
 const styles = (theme: ThemeType) =>
@@ -28,13 +28,16 @@ const styles = (theme: ThemeType) =>
       marginLeft: 20,
     },
     input: {
+      // marginLeft: 10, // Adjusted marginLeft
+      // marginRight: 20, // You can adjust marginRight if needed
       height: 50,
       width: 280,
       fontSize: 13,
+      borderColor: 'gray',
+      // borderWidth: 1,
       borderRadius: 5,
       paddingHorizontal: 10,
       color: theme.colors.TEXT,
-      paddingRight: Platform.OS === 'ios' ? 35 : 25,
     },
   });
 

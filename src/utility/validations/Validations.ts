@@ -11,22 +11,22 @@ export const loginValidation = (
   if (userName === '' && password === '') {
     setAlertOptions({
       visible: true,
-      title: 'UNIFY00018', // Message
-      message: 'UNIFY00017', // Username / Password cannot be blank
+      title: 'UNIFY00104', // Message
+      message: 'UNIFY00105', // Username / Password cannot be blank
     });
     validate = false;
   } else if (userName === '') {
     setAlertOptions({
       visible: true,
-      title: 'UNIFY00018', // Message
-      message: 'UNIFY00019', // Username cannot be blank
+      title: 'UNIFY00104', // Message
+      message: 'UNIFY00106', // Username cannot be blank
     });
     validate = false;
   } else if (password === '') {
     setAlertOptions({
       visible: true,
-      title: 'UNIFY00018', // Message
-      message: 'UNIFY00020', // Password cannot be blank
+      title: 'UNIFY00104', // Message
+      message: 'UNIFY00107', // Password cannot be blank
     });
     validate = false;
   }

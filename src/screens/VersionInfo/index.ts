@@ -1,2 +1,2 @@
-import VersionInfo from './VersionInfo'
+import VersionInfo from './VersionInfo';
 export default VersionInfo;
