@@ -1,9 +1,9 @@
-// ProfileView.tsx
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import User from 'react-native-vector-icons/FontAwesome6';
+import Users from 'react-native-vector-icons/FontAwesome6';
 import styles from './styles';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 interface User {
   name: string;
@@ -12,7 +12,7 @@ interface User {
 }
 
 interface ProfileViewProps {
-  navigation: any;
+  navigation: NavigationProp<ParamListBase>;
 }
 
 const user: User = {
@@ -32,7 +32,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ navigation }) => {
     // ProfileView
     <View style={style.container} testID="ProfileView">
       {/* profileImage */}
-      <User name={user.profileIcon} style={style.profileImage} testID="profileIcon" />
+      <Users name={user.profileIcon} style={style.profileImage} testID="profileIcon" />
 
       {/* name */}
       <Text testID="name" style={style.name}>

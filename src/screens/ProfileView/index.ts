@@ -1,2 +1,2 @@
 import ProfileView from './ProfileView';
-export default ProfileView
+export default ProfileView;

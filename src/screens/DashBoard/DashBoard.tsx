@@ -1,24 +1,63 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View } from 'react-native';
+import Text from '../../components/elements/text';
+import styles from './styles';
+// import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import useThemedStyles from '../../utility/hooks/useThemedStyles';
+import { commonStyles } from '../../assets/commonStyles';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import ScreenFooter from '../../components/common/screenFooter/ScreenFooter';
+
+// type DashboardProps = {
+//   navigation: NavigationProp<ParamListBase>;
+// };
 
 const DashBoard = () => {
+  const style = useThemedStyles(styles);
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.DashBoardText}>DashBoard</Text>
-    </View>
+    <SafeAreaView style={[commonStyles.Flex1]}>
+      <View style={style.container}>
+        <Text style={style.DashBoardText}>DashBoard</Text>
+      </View>
+
+      <ScreenFooter
+        showBottomNavigation={true}
+        bottomNavigationOptions={{
+          icons: [
+            {
+              label: 'Back',
+              icon: 'arrow-back-circle-sharp',
+              vector: true,
+              useRippleEffect: false,
+              onPress: () => {
+                //
+              },
+            },
+            {
+              label: 'Menu',
+              icon: 'menu',
+              vector: true,
+              useRippleEffect: false,
+              onPress: () => {
+                //
+              },
+            },
+            {
+              label: 'settings',
+              icon: 'settings',
+              vector: true,
+              // showButton: true,
+              useRippleEffect: false,
+              onPress: () => {
+                //
+              },
+            },
+          ],
+        }}
+      />
+    </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  DashBoardText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-});
 
 export default DashBoard;

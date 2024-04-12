@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import UserIcon from 'react-native-vector-icons/FontAwesome6';
 import styles from './styles';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
+import TextInput from '../../components/elements/input/TextInput';
 
 interface User {
   name: string;
@@ -32,8 +33,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ route }) => {
   };
 
   const handleUpdateProfile = () => {
-    const updatedUser: User = { name, email, profileIcon };
-    navigation.navigate('ProfileView', { updatedUser });
+    navigation.goBack();
   };
 
   return (
@@ -43,30 +43,21 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ route }) => {
       <TouchableOpacity
         testID="profileImage"
         onPress={() => handleProfileIconChange('newIconName')}
-        onLongPress={() => console.log('Long pressed')}
+        // onLongPress={() => console.log('Long pressed')}
         style={style.profileImage}
       >
         <UserIcon name={profileIcon} style={style.profileIcon} />
       </TouchableOpacity>
 
       {/* name */}
-      <TextInput
-        testID="name"
-        style={style.input}
-        value={name}
-        onChangeText={setName}
-        placeholder="Name"
-      />
+      <View style={style.input}>
+        <TextInput testID="name" value={name} onChangeText={setName} placeholder="Name" />
+      </View>
 
       {/* email */}
-      <TextInput
-        testID="email"
-        style={style.input}
-        value={email}
-        onChangeText={setEmail}
-        placeholder="Email"
-      />
-
+      <View style={style.input}>
+        <TextInput testID="email" value={email} onChangeText={setEmail} placeholder="Email" />
+      </View>
       {/* Update Profile */}
       <TouchableOpacity testID="button" style={style.button} onPress={handleUpdateProfile}>
         <Text style={style.buttonText}>Update Profile</Text>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Text, ScrollView, SafeAreaView, TextInput, View } from 'react-native';
+import { Text, ScrollView, SafeAreaView, View } from 'react-native';
 import styles from './styles';
 import useLanguage from '../../utility/hooks/useLanguage';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import i18next from 'i18next';
+import TextInput from '../../components/elements/input/TextInput';
 
 const VersionInfo: React.FC = () => {
   const style = useThemedStyles(styles);
@@ -20,52 +21,63 @@ const VersionInfo: React.FC = () => {
       <ScrollView>
         {/* header */}
         <Text style={style.header} testID="header_VersionIfo">
-          {i18next.t('UNIFY00010')}
+          {i18next.t('UNIFY00016')}
         </Text>
         {/* inputContainer */}
         <View style={style.container}>
           {/* Product Version */}
           <View style={style.inputContainer}>
-            <Text style={style.label}>{i18next.t('UNIFY00006')}</Text>
-            <TextInput
-              testID="productVersion"
-              style={style.input}
-              value={productVersion}
-              onChangeText={setProductVersion}
-            />
+            <Text style={style.label}>{i18next.t('UNIFY00012')}</Text>
+            <View style={style.input}>
+              <TextInput
+                testID="productVersion"
+                value={productVersion}
+                onChangeText={setProductVersion}
+                placeholder={''}
+              />
+            </View>
           </View>
 
           {/* Release Date */}
           <View style={style.inputContainer}>
-            <Text style={style.label}>{i18next.t('UNIFY00007')}</Text>
-            <TextInput
-              testID="releaseDate"
-              style={style.input}
-              value={releaseDate}
-              onChangeText={setReleaseDate}
-            />
+            <Text style={style.label}>{i18next.t('UNIFY00013')}</Text>
+            <View style={style.input}>
+              <TextInput
+                testID="releaseDate"
+                style={style.input}
+                value={releaseDate}
+                onChangeText={setReleaseDate}
+                placeholder={''}
+              />
+            </View>
           </View>
 
           {/* Build No */}
           <View style={style.inputContainer}>
-            <Text style={style.label}>{i18next.t('UNIFY00008')}</Text>
-            <TextInput
-              testID="buildNo"
-              style={style.input}
-              value={buildNo}
-              onChangeText={setBuildNo}
-            />
+            <Text style={style.label}>{i18next.t('UNIFY00014')}</Text>
+            <View style={style.input}>
+              <TextInput
+                testID="buildNo"
+                style={style.input}
+                value={buildNo}
+                onChangeText={setBuildNo}
+                placeholder={''}
+              />
+            </View>
           </View>
 
           {/* Build Date */}
           <View style={style.inputContainer}>
-            <Text style={style.label}>{i18next.t('UNIFY00009')}</Text>
-            <TextInput
-              testID="buildDate"
-              style={style.input}
-              value={buildDate}
-              onChangeText={setBuildDate}
-            />
+            <Text style={style.label}>{i18next.t('UNIFY00015')}</Text>
+            <View style={style.input}>
+              <TextInput
+                testID="buildDate"
+                style={style.input}
+                value={buildDate}
+                onChangeText={setBuildDate}
+                placeholder={''}
+              />
+            </View>
           </View>
         </View>
       </ScrollView>

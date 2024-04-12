@@ -9,6 +9,7 @@ const Stack = createNativeStackNavigator();
 
 export const RouteNavigater = () => {
   const theme = useTheme();
+
   return (
     <NavigationContainer
       theme={{
@@ -28,16 +29,16 @@ export const RouteNavigater = () => {
       <Stack.Navigator>
         {routes.map((route) => (
           <Stack.Screen
-            key={route.name}
+            key={route.key}
             name={route.name}
             component={route.component}
-            options={() => ({
-              ...route.options,
+            options={{
+              headerShown: false,
               headerStyle: {
                 backgroundColor: theme.colors.BACKGROUND,
               },
               headerTintColor: theme.colors.HEADER_TEXT,
-            })}
+            }}
           />
         ))}
       </Stack.Navigator>

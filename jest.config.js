@@ -1,9 +1,20 @@
 module.exports = {
   preset: 'react-native',
-  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect', '<rootDir>/setupTests.js'],
-  transformIgnorePatterns: ['/node_modules/(?!(@react-native|react-native|)/).*/'],
-  modulePaths: ['src', 'test'],
-  collectCoverage: true,
+  transform: {
+    '^.+\\.jsx$': 'babel-jest',
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        tsconfig: 'tsconfig.spec.json',
+      },
+    ],
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js'],
+  transformIgnorePatterns: [
+    'node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation|@react-native/js-polyfills)',
+    // Add any other patterns as needed
+  ],
   moduleNameMapper: {
     '\\.svg': '<rootDir>src/__Mocks__/svgMocks.js',
   },
