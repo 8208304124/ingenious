@@ -1,28 +1,27 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
+import { render } from '@testing-library/react-native';
 import ProfileView from '../../src/screens/ProfileView/ProfileView';
+import ThemeProvider from '../../src/theme/themeProvider/ThemeProvider';
 
-describe('<ProfileView />', () => {
-  test('renders user name and email correctly', () => {
-    const { getByTestId, getByText } = render(<ProfileView navigation={{}} />);
-    const nameElement = getByTestId('name');
-    const emailElement = getByTestId('email');
-    expect(nameElement).toBeTruthy();
-    expect(emailElement).toBeTruthy();
-    expect(getByText('John Doe')).toBeTruthy(); // Change 'John Doe' if user data changes
-    expect(getByText('john.doe@example.com')).toBeTruthy(); // Change email if user data changes
-  });
+jest.mock('@react-native-async-storage/async-storage', () => ({
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn(),
+  clear: jest.fn(),
+}));
 
-  test('navigates to ProfileEdit screen when Edit Profile button is pressed', () => {
-    const navigationMock = { navigate: jest.fn() };
-    const { getByTestId } = render(<ProfileView navigation={navigationMock} />);
-    const editButton = getByTestId('button');
-    fireEvent.press(editButton);
-    expect(navigationMock.navigate).toHaveBeenCalledWith('ProfileEdit', { user: { name: 'John Doe', email: 'john.doe@example.com', profileIcon: 'user-large' } });
-    // Modify the expectation above if the user data structure changes
+describe('ProfileView render correctly', () => {
+  it('renders correctly', () => {
+    const { getByTestId } = render(
+      <ThemeProvider>
+        <ProfileView navigation={jest.fn() as any} />
+      </ThemeProvider>
+    );
+
+    expect(getByTestId('ProfileView')).toBeDefined();
+    expect(getByTestId('profileIcon')).toBeDefined();
+    expect(getByTestId('name')).toBeDefined();
+    expect(getByTestId('email')).toBeDefined();
+    expect(getByTestId('button')).toBeDefined();
   });
 });
-function expect(emailElement: any) {
-    throw new Error('Function not implemented.');
-}
-

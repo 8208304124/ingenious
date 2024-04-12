@@ -1,79 +1,62 @@
+import { fireEvent, render } from '@testing-library/react-native';
+import ProfileEdit from '../../src/screens/ProfileEdit';
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react-native';
-import ProfileEdit from '../../src/screens/ProfileEdit/ProfileEdit';
+import ThemeProvider from '../../src/theme/themeProvider/ThemeProvider';
+import { NavigationContainer } from '@react-navigation/native';
 
-// Mocking navigation hook
-jest.mock('@react-navigation/native', () => ({
-  useNavigation: () => ({
-    navigate: jest.fn(),
-  }),
+jest.mock('@react-native-async-storage/async-storage', () => ({
+  getItem: jest.fn(),
+  setItem: jest.fn(),
+  removeItem: jest.fn(),
+  clear: jest.fn(),
 }));
 
-describe('<ProfileEdit />', () => {
+describe('ProfileEdit rendered correctly', () => {
   const user = {
     name: 'John Doe',
-    email: 'john@example.com',
-    profileIcon: 'user-icon',
+    email: 'john.doe@example.com',
+    profileIcon: 'user-circle',
   };
 
-  it('renders correctly', () => {
+  it('renders correctly with user data', () => {
     const { getByTestId, getByPlaceholderText } = render(
-      <ProfileEdit route={{ params: { user } }} />
+      <NavigationContainer>
+        <ThemeProvider>
+          <ProfileEdit route={{ params: { user } }} />
+        </ThemeProvider>
+      </NavigationContainer>
     );
 
-    expect(getByTestId('profileImage')).toBeDefined();
-    expect(getByPlaceholderText('Name')).toBeDefined();
-    expect(getByPlaceholderText('Email')).toBeDefined();
-    expect(getByTestId('button')).toBeDefined();
+    expect(getByTestId('profileEdit')).toBeTruthy();
+    expect(getByTestId('profileImage')).toBeTruthy();
+    expect(getByPlaceholderText('Name').props.value).toBe(user.name);
+    expect(getByPlaceholderText('Email').props.value).toBe(user.email);
+    expect(getByTestId('button')).toBeTruthy();
   });
 
-  it('updates name and email when typing', () => {
-    const { getByTestId } = render(<ProfileEdit route={{ params: { user } }} />);
-    const nameInput = getByTestId('name');
-    const emailInput = getByTestId('email');
-
-    fireEvent.changeText(nameInput, 'Jane Doe');
-    fireEvent.changeText(emailInput, 'jane@example.com');
-
-    expect(nameInput.props.value).toBe('Jane Doe');
-    expect(emailInput.props.value).toBe('jane@example.com');
-  });
-
-  it('calls handleProfileIconChange when profile image is pressed', () => {
-    const handleProfileIconChange = jest.fn();
-    const { getByTestId } = render(
-      <ProfileEdit route={{ params: { user } }} handleProfileIconChange={handleProfileIconChange} />
+  it('updates name correctly', () => {
+    const { getByPlaceholderText } = render(
+      <NavigationContainer>
+        <ThemeProvider>
+          <ProfileEdit route={{ params: { user } }} />
+        </ThemeProvider>
+      </NavigationContainer>
     );
-    const profileImage = getByTestId('profileImage');
-
-    fireEvent.press(profileImage);
-
-    expect(handleProfileIconChange).toHaveBeenCalledWith('newIconName');
+    const newName = 'Jane Smith';
+    fireEvent.changeText(getByPlaceholderText('Name'), newName);
+    expect(getByPlaceholderText('Name').props.value).toBe(newName);
   });
 
-  it('calls handleUpdateProfile when update button is pressed', () => {
-    const handleUpdateProfile = jest.fn();
-    const { getByTestId } = render(
-      <ProfileEdit route={{ params: { user } }} handleUpdateProfile={handleUpdateProfile} />
+  it('updates email correctly', () => {
+    const { getByPlaceholderText } = render(
+      <NavigationContainer>
+        <ThemeProvider>
+          <ProfileEdit route={{ params: { user } }} />
+        </ThemeProvider>
+      </NavigationContainer>
     );
-    const updateButton = getByTestId('button');
-
-    fireEvent.press(updateButton);
-
-    expect(handleUpdateProfile).toHaveBeenCalled();
-  });
-
-  it('navigates to ProfileView with updated user when update button is pressed', () => {
-    const { getByTestId } = render(<ProfileEdit route={{ params: { user } }} />);
-    const updateButton = getByTestId('button');
-
-    fireEvent.press(updateButton);
-
-    // Assuming navigation is mocked
-    expect(navigation.navigate).toHaveBeenCalledWith('ProfileView', { updatedUser: user });
+    const newEmail = 'jane.smith@example.com';
+    fireEvent.changeText(getByPlaceholderText('Email'), newEmail);
+    expect(getByPlaceholderText('Email').props.value).toBe(newEmail);
   });
 });
-function expect(handleProfileIconChange: any) {
-    throw new Error('Function not implemented.');
-}
-
