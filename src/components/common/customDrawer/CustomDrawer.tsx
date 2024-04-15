@@ -23,17 +23,17 @@ export type Props = {
   descriptors: DrawerDescriptorMap;
 };
 
-interface UserType {
-  name: string;
-  email: string;
-  profileIcon: string;
-}
+// interface UserType {
+//   name: string;
+//   email: string;
+//   profileIcon: string;
+// }
 
-const user: UserType = {
-  name: 'John Doe',
-  email: 'john.doe@example.com',
-  profileIcon: 'user-large',
-};
+// const user: UserType = {
+//   name: 'John Doe',
+//   email: 'john.doe@example.com',
+//   profileIcon: 'user-large',
+// };
 const CustomDrawer = (props: Props) => {
   const navigation = useNavigation();
 
@@ -48,7 +48,7 @@ const CustomDrawer = (props: Props) => {
     try {
       await AsyncStorage.removeItem('token');
       // Navigate to login screen
-      navigation.navigate('Login');
+      navigation.navigate('Login' as never);
     } catch (error) {
       setAlertOptions({
         visible: true,
@@ -59,13 +59,16 @@ const CustomDrawer = (props: Props) => {
     }
   };
   const handleEditProfile = () => {
-    navigation.navigate('ProfileEdit', { user });
+    navigation.navigate('ProfileEdit' as never);
   };
   return (
     <View style={styles.container}>
       <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#8200d6' }}>
         <View style={styles.topContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('ProfileView', { user })}>
+          <TouchableOpacity
+            testID="profile-view-button"
+            onPress={() => navigation.navigate('ProfileView' as never)}
+          >
             <User width={60} height={60} />
           </TouchableOpacity>
           <View style={commonStyles.FlexDirectionRow}>
@@ -74,7 +77,7 @@ const CustomDrawer = (props: Props) => {
                 John Doe
               </Text>
             </View>
-            <TouchableOpacity onPress={handleEditProfile}>
+            <TouchableOpacity testID="edit-icon-btn" onPress={handleEditProfile}>
               <Edit name="edit-3" size={22} color={'#fff'} />
             </TouchableOpacity>
           </View>
@@ -97,7 +100,11 @@ const CustomDrawer = (props: Props) => {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleLogout} style={{ paddingVertical: theme.shape.padding.M }}>
+        <TouchableOpacity
+          testID="log-out-btn"
+          onPress={handleLogout}
+          style={{ paddingVertical: theme.shape.padding.M }}
+        >
           <View style={[commonStyles.FlexDirectionRow, commonStyles.AlignItemsCenter]}>
             <Ionicons name="exit-outline" size={22} color={theme.colors.ICON} />
             <View style={styles.bottomContainerText}>
