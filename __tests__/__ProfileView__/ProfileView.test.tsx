@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 import ProfileView from '../../src/screens/ProfileView/ProfileView';
 import ThemeProvider from '../../src/theme/themeProvider/ThemeProvider';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 jest.mock('@react-native-async-storage/async-storage', () => ({
   getItem: jest.fn(),
@@ -9,12 +10,15 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
   removeItem: jest.fn(),
   clear: jest.fn(),
 }));
-
+const navigationMock: NavigationProp<ParamListBase> = {
+  ...(jest.fn() as unknown as NavigationProp<ParamListBase>),
+  navigate: jest.fn(),
+};
 describe('ProfileView render correctly', () => {
   it('renders correctly', () => {
     const { getByTestId } = render(
       <ThemeProvider>
-        <ProfileView navigation={jest.fn() as any} />
+        <ProfileView navigation={navigationMock} />
       </ThemeProvider>
     );
 
