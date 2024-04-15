@@ -98,7 +98,7 @@ const Login = ({ navigation }: LoginProps) => {
       setAlertOptions({
         visible: true,
         title: i18next.t('UNIFY00010'),
-        message: i18next.t('UNIFY00009'),
+        message: i18next.t('UNIFY00021'),
       });
     }
   };
@@ -164,7 +164,7 @@ const Login = ({ navigation }: LoginProps) => {
         </View>
         <View style={style.ButtonContainer}>
           <Button
-            testID={'Login_Btn'}
+            testID="Login_Btn"
             title={i18next.t('UNIFY00001')}
             onPress={handleLogin}
             addonPrimaryStyle={style.loginButton}
@@ -172,8 +172,9 @@ const Login = ({ navigation }: LoginProps) => {
         </View>
         <View style={style.VersionInfoContainer}>
           <TouchableOpacity
+            testID="Version_Btn"
             style={style.VersionInfoText}
-            onPress={() => navigation.navigate('VersionInfo')}
+            onPress={() => navigation.navigate('DashBoard')}
           >
             <Text testID={'VersionInfo_Text'} style={{ color: theme.colors.BUTTON }}>
               {i18next.t('UNIFY00006')}
