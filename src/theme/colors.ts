@@ -116,7 +116,6 @@ const light = {
   SELECT_COUNTER_BACKGROUND_COLOR: '#F5F5F5',
   STAR: '#E82D2D',
   TEXT_COLOR: '#000000',
-  SIDE_NAV_BAR: '#8200d6',
 };
 
 const dark = {
@@ -206,7 +205,6 @@ const dark = {
   SELECT_COUNTER_BACKGROUND_COLOR: DARK_TEXTINPUT_BACKGROUND,
   STAR: '#E82D2D',
   TEXT_COLOR: '#FFFFFF',
-  //SIDE_NAV_BAR:'#FFFFFF'
 };
 
 export const colors = { light, dark };

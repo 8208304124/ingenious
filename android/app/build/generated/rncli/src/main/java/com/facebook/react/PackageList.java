@@ -13,18 +13,17 @@ import java.util.ArrayList;
 
 // @react-native-async-storage/async-storage
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+<<<<<<< HEAD
+=======
 // react-native-gesture-handler
 import com.swmansion.gesturehandler.RNGestureHandlerPackage;
 // react-native-reanimated
 import com.swmansion.reanimated.ReanimatedPackage;
+>>>>>>> ef003ceb70930e05a2363bc3fc9f7cc64cdede8b
 // react-native-safe-area-context
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
 import com.swmansion.rnscreens.RNScreensPackage;
-// react-native-svg
-import com.horcrux.svg.SvgPackage;
-// react-native-vector-icons
-import com.oblador.vectoricons.VectorIconsPackage;
 
 public class PackageList {
   private Application application;
@@ -71,12 +70,13 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new AsyncStoragePackage(),
+<<<<<<< HEAD
+=======
       new RNGestureHandlerPackage(),
       new ReanimatedPackage(),
+>>>>>>> ef003ceb70930e05a2363bc3fc9f7cc64cdede8b
       new SafeAreaContextPackage(),
-      new RNScreensPackage(),
-      new SvgPackage(),
-      new VectorIconsPackage()
+      new RNScreensPackage()
     ));
   }
 }
