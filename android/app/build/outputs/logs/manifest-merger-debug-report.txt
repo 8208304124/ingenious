@@ -7,6 +7,11 @@ INJECTED from /Users/mobile/Documents/Datta/React-native-Template/frontend-react
 INJECTED from /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/android/app/src/debug/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.react:flipper-integration:0.73.6] /Users/mobile/.gradle/caches/transforms-3/7ceec762c322db3b2ee74240d8e71306/transformed/jetified-flipper-integration-0.73.6-debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-async-storage_async-storage] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+<<<<<<< HEAD
+=======
+MERGED from [:react-native-gesture-handler] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-reanimated] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-reanimated/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+>>>>>>> ef003ceb70930e05a2363bc3fc9f7cc64cdede8b
 MERGED from [:react-native-safe-area-context] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:react-native-screens] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [com.facebook.react:react-android:0.73.6] /Users/mobile/.gradle/caches/transforms-3/e1231b5b187cb579b629117f9511a862/transformed/jetified-react-android-0.73.6-debug/AndroidManifest.xml:2:1-24:12
@@ -179,6 +184,13 @@ MERGED from [com.facebook.react:flipper-integration:0.73.6] /Users/mobile/.gradl
 MERGED from [com.facebook.react:flipper-integration:0.73.6] /Users/mobile/.gradle/caches/transforms-3/7ceec762c322db3b2ee74240d8e71306/transformed/jetified-flipper-integration-0.73.6-debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-async-storage_async-storage] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-async-storage_async-storage] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/@react-native-async-storage/async-storage/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+<<<<<<< HEAD
+=======
+MERGED from [:react-native-gesture-handler] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-gesture-handler] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-reanimated] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-reanimated/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-reanimated] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-reanimated/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+>>>>>>> ef003ceb70930e05a2363bc3fc9f7cc64cdede8b
 MERGED from [:react-native-safe-area-context] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-safe-area-context] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:react-native-screens] /Users/mobile/Documents/Datta/React-native-Template/frontend-react-native-template/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44

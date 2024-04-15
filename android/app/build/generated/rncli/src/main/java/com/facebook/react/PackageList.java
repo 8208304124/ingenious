@@ -13,6 +13,13 @@ import java.util.ArrayList;
 
 // @react-native-async-storage/async-storage
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
+<<<<<<< HEAD
+=======
+// react-native-gesture-handler
+import com.swmansion.gesturehandler.RNGestureHandlerPackage;
+// react-native-reanimated
+import com.swmansion.reanimated.ReanimatedPackage;
+>>>>>>> ef003ceb70930e05a2363bc3fc9f7cc64cdede8b
 // react-native-safe-area-context
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 // react-native-screens
@@ -63,6 +70,11 @@ public class PackageList {
     return new ArrayList<>(Arrays.<ReactPackage>asList(
       new MainReactPackage(mConfig),
       new AsyncStoragePackage(),
+<<<<<<< HEAD
+=======
+      new RNGestureHandlerPackage(),
+      new ReanimatedPackage(),
+>>>>>>> ef003ceb70930e05a2363bc3fc9f7cc64cdede8b
       new SafeAreaContextPackage(),
       new RNScreensPackage()
     ));

@@ -5,7 +5,7 @@ import styles from './styles';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
-interface User {
+interface UserType {
   name: string;
   email: string;
   profileIcon: string;
@@ -15,7 +15,7 @@ interface ProfileViewProps {
   navigation: NavigationProp<ParamListBase>;
 }
 
-const user: User = {
+const user: UserType = {
   name: 'John Doe',
   email: 'john.doe@example.com',
   profileIcon: 'user-large',
