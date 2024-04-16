@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const Profile = () => {
+const Menu3 = () => {
   return (
     <View style={styles.contane}>
-      <Text>MENU 1</Text>
+      <Text>Menu3</Text>
     </View>
   );
 };
 
-export default Profile;
+export default Menu3;
 
 const styles = StyleSheet.create({
   contane: {

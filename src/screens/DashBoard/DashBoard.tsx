@@ -26,8 +26,8 @@ const DashBoard = () => {
         bottomNavigationOptions={{
           icons: [
             {
-              label: 'Back',
-              icon: 'arrow-back-circle-sharp',
+              label: 'filter',
+              icon: 'filter',
               vector: true,
               useRippleEffect: false,
               onPress: () => {
@@ -35,8 +35,8 @@ const DashBoard = () => {
               },
             },
             {
-              label: 'Menu',
-              icon: 'menu',
+              label: 'Upload',
+              icon: 'cloud-upload',
               vector: true,
               useRippleEffect: false,
               onPress: () => {
@@ -44,8 +44,18 @@ const DashBoard = () => {
               },
             },
             {
-              label: 'settings',
-              icon: 'settings',
+              label: 'Gift',
+              icon: 'gift',
+              vector: true,
+              // showButton: true,
+              useRippleEffect: false,
+              onPress: () => {
+                //
+              },
+            },
+            {
+              label: 'Chat',
+              icon: 'chatbubbles-sharp',
               vector: true,
               // showButton: true,
               useRippleEffect: false,
