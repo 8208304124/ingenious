@@ -62,7 +62,7 @@ const CustomDrawer = (props: Props) => {
     navigation.navigate('ProfileEdit', { user });
   };
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.colors.BACKGROUND }]}>
       <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#8200d6' }}>
         <View style={styles.topContainer}>
           <TouchableOpacity onPress={() => navigation.navigate('ProfileView', { user })}>
@@ -116,7 +116,7 @@ export default CustomDrawer;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    // backgroundColor: '#ffffff',
   },
   drawerItemList: { flex: 1, paddingTop: 10 },
   topContainer: { padding: 10 },
