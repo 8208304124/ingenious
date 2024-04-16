@@ -5,14 +5,20 @@ import CustomDrawer, { Props } from './CustomDrawer';
 import Profile from '../../../screens/SideNavMenus/Profile';
 import Menu2 from '../../../screens/SideNavMenus/Menu2';
 import Menu3 from '../../../screens/SideNavMenus/Menu3';
+import useTheme from '../../../utility/hooks/useTheme';
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigation = () => {
+  const theme = useTheme();
   return (
     <Drawer.Navigator
       drawerContent={(props: Props) => <CustomDrawer {...props} />}
-      screenOptions={{ headerShown: true, headerTitleAlign: 'center' }}
+      screenOptions={{
+        headerShown: true,
+        headerTitleAlign: 'center',
+        headerTintColor: theme.colors.ICON,
+      }}
     >
       <Drawer.Screen name="Dashboard" component={DashBoard} />
       <Drawer.Screen name="Menu 1 " component={Profile} />

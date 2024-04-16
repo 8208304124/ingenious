@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { Animated, Dimensions, FlatList, ImageProps, View, Image } from 'react-native';
-import Text from '../../components/elements/text';
 import styles from './styles';
 // import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
@@ -10,16 +9,17 @@ import ScreenFooter from '../../components/common/screenFooter/ScreenFooter';
 import Paginator from '../../components/common/carousel/Paginator';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import useTheme from '../../utility/hooks/useTheme';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
-// type DashboardProps = {
-//   navigation: NavigationProp<ParamListBase>;
-// };
+type DashboardProps = {
+  navigation: NavigationProp<ParamListBase>;
+};
 interface CarouselItem {
   id: number;
   image: ImageProps;
 }
 
-const DashBoard = () => {
+const DashBoard = ({ navigation }: DashboardProps) => {
   const style = useThemedStyles(styles);
   const scrollX = useRef(new Animated.Value(0)).current;
   const screenWidth = Dimensions.get('window').width;
@@ -71,7 +71,6 @@ const DashBoard = () => {
           },
         ]}
       >
-        <Text style={style.DashBoardText}>DashBoard</Text>
         <View style={style.carousel}>
           <FlatList
             style={{ width: carouselItemWidth }}
@@ -111,6 +110,7 @@ const DashBoard = () => {
               vector: true,
               useRippleEffect: false,
               onPress: () => {
+                navigation.navigate('CustomerFilter');
                 //
               },
             },
@@ -121,6 +121,7 @@ const DashBoard = () => {
               useRippleEffect: false,
               onPress: () => {
                 //
+                navigation.navigate('Upload');
               },
             },
             {
@@ -131,6 +132,7 @@ const DashBoard = () => {
               useRippleEffect: false,
               onPress: () => {
                 //
+                navigation.navigate('Gift');
               },
             },
             {
@@ -141,6 +143,7 @@ const DashBoard = () => {
               useRippleEffect: false,
               onPress: () => {
                 //
+                navigation.navigate('Chat');
               },
             },
           ],
