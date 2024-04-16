@@ -66,7 +66,7 @@ describe('Login Component', () => {
     fireEvent.changeText(getByTestId('Password_Input'), 'mockedPassword');
     fireEvent.press(getByTestId('Version_Btn'));
 
-    expect(navigationMock.navigate).toHaveBeenCalledWith('DashBoard');
+    expect(navigationMock.navigate).toHaveBeenCalledWith('VersionInfo');
   });
 
   test('changes language on dropdown selection', async () => {
@@ -114,6 +114,6 @@ describe('Login Component', () => {
     fireEvent.changeText(getByTestId('Password_Input'), 'mockedPassword');
     fireEvent.press(getByTestId('Version_Btn'));
 
-    expect(navigationMock.navigate).toHaveBeenCalledWith('DashBoard');
+    expect(navigationMock.navigate).toHaveBeenCalledWith('VersionInfo');
   });
 });
