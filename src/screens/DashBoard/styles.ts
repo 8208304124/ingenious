@@ -5,12 +5,14 @@ const styles = (theme: ThemeType) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
     },
     DashBoardText: {
       fontSize: theme.typography.size.SR,
       fontWeight: 'bold',
+    },
+    carousel: {
+      justifyContent: 'center',
+      alignItems: 'center',
     },
   });
 export default styles;
