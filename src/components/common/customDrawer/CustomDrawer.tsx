@@ -60,7 +60,7 @@ const CustomDrawer = ({ navigation, state, descriptors }: Props) => {
     navigation.navigate('ProfileEdit', { user });
   };
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.colors.BACKGROUND }]}>
       <DrawerContentScrollView
         {...{ navigation, state, descriptors }}
         contentContainerStyle={{ backgroundColor: '#8200d6' }}
