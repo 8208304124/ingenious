@@ -2,7 +2,7 @@ import { fireEvent, render } from '@testing-library/react-native';
 import ProfileEdit from '../../src/screens/ProfileEdit';
 import React from 'react';
 import ThemeProvider from '../../src/theme/themeProvider/ThemeProvider';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, NavigationProp, ParamListBase } from '@react-navigation/native';
 
 jest.mock('@react-native-async-storage/async-storage', () => ({
   getItem: jest.fn(),
@@ -11,6 +11,10 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
   clear: jest.fn(),
 }));
 
+const navigationMock: NavigationProp<ParamListBase> = {
+  ...(jest.fn() as unknown as NavigationProp<ParamListBase>),
+  navigate: jest.fn(),
+};
 describe('ProfileEdit rendered correctly', () => {
   const user = {
     name: 'John Doe',
@@ -22,7 +26,7 @@ describe('ProfileEdit rendered correctly', () => {
     const { getByTestId, getByPlaceholderText } = render(
       <NavigationContainer>
         <ThemeProvider>
-          <ProfileEdit route={{ params: { user } }} />
+          <ProfileEdit navigation={navigationMock} route={{ params: { user } }} />
         </ThemeProvider>
       </NavigationContainer>
     );
@@ -38,7 +42,7 @@ describe('ProfileEdit rendered correctly', () => {
     const { getByPlaceholderText } = render(
       <NavigationContainer>
         <ThemeProvider>
-          <ProfileEdit route={{ params: { user } }} />
+          <ProfileEdit navigation={navigationMock} route={{ params: { user } }} />
         </ThemeProvider>
       </NavigationContainer>
     );
@@ -51,7 +55,7 @@ describe('ProfileEdit rendered correctly', () => {
     const { getByPlaceholderText } = render(
       <NavigationContainer>
         <ThemeProvider>
-          <ProfileEdit route={{ params: { user } }} />
+          <ProfileEdit navigation={navigationMock} route={{ params: { user } }} />
         </ThemeProvider>
       </NavigationContainer>
     );

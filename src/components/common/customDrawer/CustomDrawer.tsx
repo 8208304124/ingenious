@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import Text from '../../elements/text';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { DrawerNavigationState, ParamListBase, useNavigation } from '@react-navigation/native';
+import { DrawerNavigationState, ParamListBase } from '@react-navigation/native';
 import Alert from '../../elements/alert';
 import { AlertOptionsType } from '../../elements/alert/Alert';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -23,20 +23,18 @@ export type Props = {
   descriptors: DrawerDescriptorMap;
 };
 
-// interface UserType {
-//   name: string;
-//   email: string;
-//   profileIcon: string;
-// }
+interface UserType {
+  name: string;
+  email: string;
+  profileIcon: string;
+}
 
-// const user: UserType = {
-//   name: 'John Doe',
-//   email: 'john.doe@example.com',
-//   profileIcon: 'user-large',
-// };
-const CustomDrawer = (props: Props) => {
-  const navigation = useNavigation();
-
+const user: UserType = {
+  name: 'John Doe',
+  email: 'john.doe@example.com',
+  profileIcon: 'user-large',
+};
+const CustomDrawer = ({ navigation, state, descriptors }: Props) => {
   const theme = useTheme();
   const [alertOptions, setAlertOptions] = useState<AlertOptionsType>({
     visible: false,
@@ -48,7 +46,7 @@ const CustomDrawer = (props: Props) => {
     try {
       await AsyncStorage.removeItem('token');
       // Navigate to login screen
-      navigation.navigate('Login' as never);
+      navigation.navigate('Login');
     } catch (error) {
       setAlertOptions({
         visible: true,
@@ -59,15 +57,18 @@ const CustomDrawer = (props: Props) => {
     }
   };
   const handleEditProfile = () => {
-    navigation.navigate('ProfileEdit' as never);
+    navigation.navigate('ProfileEdit', { user });
   };
   return (
     <View style={styles.container}>
-      <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#8200d6' }}>
+      <DrawerContentScrollView
+        {...{ navigation, state, descriptors }}
+        contentContainerStyle={{ backgroundColor: '#8200d6' }}
+      >
         <View style={styles.topContainer}>
           <TouchableOpacity
             testID="profile-view-button"
-            onPress={() => navigation.navigate('ProfileView' as never)}
+            onPress={() => navigation.navigate('ProfileView')}
           >
             <User width={60} height={60} />
           </TouchableOpacity>
@@ -88,7 +89,7 @@ const CustomDrawer = (props: Props) => {
           </View>
         </View>
         <View style={[styles.drawerItemList, { backgroundColor: theme.colors.BACKGROUND }]}>
-          <DrawerItemList {...props} />
+          <DrawerItemList {...{ navigation, state, descriptors }} />
         </View>
       </DrawerContentScrollView>
       <View style={[styles.bottomContainer, { borderTopColor: theme.colors.ICON }]}>

@@ -102,7 +102,7 @@ describe('Login Component', () => {
     }
   });
 
-  it('navigates to Dashboard page on Login button press', async () => {
+  it('navigates to VersionInfo page on Login button press', async () => {
     const { getByTestId } = render(
       <ThemeProvider {...mockThemeProviderProps}>
         <Login navigation={navigationMock} />
