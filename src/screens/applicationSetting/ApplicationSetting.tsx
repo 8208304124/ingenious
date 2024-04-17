@@ -11,12 +11,14 @@ type ApplicationSettingProps = {
   navigation: NavigationProp<ParamListBase>;
 };
 
+// ApplicationSetting
 const ApplicationSetting: React.FC<ApplicationSettingProps> = () => {
   const style = useThemedStyles(styles);
   const theme = useTheme();
   const [loading] = useState<boolean>(false);
 
   return (
+    // container
     <SafeAreaView style={style.container}>
       <StatusBar
         backgroundColor={theme.colors.HEADER_COLOR}

@@ -1,2 +1,2 @@
-import Select from './Select';
+import Select from './SelectOption';
 export default Select;

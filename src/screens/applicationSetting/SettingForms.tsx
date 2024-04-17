@@ -7,37 +7,14 @@ import styles from './styles';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import useLanguage from '../../utility/hooks/useLanguage';
 import i18next from 'i18next';
-import Select from '../../components/elements/select';
+import SelectOption from '../../components/elements/select/SelectOption';
 import Switch_ from '../../components/elements/switch/Switch';
 import { langList, payment } from '../../constants';
 import ScreenFooter from '../../components/common/screenFooter/ScreenFooter';
 import LanguageChange from './component/LanguageChange';
 
-interface CompanyInfo {
-  CompanyID?: string;
-  Division?: string;
-  Warehouse?: string;
-  counterNumber?: string;
-}
-
-interface ServerInfo {
-  ServiceUrl?: string;
-  ServicePort?: string;
-  MacId?: string;
-  PaymentMode?: string;
-  language?: string;
-}
-
-interface Props {
-  navigation: unknown;
-  CompanyInfo: CompanyInfo;
-  setCompanyInfo: React.Dispatch<React.SetStateAction<CompanyInfo>>;
-  ServerInfo: ServerInfo;
-  setServerInfo: React.Dispatch<React.SetStateAction<ServerInfo>>;
-  disableForm: boolean;
-}
-
-const SettingFormView: React.FC<Props> = () => {
+// SettingForm
+const SettingForm: React.FC = () => {
   const style = useThemedStyles(styles);
   const theme = useTheme();
   const translate = useLanguage();
@@ -50,6 +27,7 @@ const SettingFormView: React.FC<Props> = () => {
   const [port, setPort] = useState<string>('');
   const [macId, setMacId] = useState<string>('');
 
+  // resetForm
   const resetForm = () => {
     setServiceURL('');
     setPort('');
@@ -57,10 +35,13 @@ const SettingFormView: React.FC<Props> = () => {
   };
 
   return (
+    // container
     <SafeAreaView style={style.container}>
+      {/* formContainer */}
       <ScrollView contentContainerStyle={style.formContainer}>
         <View>
           <View style={style.row3}>
+            {/* serviceUrl */}
             <View style={style.serviceUrl}>
               <TextInput
                 testID={'ServiceURL'}
@@ -70,6 +51,8 @@ const SettingFormView: React.FC<Props> = () => {
               />
             </View>
             <Text style={style.colon}>:</Text>
+
+            {/* servicePort */}
             <View style={style.servicePort}>
               <TextInput
                 testID={'port'}
@@ -81,34 +64,35 @@ const SettingFormView: React.FC<Props> = () => {
             </View>
           </View>
 
+          {/* macId */}
           <View style={style.macId}>
             <TextInput
-              testID={'MacId'}
+              testID={'macId'}
               placeholder={i18next.t('UNIFY00023')}
               value={macId}
               onChangeText={setMacId}
             />
           </View>
 
+          {/* payment */}
           <View style={style.payment}>
-            <Select
-              testID={'paymentMode'}
+            <SelectOption
               placeholder={i18next.t('UNIFY00024')}
               options={payment}
-              label="label"
+              onSelect={handleLangFun}
             />
           </View>
 
+          {/* language */}
           <View style={style.language}>
             <LanguageChange
-              testID={'languages'}
               placeholder={i18next.t('UNIFY00025')}
               options={langList}
               onSelect={handleLangFun}
-              label="label"
             />
           </View>
 
+          {/* theme */}
           <View style={style.theme}>
             <View>
               <Text style={style.themeText}>
@@ -151,4 +135,4 @@ const SettingFormView: React.FC<Props> = () => {
   );
 };
 
-export default SettingFormView;
+export default SettingForm;

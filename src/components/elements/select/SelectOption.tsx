@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import i18next from 'i18next';
 
 interface OptionType {
-  id: number;
+  id: string;
   value: string;
   label: string;
 }
@@ -22,8 +22,7 @@ interface DropdownProps {
   textStyle?: object;
 }
 
-// LanguageChange
-const LanguageChange: React.FC<DropdownProps> = ({ options, onSelect, textStyle }) => {
+const SelectOption: React.FC<DropdownProps> = ({ options, onSelect }) => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
   const theme = useTheme();
@@ -44,13 +43,8 @@ const LanguageChange: React.FC<DropdownProps> = ({ options, onSelect, textStyle 
   return (
     <View style={[commonStyles.PosRel, commonStyles.FlexDirectionRow]}>
       <TouchableOpacity onPress={toggleModal} style={[style.boxStyle]}>
-        <Text
-          style={[
-            { color: theme.colors.PLACEHOLDER, fontSize: theme.typography.size.S },
-            textStyle,
-          ]}
-        >
-          {selectedOption ? selectedOption.label : i18next.t('UNIFY00025')}
+        <Text style={[{ color: theme.colors.PLACEHOLDER, fontSize: theme.typography.size.S }]}>
+          {selectedOption ? selectedOption.label : i18next.t('UNIFY00024')}
         </Text>
         <Icon
           name="chevron-down-outline"
@@ -78,4 +72,4 @@ const LanguageChange: React.FC<DropdownProps> = ({ options, onSelect, textStyle 
   );
 };
 
-export default LanguageChange;
+export default SelectOption;
