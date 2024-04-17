@@ -3,6 +3,7 @@ import Login from '../screens/login/Login';
 import VersionInfo from '../screens/VersionInfo/VersionInfo';
 import ProfileView from '../screens/ProfileView/ProfileView';
 import ProfileEdit from '../screens/ProfileEdit/ProfileEdit';
+import ApplicationSetting from '../screens/applicationSetting';
 
 const routes = [
   {
@@ -41,6 +42,15 @@ const routes = [
     key: 'ProfileEdit',
     name: 'ProfileEdit',
     component: ProfileEdit, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
+    },
+  },
+  {
+    key: 'ApplicationSetting',
+    name: 'ApplicationSetting',
+    component: ApplicationSetting, // done
     options: {
       headerShown: true,
       headerShadowVisible: false,

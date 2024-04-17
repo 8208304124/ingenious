@@ -7,12 +7,13 @@ import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import { commonStyles } from '../../assets/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ScreenFooter from '../../components/common/screenFooter/ScreenFooter';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
-// type DashboardProps = {
-//   navigation: NavigationProp<ParamListBase>;
-// };
+type DashboardProps = {
+  navigation: NavigationProp<ParamListBase>;
+};
 
-const DashBoard = () => {
+const DashBoard = ({ navigation }: DashboardProps) => {
   const style = useThemedStyles(styles);
 
   return (
@@ -31,7 +32,7 @@ const DashBoard = () => {
               vector: true,
               useRippleEffect: false,
               onPress: () => {
-                //
+                navigation.goBack();
               },
             },
             {
@@ -50,7 +51,7 @@ const DashBoard = () => {
               // showButton: true,
               useRippleEffect: false,
               onPress: () => {
-                //
+                navigation.navigate('ApplicationSetting');
               },
             },
           ],

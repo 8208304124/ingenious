@@ -4,6 +4,7 @@ import { commonStyles } from '../../../assets/commonStyles';
 import Language from 'react-native-vector-icons/FontAwesome';
 import Drop from 'react-native-vector-icons/Ionicons';
 import useTheme from '../../../utility/hooks/useTheme';
+
 interface optionsType {
   id: number;
   value: string;
@@ -14,9 +15,19 @@ interface DropdownProps {
   options: optionsType[];
   onSelect: (value: optionsType) => void;
   placeholder: string;
+  dropdownStyle?: object;
+  iconStyle?: object;
+  textStyle?: object;
 }
 
-const CustomDropdown: React.FC<DropdownProps> = ({ options, onSelect, placeholder }) => {
+const CustomDropdown: React.FC<DropdownProps> = ({
+  options,
+  onSelect,
+  placeholder,
+  dropdownStyle,
+  iconStyle,
+  textStyle,
+}) => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState<optionsType | null>(null);
   const theme = useTheme();
@@ -33,7 +44,11 @@ const CustomDropdown: React.FC<DropdownProps> = ({ options, onSelect, placeholde
 
   return (
     <View style={[commonStyles.PosRel, commonStyles.FlexDirectionRow]}>
-      <Language name="language" color={theme.colors.TEXT} style={styles.languageIcon} />
+      <Language
+        name="language"
+        color={theme.colors.TEXT}
+        style={[styles.languageIcon, iconStyle]}
+      />
       <TouchableOpacity
         onPress={toggleDropdown}
         style={[
@@ -43,7 +58,9 @@ const CustomDropdown: React.FC<DropdownProps> = ({ options, onSelect, placeholde
           commonStyles.zIndex9,
         ]}
       >
-        <Text style={{ color: theme.colors.TEXT }}>{selectedOption?.label || placeholder}</Text>
+        <Text style={[{ color: theme.colors.TEXT }, textStyle]}>
+          {selectedOption?.label || placeholder}
+        </Text>
 
         <Drop
           onPress={toggleDropdown}
@@ -69,6 +86,7 @@ const CustomDropdown: React.FC<DropdownProps> = ({ options, onSelect, placeholde
               backgroundColor: theme.colors.BACKGROUND,
               shadowColor: theme.colors.SHADOW,
             },
+            dropdownStyle,
           ]}
         >
           {options.map((option: optionsType, index: number) => (
@@ -77,7 +95,7 @@ const CustomDropdown: React.FC<DropdownProps> = ({ options, onSelect, placeholde
               onPress={() => handleOptionSelect(option)}
               style={[styles.dropdownItem]}
             >
-              <Text style={[{ color: theme.colors.TEXT }]}>{option?.label}</Text>
+              <Text style={[{ color: theme.colors.TEXT }, textStyle]}>{option?.label}</Text>
             </TouchableOpacity>
           ))}
         </View>

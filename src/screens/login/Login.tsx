@@ -6,7 +6,6 @@ import useTheme from '../../utility/hooks/useTheme';
 import styles from './styles';
 import { loginValidation } from '../../utility/validations/Validations';
 import Text from '../../components/elements/text';
-import Switch_ from '../../components/elements/switch/Switch';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import { commonStyles } from '../../assets/commonStyles';
@@ -181,16 +180,16 @@ const Login = ({ navigation }: LoginProps) => {
             </Text>
             {/* Versioninfo */}
           </TouchableOpacity>
-          <Text testID={'Theme_Text'} style={style.themeText}>
+          {/* <Text testID={'Theme_Text'} style={style.themeText}>
             {i18next.t('UNIFY00007')}
           </Text>
-          {/* Theme */}
+
           <Switch_
             testID={'switch'}
             onValueChange={theme.toggleTheme}
             value={!theme.isLightTheme}
             style={style.switchstyle}
-          />
+          /> */}
         </View>
         <Loader loading={showLoader} />
         <Alert options={alertOptions} setOptions={setAlertOptions} />

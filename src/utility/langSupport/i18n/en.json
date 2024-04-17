@@ -19,6 +19,11 @@
     "UNIFY00017": "Username / Password cannot be blank",
     "UNIFY00018": "Message",
     "UNIFY00019": "Username cannot be blank",
-    "UNIFY00020": "Password cannot be blank"
+    "UNIFY00020": "Password cannot be blank",
+    "UNIFY00021": "ServiceURL",
+    "UNIFY00022": "Port",
+    "UNIFY00023": "MacId",
+    "UNIFY00024": "Please Select Default Payment Type",
+    "UNIFY00025": "Select Language",
   }
 }

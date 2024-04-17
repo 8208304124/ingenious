@@ -2,6 +2,11 @@
   "translation": {
     "UNIFY00001": "Gabung",
     "UNIFY00002": "Nama belakang",
-    "UNIFY00003": "Kata Sandi"
+    "UNIFY00003": "Kata Sandi",
+    "UNIFY00021": "LayananURL",
+    "UNIFY00022": "Pelabuhan",
+    "UNIFY00023": "MacId",
+    "UNIFY00024": "Silakan pilih jenis pembayaran default",
+    "UNIFY00025": "Pilih Bahasa",
   }
 }
