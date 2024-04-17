@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import DrawerNavigation from '../components/common/customDrawer/DrawerNavigation';
 import Login from '../screens/login/Login';
 import VersionInfo from '../screens/VersionInfo/VersionInfo';
@@ -7,18 +8,25 @@ import Filter from '../screens/Filter';
 import Upload from '../screens/Upload';
 import Gift from '../screens/Gift';
 import Chat from '../screens/Chat';
+import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 
-const routes = [
+type Route = {
+  key: React.Key;
+  name: string;
+  component: React.ComponentType<any>;
+  options?: NativeStackNavigationOptions;
+};
+const routes: Route[] = [
   {
     key: 'Login',
     name: 'Login',
-    component: Login, // done
+    component: Login,
     options: { headerShown: false },
   },
   {
     key: 'DrawerNavigation',
     name: 'DrawerNavigation',
-    component: DrawerNavigation, // done
+    component: DrawerNavigation,
     options: {
       headerShown: false,
     },
@@ -26,7 +34,7 @@ const routes = [
   {
     key: 'VersionInfo',
     name: 'VersionInfo',
-    component: VersionInfo, // done
+    component: VersionInfo,
     options: {
       headerShown: true,
       headerShadowVisible: false,
@@ -35,7 +43,7 @@ const routes = [
   {
     key: 'ProfileView',
     name: 'ProfileView',
-    component: ProfileView, // done
+    component: ProfileView,
     options: {
       headerShown: true,
       headerShadowVisible: false,
@@ -44,7 +52,7 @@ const routes = [
   {
     key: 'ProfileEdit',
     name: 'ProfileEdit',
-    component: ProfileEdit, // done
+    component: ProfileEdit,
     options: {
       headerShown: true,
       headerShadowVisible: false,

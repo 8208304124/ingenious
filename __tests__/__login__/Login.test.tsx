@@ -66,7 +66,7 @@ describe('Login Component', () => {
     fireEvent.changeText(getByTestId('Password_Input'), 'mockedPassword');
     fireEvent.press(getByTestId('Version_Btn'));
 
-    expect(navigationMock.navigate).toHaveBeenCalledWith('DashBoard');
+    expect(navigationMock.navigate).toHaveBeenCalledWith('VersionInfo');
   });
 
   test('changes language on dropdown selection', async () => {
@@ -102,7 +102,7 @@ describe('Login Component', () => {
     }
   });
 
-  it('navigates to Dashboard page on Login button press', async () => {
+  it('navigates to VersionInfo page on Login button press', async () => {
     const { getByTestId } = render(
       <ThemeProvider {...mockThemeProviderProps}>
         <Login navigation={navigationMock} />
@@ -114,6 +114,6 @@ describe('Login Component', () => {
     fireEvent.changeText(getByTestId('Password_Input'), 'mockedPassword');
     fireEvent.press(getByTestId('Version_Btn'));
 
-    expect(navigationMock.navigate).toHaveBeenCalledWith('DashBoard');
+    expect(navigationMock.navigate).toHaveBeenCalledWith('VersionInfo');
   });
 });

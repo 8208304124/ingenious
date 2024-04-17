@@ -23,7 +23,7 @@ import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
 
-type LoginProps = {
+export type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
 };
 interface languageType {
