@@ -3,7 +3,7 @@ import Login from '../screens/login/Login';
 import VersionInfo from '../screens/VersionInfo/VersionInfo';
 import ProfileView from '../screens/ProfileView/ProfileView';
 import ProfileEdit from '../screens/ProfileEdit/ProfileEdit';
-import CustomerFilter from '../screens/CustomerFilter';
+import Filter from '../screens/Filter';
 import Upload from '../screens/Upload';
 import Gift from '../screens/Gift';
 import Chat from '../screens/Chat';
@@ -51,12 +51,13 @@ const routes = [
     },
   },
   {
-    key: 'CustomerFilter',
-    name: 'CustomerFilter',
-    component: CustomerFilter, // done
+    key: 'Filter',
+    name: 'Filter',
+    component: Filter, // done
     options: {
       headerShown: true,
       headerShadowVisible: false,
+      headerTitleAlign: 'center',
     },
   },
   {
@@ -66,6 +67,7 @@ const routes = [
     options: {
       headerShown: true,
       headerShadowVisible: false,
+      headerTitleAlign: 'center',
     },
   },
   {
@@ -75,6 +77,7 @@ const routes = [
     options: {
       headerShown: true,
       headerShadowVisible: false,
+      headerTitleAlign: 'center',
     },
   },
   {
@@ -84,6 +87,7 @@ const routes = [
     options: {
       headerShown: true,
       headerShadowVisible: false,
+      headerTitleAlign: 'center',
     },
   },
 ];
