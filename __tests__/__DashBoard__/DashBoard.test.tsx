@@ -3,6 +3,7 @@ import { render } from '@testing-library/react-native';
 import ThemeProvider from '../../src/theme/themeProvider/ThemeProvider';
 import DashBoard from '../../src/screens/DashBoard';
 import ScreenFooter from '../../src/components/common/screenFooter/ScreenFooter';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 
 jest.mock('@react-native-async-storage/async-storage', () =>
   require('@react-native-async-storage/async-storage/jest/async-storage-mock')
@@ -17,12 +18,16 @@ const mockThemeProviderProps: MockThemeProviderProps = {
   children: <></>,
   theme: jest.fn(),
 };
+const navigationMock: NavigationProp<ParamListBase> = {
+  ...(jest.fn() as unknown as NavigationProp<ParamListBase>),
+  navigate: jest.fn(),
+};
 
 describe('Dashboard component', () => {
   it('renders without crashing', () => {
     render(
       <ThemeProvider {...mockThemeProviderProps}>
-        <DashBoard />
+        <DashBoard navigation={navigationMock} />
       </ThemeProvider>
     );
   });

@@ -4,6 +4,10 @@ import Login from '../screens/login/Login';
 import VersionInfo from '../screens/VersionInfo/VersionInfo';
 import ProfileView from '../screens/ProfileView/ProfileView';
 import ProfileEdit from '../screens/ProfileEdit/ProfileEdit';
+import Filter from '../screens/Filter';
+import Upload from '../screens/Upload';
+import Gift from '../screens/Gift';
+import Chat from '../screens/Chat';
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 
 type Route = {
@@ -52,6 +56,46 @@ const routes: Route[] = [
     options: {
       headerShown: true,
       headerShadowVisible: false,
+    },
+  },
+  {
+    key: 'Filter',
+    name: 'Filter',
+    component: Filter, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
+      headerTitleAlign: 'center',
+    },
+  },
+  {
+    key: 'Upload',
+    name: 'Upload',
+    component: Upload, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
+      headerTitleAlign: 'center',
+    },
+  },
+  {
+    key: 'Gift',
+    name: 'Gift',
+    component: Gift, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
+      headerTitleAlign: 'center',
+    },
+  },
+  {
+    key: 'Chat',
+    name: 'Chat',
+    component: Chat, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
+      headerTitleAlign: 'center',
     },
   },
 ];

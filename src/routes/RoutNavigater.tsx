@@ -65,6 +65,7 @@ export const RouteNavigater = () => {
                 backgroundColor: theme.colors.BACKGROUND,
               },
               headerTintColor: theme.colors.HEADER_TEXT,
+              headerBackTitleVisible: false,
             })}
           />
         ))}

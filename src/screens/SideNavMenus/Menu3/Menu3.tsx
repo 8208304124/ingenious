@@ -1,16 +1,16 @@
 import { View } from 'react-native';
 import React from 'react';
-import styles from './styles';
 import useThemedStyles from '../../../utility/hooks/useThemedStyles';
+import styles from './styles';
 import Text from '../../../components/elements/text';
 
-const Profile = () => {
+const Menu3 = () => {
   const style = useThemedStyles(styles);
   return (
     <View style={style.container}>
-      <Text style={style.Menu1Text}>MENU 1</Text>
+      <Text style={style.Menu3Text}>Menu3</Text>
     </View>
   );
 };
 
-export default Profile;
+export default Menu3;

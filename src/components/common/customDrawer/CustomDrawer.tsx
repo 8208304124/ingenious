@@ -60,7 +60,7 @@ const CustomDrawer = ({ navigation, state, descriptors }: Props) => {
     navigation.navigate('ProfileEdit', { user });
   };
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.colors.BACKGROUND }]}>
       <DrawerContentScrollView
         {...{ navigation, state, descriptors }}
         contentContainerStyle={{ backgroundColor: '#8200d6' }}
@@ -124,7 +124,7 @@ export default CustomDrawer;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
+    // backgroundColor: '#ffffff',
   },
   drawerItemList: { flex: 1, paddingTop: 10 },
   topContainer: { padding: 10 },
