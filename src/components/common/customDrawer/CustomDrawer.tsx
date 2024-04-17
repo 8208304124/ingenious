@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, TouchableOpacity, Image, Modal } from 'react-native';
 import Text from '../../elements/text';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
 import { DrawerNavigationState, ParamListBase, useNavigation } from '@react-navigation/native';
@@ -7,15 +7,18 @@ import Alert from '../../elements/alert';
 import { AlertOptionsType } from '../../elements/alert/Alert';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Edit from 'react-native-vector-icons/Feather';
+import Camera from 'react-native-vector-icons/MaterialIcons';
+import Gallery from 'react-native-vector-icons/Entypo';
 import i18next from 'i18next';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   DrawerDescriptorMap,
   DrawerNavigationHelpers,
 } from '@react-navigation/drawer/lib/typescript/src/types';
-import User from '../../../assets/images/user-profile..svg';
+import User from '../../../assets/images/profile-image.svg';
 import useTheme from '../../../utility/hooks/useTheme';
 import { commonStyles } from '../../../assets/commonStyles';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 
 export type Props = {
   state: DrawerNavigationState<ParamListBase>;
@@ -38,6 +41,13 @@ const CustomDrawer = (props: Props) => {
   const navigation = useNavigation();
 
   const theme = useTheme();
+
+  const [cameraPhoto, setCameraPhoto] = useState<string | undefined>('');
+  const [modalVisible, setModalVisible] = useState<boolean>(false);
+  const [pickerOptions, setPickerOptions] = useState<boolean>(true);
+  const [preview, setPreview] = useState<string | undefined>('');
+  const [showPreview, setShowPreview] = useState<boolean>(false);
+
   const [alertOptions, setAlertOptions] = useState<AlertOptionsType>({
     visible: false,
     title: '',
@@ -48,7 +58,7 @@ const CustomDrawer = (props: Props) => {
     try {
       await AsyncStorage.removeItem('token');
       // Navigate to login screen
-      navigation.navigate('Login');
+      navigation.navigate('Login' as never);
     } catch (error) {
       setAlertOptions({
         visible: true,
@@ -58,29 +68,96 @@ const CustomDrawer = (props: Props) => {
       });
     }
   };
-  const handleEditProfile = () => {
-    navigation.navigate('ProfileEdit', { user });
+
+  const handleEditProfileImage = () => {
+    setModalVisible(true);
   };
+
+  const openCamera = () => {
+    setModalVisible(!modalVisible);
+    launchCamera({ mediaType: 'photo' }, (response) => {
+      if (!response.didCancel) {
+        // console.log('error');
+      }
+      const result = response.assets?.[0]?.uri;
+      const handlePickerOptions = () => {
+        setPickerOptions(false);
+        setModalVisible(true);
+      };
+      handlePickerOptions();
+      setPreview(result);
+      setShowPreview(true);
+    });
+
+    //navigation.navigate('ProfileEdit', { user });
+  };
+
+  const openGallery = () => {
+    setModalVisible(!modalVisible);
+    launchImageLibrary({ mediaType: 'photo' }, (response) => {
+      if (!response.didCancel) {
+        // console.log('error');
+      }
+      // console.log('Image selected:', response.assets?.[0]?.uri);
+      const result = response.assets?.[0]?.uri;
+      const handlePickerOptions = () => {
+        setPickerOptions(false);
+        setModalVisible(true);
+      };
+      handlePickerOptions();
+      setPreview(result);
+      setShowPreview(true);
+    });
+  };
+
+  const handleOnUpload = () => {
+    setModalVisible(!modalVisible);
+    setPickerOptions(true);
+    setShowPreview(false);
+    setCameraPhoto(preview);
+  };
+
+  const handleOnCancel = () => {
+    setModalVisible(!modalVisible);
+    setPickerOptions(true);
+    setShowPreview(false);
+  };
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.colors.BACKGROUND }]}>
       <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#8200d6' }}>
-        <View style={styles.topContainer}>
-          <TouchableOpacity onPress={() => navigation.navigate('ProfileView', { user })}>
-            <User width={60} height={60} />
-          </TouchableOpacity>
-          <View style={commonStyles.FlexDirectionRow}>
-            <View style={styles.profileNameContainer}>
-              <Text style={[styles.textColor, { fontSize: theme.typography.size.M }]}>
-                John Doe
-              </Text>
+        <View style={[styles.topContainer]}>
+          <View style={[commonStyles.FlexDirectionRow]}>
+            <View style={commonStyles.FlexDirectionRow}>
+              <TouchableOpacity onPress={() => navigation.navigate('ProfileView', { user })}>
+                {cameraPhoto ? (
+                  <Image width={60} height={60} source={{ uri: cameraPhoto }} />
+                ) : (
+                  <User width={60} height={60} />
+                )}
+              </TouchableOpacity>
+              <View style={styles.editButton}>
+                <TouchableOpacity
+                  style={commonStyles.JustifyContentFlexEnd}
+                  onPress={handleEditProfileImage}
+                >
+                  <Edit name="edit-3" size={22} color={'#fff'} />
+                </TouchableOpacity>
+              </View>
             </View>
-            <TouchableOpacity onPress={handleEditProfile}>
-              <Edit name="edit-3" size={22} color={'#fff'} />
-            </TouchableOpacity>
-          </View>
-          <View style={commonStyles.FlexDirectionRow}>
-            <View style={styles.infoContainer}>
-              <Text style={styles.textColor}>280 Coins</Text>
+            <View style={[commonStyles.FlexDirectionColumn, styles.userDetails]}>
+              <View style={commonStyles.FlexDirectionRow}>
+                <View style={styles.profileNameContainer}>
+                  <Text style={[styles.textColor, { fontSize: theme.typography.size.M }]}>
+                    John Doe
+                  </Text>
+                </View>
+              </View>
+              <View style={commonStyles.FlexDirectionRow}>
+                <View style={styles.infoContainer}>
+                  <Text style={styles.textColor}>280 Coins</Text>
+                </View>
+              </View>
             </View>
           </View>
         </View>
@@ -107,6 +184,92 @@ const CustomDrawer = (props: Props) => {
         </TouchableOpacity>
       </View>
       <Alert options={alertOptions} setOptions={setAlertOptions} />
+
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+        style={styles.centeredView}
+      >
+        <View style={styles.centeredView}>
+          <View
+            style={[
+              styles.modalView,
+              { backgroundColor: theme.colors.BACKGROUND, shadowColor: theme.colors.SHADOW },
+            ]}
+          >
+            {pickerOptions && (
+              <View>
+                <View style={styles.pickerOptions}>
+                  <TouchableOpacity onPress={openCamera}>
+                    <View style={commonStyles.AlignItemsCenter}>
+                      <Camera name="add-a-photo" size={50} color={theme.colors.ICON} />
+                    </View>
+                    <Text>Take a photo</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={{ marginLeft: theme.shape.margin.L }}
+                    onPress={openGallery}
+                  >
+                    <View style={commonStyles.AlignItemsCenter}>
+                      <Gallery name="images" size={50} color={theme.colors.ICON} />
+                    </View>
+                    <Text>Upload a photo</Text>
+                  </TouchableOpacity>
+                </View>
+                <View style={{ marginTop: theme.shape.margin.S }}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      setModalVisible(!modalVisible);
+                    }}
+                  >
+                    <Text
+                      style={[commonStyles.textAlignCenter, { fontSize: theme.typography.size.S }]}
+                    >
+                      Cancel
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            )}
+            <View>
+              {preview && showPreview ? (
+                <View>
+                  <Text style={{ textAlign: 'center', fontSize: theme.typography.size.M }}>
+                    Preview
+                  </Text>
+
+                  <Image
+                    style={{ marginVertical: theme.shape.margin.L }}
+                    width={300}
+                    height={300}
+                    source={{ uri: preview }}
+                  />
+                  <View
+                    style={[
+                      commonStyles.FlexDirectionRow,
+                      commonStyles.JustifyContentFlexSpaceAround,
+                      { marginVertical: theme.shape.margin.S },
+                    ]}
+                  >
+                    <TouchableOpacity style={[styles.modalButtons]} onPress={handleOnCancel}>
+                      <Text style={styles.modalText}>Cancel</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={handleOnUpload}>
+                      <Text style={styles.modalText}>Upload</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              ) : (
+                <></>
+              )}
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -116,21 +279,70 @@ export default CustomDrawer;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
   },
-  drawerItemList: { flex: 1, paddingTop: 10 },
-  topContainer: { padding: 10 },
-  bottomContainer: { padding: 20, borderTopWidth: 1 },
+  drawerItemList: {
+    flex: 1,
+    paddingTop: 10,
+  },
+  topContainer: {
+    padding: 10,
+  },
+  bottomContainer: {
+    padding: 20,
+    borderTopWidth: 1,
+  },
   bottomContainerText: {
     marginLeft: 5,
   },
   profileNameContainer: {
     marginBottom: 5,
+    marginVertical: 5,
   },
   infoContainer: {
     marginRight: 5,
   },
   textColor: {
     color: '#ffffff',
+  },
+  editButton: {
+    flexDirection: 'row',
+    // backgroundColor: 'pink',
+  },
+  pickerOptions: {
+    flexDirection: 'row',
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    // width: 300,
+    // height: 200,
+    borderRadius: 20,
+    padding: 35,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  modalButtons: {
+    borderRadius: 5,
+  },
+  modalText: {
+    fontSize: 20,
+  },
+  userDetails: {
+    marginLeft: '15%',
   },
 });
