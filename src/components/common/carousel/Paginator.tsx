@@ -1,5 +1,6 @@
 import { StyleSheet, View, Dimensions, Animated, ImageProps } from 'react-native';
 import React from 'react';
+import useTheme from '../../../utility/hooks/useTheme';
 interface CarouselItem {
   id: number;
   image: ImageProps;
@@ -9,7 +10,9 @@ interface props {
   scrollX: Animated.Value;
 }
 const Paginator = ({ data, scrollX }: props) => {
+  const theme = useTheme();
   const screenWidth = Dimensions.get('window').width;
+  const dotColor = theme.isLightTheme ? '#252525' : '#FDFDFD';
   return (
     <View style={{ flexDirection: 'row' }}>
       {data.map((_: unknown, i: number) => {
@@ -34,6 +37,7 @@ const Paginator = ({ data, scrollX }: props) => {
               {
                 width: dotWidth,
                 opacity,
+                backgroundColor: dotColor,
               },
             ]}
             key={i.toString()}
