@@ -22,8 +22,8 @@ const post = async (
     setLoading(false);
     setAlertOptions({
       visible: true,
-      title: 'UNIFY00018',
-      message: 'UNIFY00010',
+      title: 'TEMP00018',
+      message: 'TEMP00010',
     });
     if (axios.isAxiosError(error) && !error.response) {
       // Handle network error

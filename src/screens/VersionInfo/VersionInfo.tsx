@@ -19,15 +19,11 @@ const VersionInfo: React.FC = () => {
     // versionInfo
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
-        {/* header */}
-        <Text style={style.header} testID="header_VersionIfo">
-          {i18next.t('UNIFY00016')}
-        </Text>
         {/* inputContainer */}
         <View style={style.container}>
           {/* Product Version */}
           <View style={style.inputContainer}>
-            <Text style={style.label}>{i18next.t('UNIFY00012')}</Text>
+            <Text style={style.label}>{i18next.t('TEMP00012')}</Text>
             <View style={style.input}>
               <TextInput
                 testID="productVersion"
@@ -40,7 +36,7 @@ const VersionInfo: React.FC = () => {
 
           {/* Release Date */}
           <View style={style.inputContainer}>
-            <Text style={style.label}>{i18next.t('UNIFY00013')}</Text>
+            <Text style={style.label}>{i18next.t('TEMP00013')}</Text>
             <View style={style.input}>
               <TextInput
                 testID="releaseDate"
@@ -54,7 +50,7 @@ const VersionInfo: React.FC = () => {
 
           {/* Build No */}
           <View style={style.inputContainer}>
-            <Text style={style.label}>{i18next.t('UNIFY00014')}</Text>
+            <Text style={style.label}>{i18next.t('TEMP00014')}</Text>
             <View style={style.input}>
               <TextInput
                 testID="buildNo"
@@ -68,7 +64,7 @@ const VersionInfo: React.FC = () => {
 
           {/* Build Date */}
           <View style={style.inputContainer}>
-            <Text style={style.label}>{i18next.t('UNIFY00015')}</Text>
+            <Text style={style.label}>{i18next.t('TEMP00015')}</Text>
             <View style={style.input}>
               <TextInput
                 testID="buildDate"

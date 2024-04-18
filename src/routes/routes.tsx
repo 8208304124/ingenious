@@ -9,6 +9,7 @@ import Upload from '../screens/Upload';
 import Gift from '../screens/Gift';
 import Chat from '../screens/Chat';
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+import i18next from 'i18next';
 
 type Route = {
   key: React.Key;
@@ -16,12 +17,20 @@ type Route = {
   component: React.ComponentType<any>;
   options?: NativeStackNavigationOptions;
 };
+
+const screenOptions: NativeStackNavigationOptions = {
+  headerShadowVisible: false,
+  headerTitleAlign: 'center',
+};
 const routes: Route[] = [
   {
     key: 'Login',
     name: 'Login',
     component: Login,
-    options: { headerShown: false },
+    options: {
+      headerShown: false,
+      title: i18next.t('TEMP00001'),
+    },
   },
   {
     key: 'DrawerNavigation',
@@ -36,8 +45,9 @@ const routes: Route[] = [
     name: 'VersionInfo',
     component: VersionInfo,
     options: {
+      ...screenOptions,
       headerShown: true,
-      headerShadowVisible: false,
+      title: i18next.t('TEMP00006'),
     },
   },
   {
@@ -45,8 +55,9 @@ const routes: Route[] = [
     name: 'ProfileView',
     component: ProfileView,
     options: {
+      ...screenOptions,
       headerShown: true,
-      headerShadowVisible: false,
+      title: i18next.t('TEMP00022'),
     },
   },
   {
@@ -54,8 +65,9 @@ const routes: Route[] = [
     name: 'ProfileEdit',
     component: ProfileEdit,
     options: {
+      ...screenOptions,
       headerShown: true,
-      headerShadowVisible: false,
+      title: i18next.t('TEMP00021'),
     },
   },
   {
@@ -63,9 +75,9 @@ const routes: Route[] = [
     name: 'Filter',
     component: Filter, // done
     options: {
+      ...screenOptions,
       headerShown: true,
-      headerShadowVisible: false,
-      headerTitleAlign: 'center',
+      title: i18next.t('TEMP00023'),
     },
   },
   {
@@ -73,9 +85,9 @@ const routes: Route[] = [
     name: 'Upload',
     component: Upload, // done
     options: {
+      ...screenOptions,
       headerShown: true,
-      headerShadowVisible: false,
-      headerTitleAlign: 'center',
+      title: i18next.t('TEMP00024'),
     },
   },
   {
@@ -83,9 +95,9 @@ const routes: Route[] = [
     name: 'Gift',
     component: Gift, // done
     options: {
+      ...screenOptions,
       headerShown: true,
-      headerShadowVisible: false,
-      headerTitleAlign: 'center',
+      title: i18next.t('TEMP00025'),
     },
   },
   {
@@ -93,9 +105,9 @@ const routes: Route[] = [
     name: 'Chat',
     component: Chat, // done
     options: {
+      ...screenOptions,
       headerShown: true,
-      headerShadowVisible: false,
-      headerTitleAlign: 'center',
+      title: i18next.t('TEMP00026'),
     },
   },
 ];
