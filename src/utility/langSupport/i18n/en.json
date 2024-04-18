@@ -25,7 +25,9 @@
     "TEMP00023":"Filter",
     "TEMP00024":"Upload",
     "TEMP00025":"Gift",
-    "TEMP00026":"Chat"
+    "TEMP00026":"Chat",
+    "TEMP00027":"Edit Profile",
+    "TEMP00028":"Update Profile"
 
   }
 }

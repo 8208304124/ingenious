@@ -5,6 +5,7 @@ import UserIcon from 'react-native-vector-icons/FontAwesome6';
 import styles from './styles';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import TextInput from '../../components/elements/input/TextInput';
+import i18next from 'i18next';
 
 interface User {
   name: string;
@@ -60,7 +61,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ navigation, route }) => {
       </View>
       {/* Update Profile */}
       <TouchableOpacity testID="button" style={style.button} onPress={handleUpdateProfile}>
-        <Text style={style.buttonText}>Update Profile</Text>
+        <Text style={style.buttonText}>{i18next.t('TEMP00028')}</Text>
       </TouchableOpacity>
     </View>
   );
