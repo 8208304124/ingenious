@@ -6,7 +6,7 @@ import { DrawerNavigationState, ParamListBase, useNavigation } from '@react-navi
 import Alert from '../../elements/alert';
 import { AlertOptionsType } from '../../elements/alert/Alert';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Edit from 'react-native-vector-icons/Feather';
+import Edit from 'react-native-vector-icons/FontAwesome';
 import Camera from 'react-native-vector-icons/MaterialIcons';
 import Gallery from 'react-native-vector-icons/Entypo';
 import i18next from 'i18next';
@@ -127,21 +127,26 @@ const CustomDrawer = (props: Props) => {
     <View style={[styles.container, { backgroundColor: theme.colors.BACKGROUND }]}>
       <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#8200d6' }}>
         <View style={[styles.topContainer]}>
-          <View style={[commonStyles.FlexDirectionRow]}>
+          <View style={[commonStyles.FlexDirectionRow, commonStyles.JustifyContentFlexSpaceAround]}>
             <View style={commonStyles.FlexDirectionRow}>
               <TouchableOpacity onPress={() => navigation.navigate('ProfileView', { user })}>
                 {cameraPhoto ? (
-                  <Image width={60} height={60} source={{ uri: cameraPhoto }} />
+                  <Image
+                    style={styles.profileImage}
+                    width={65}
+                    height={65}
+                    source={{ uri: cameraPhoto }}
+                  />
                 ) : (
-                  <User width={60} height={60} />
+                  <User width={65} height={65} />
                 )}
               </TouchableOpacity>
               <View style={styles.editButton}>
                 <TouchableOpacity
-                  style={commonStyles.JustifyContentFlexEnd}
+                  style={[commonStyles.JustifyContentFlexEnd, styles.plusIconBtn]}
                   onPress={handleEditProfileImage}
                 >
-                  <Edit name="edit-3" size={22} color={'#fff'} />
+                  <Edit style={styles.plusIcon} name="plus-circle" size={18} color={'#fff'} />
                 </TouchableOpacity>
               </View>
             </View>
@@ -227,7 +232,10 @@ const CustomDrawer = (props: Props) => {
                     }}
                   >
                     <Text
-                      style={[commonStyles.textAlignCenter, { fontSize: theme.typography.size.S }]}
+                      style={[
+                        commonStyles.textAlignCenter,
+                        { fontSize: theme.typography.size.S, marginTop: theme.shape.margin.M },
+                      ]}
                     >
                       Cancel
                     </Text>
@@ -238,7 +246,9 @@ const CustomDrawer = (props: Props) => {
             <View>
               {preview && showPreview ? (
                 <View>
-                  <Text style={{ textAlign: 'center', fontSize: theme.typography.size.M }}>
+                  <Text
+                    style={[{ fontSize: theme.typography.size.M }, commonStyles.textAlignCenter]}
+                  >
                     Preview
                   </Text>
 
@@ -306,7 +316,6 @@ const styles = StyleSheet.create({
   },
   editButton: {
     flexDirection: 'row',
-    // backgroundColor: 'pink',
   },
   pickerOptions: {
     flexDirection: 'row',
@@ -322,8 +331,6 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    // width: 300,
-    // height: 200,
     borderRadius: 20,
     padding: 35,
     justifyContent: 'center',
@@ -345,4 +352,13 @@ const styles = StyleSheet.create({
   userDetails: {
     marginLeft: '15%',
   },
+  profileImage: {
+    borderRadius: 50,
+  },
+  plusIconBtn: {
+    zIndex: 1,
+    right: 20,
+    bottom: 1,
+  },
+  plusIcon: { backgroundColor: '#000', paddingHorizontal: 2, borderRadius: 15 },
 });
