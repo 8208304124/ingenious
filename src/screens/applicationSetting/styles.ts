@@ -9,56 +9,29 @@ const styles = (theme: ThemeType) =>
     },
     body: {
       flex: 1,
+      marginTop: '45%',
     },
     formContainer: {
       flexGrow: 1,
       paddingBottom: 60,
     },
-    row1: {
-      flexDirection: 'row',
-      marginHorizontal: shape.margin.M,
-      marginVertical: shape.margin.L,
-    },
-    row2: {
+    commonStyle: {
       flexDirection: 'row',
       marginHorizontal: shape.margin.M,
       marginBottom: shape.margin.L,
+      marginTop: '5%',
     },
-    row3: {
-      flexDirection: 'row',
-      marginHorizontal: shape.margin.M,
-      marginBottom: shape.margin.L,
-      alignItems: 'center',
-    },
-    macId: {
-      flexDirection: 'row',
-      marginHorizontal: shape.margin.M,
-      marginBottom: shape.margin.L,
-    },
-    payment: {
-      marginHorizontal: 16,
-      flex: 1,
-      marginBottom: shape.margin.L,
-    },
-    language: { marginHorizontal: 16, flex: 1 },
-    theme: { flexDirection: 'row', margin: 16, alignItems: 'center' },
+    language: { marginHorizontal: 16, flex: 1, marginTop: '5%' },
+    theme: { flexDirection: 'row', margin: 16, alignItems: 'center', marginTop: '8%' },
     themeText: {
       color: theme.colors.TEXT,
       fontSize: theme.typography.size.S,
       marginHorizontal: 5,
     },
-    colon: {
-      fontWeight: '900',
-      fontSize: theme.typography.size.S,
-    },
     themeSwitch: { marginLeft: 8 },
     switchStyle: {
       marginRight: '6%',
     },
-    rowChild: { marginRight: 0, flex: 1 },
-    rowFirstChild: { marginRight: 10, flex: 1 },
-    serviceUrl: { marginRight: 10, flex: 7 },
-    servicePort: { marginLeft: 10, flex: 3 },
   });
 
 export default styles;

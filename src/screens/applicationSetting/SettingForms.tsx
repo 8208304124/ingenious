@@ -7,9 +7,8 @@ import styles from './styles';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import useLanguage from '../../utility/hooks/useLanguage';
 import i18next from 'i18next';
-import SelectOption from '../../components/elements/select/SelectOption';
 import Switch_ from '../../components/elements/switch/Switch';
-import { langList, payment } from '../../constants';
+import { langList } from '../../constants';
 import ScreenFooter from '../../components/common/screenFooter/ScreenFooter';
 import LanguageChange from './component/LanguageChange';
 
@@ -25,13 +24,11 @@ const SettingForm: React.FC = () => {
 
   const [serviceURL, setServiceURL] = useState<string>('');
   const [port, setPort] = useState<string>('');
-  const [macId, setMacId] = useState<string>('');
 
   // resetForm
   const resetForm = () => {
     setServiceURL('');
     setPort('');
-    setMacId('');
   };
 
   return (
@@ -40,46 +37,22 @@ const SettingForm: React.FC = () => {
       {/* formContainer */}
       <ScrollView contentContainerStyle={style.formContainer}>
         <View>
-          <View style={style.row3}>
-            {/* serviceUrl */}
-            <View style={style.serviceUrl}>
-              <TextInput
-                testID={'ServiceURL'}
-                placeholder={i18next.t('UNIFY00021')}
-                value={serviceURL}
-                onChangeText={setServiceURL}
-              />
-            </View>
-            <Text style={style.colon}>:</Text>
-
-            {/* servicePort */}
-            <View style={style.servicePort}>
-              <TextInput
-                testID={'port'}
-                placeholder={i18next.t('UNIFY00022')}
-                value={port}
-                onChangeText={setPort}
-                maxLength={4}
-              />
-            </View>
-          </View>
-
-          {/* macId */}
-          <View style={style.macId}>
+          {/* ServiceURL */}
+          <View style={style.commonStyle}>
             <TextInput
-              testID={'macId'}
-              placeholder={i18next.t('UNIFY00023')}
-              value={macId}
-              onChangeText={setMacId}
+              testID={'ServiceURL'}
+              placeholder={i18next.t('UNIFY00021')}
+              value={serviceURL}
+              onChangeText={setServiceURL}
             />
           </View>
-
-          {/* payment */}
-          <View style={style.payment}>
-            <SelectOption
-              placeholder={i18next.t('UNIFY00024')}
-              options={payment}
-              onSelect={handleLangFun}
+          {/* port */}
+          <View style={style.commonStyle}>
+            <TextInput
+              testID={'port'}
+              placeholder={i18next.t('UNIFY00022')}
+              value={port}
+              onChangeText={setPort}
             />
           </View>
 
@@ -96,7 +69,7 @@ const SettingForm: React.FC = () => {
           <View style={style.theme}>
             <View>
               <Text style={style.themeText}>
-                {i18next.t('Theme')}
+                {i18next.t('UNIFY00026')}
                 {/* Dark Theme */}
               </Text>
             </View>
