@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Pressable, TextInput, View } from 'react-native';
 
 import { useTogglePasswordVisibility } from './useTogglePasswordVisibility';
@@ -16,21 +16,11 @@ interface PasswordProps {
 
 const Password: React.FC<PasswordProps> = ({ testID, password, onChange, placeholder }) => {
   const { passwordVisibility, handlePasswordVisibility } = useTogglePasswordVisibility();
-
   const style = useThemedStyles(styles);
   const theme = useTheme();
-  const [bg, setBg] = useState('transparent');
-
-  const onFocus = () => {
-    setBg(theme.colors.INPUT_OUTLINE);
-  };
-
-  const onBlur = () => {
-    setBg('transparent');
-  };
 
   return (
-    <View style={[style.inputContainer, { borderColor: bg }]}>
+    <View style={[style.inputContainer, { borderColor: theme.colors.BORDER }]}>
       <Icon
         style={style.icon}
         name="lock-closed"
@@ -39,8 +29,6 @@ const Password: React.FC<PasswordProps> = ({ testID, password, onChange, placeho
       />
       <TextInput
         testID={testID}
-        onFocus={onFocus}
-        onBlur={onBlur}
         style={style.inputField}
         placeholder={placeholder}
         placeholderTextColor={theme.colors.PLACEHOLDER}
