@@ -11,7 +11,7 @@ interface UserType {
   profileIcon: string;
 }
 
-interface ProfileViewProps {
+export interface ProfileViewProps {
   navigation: NavigationProp<ParamListBase>;
 }
 
@@ -25,7 +25,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ navigation }) => {
   const style = useThemedStyles(styles);
 
   const handleEditProfile = () => {
-    navigation.navigate('ProfileEdit', { user });
+    navigation.navigate('ProfileEdit', { user: user });
   };
 
   return (

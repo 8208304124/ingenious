@@ -22,8 +22,9 @@ import Button from '../../components/elements/button/Button';
 import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
+import Password from './components/password';
 
-type LoginProps = {
+export type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
 };
 interface languageType {
@@ -152,13 +153,11 @@ const Login = ({ navigation }: LoginProps) => {
             />
           </View>
           <View style={style.input}>
-            <TextInput
-              testID={'Password_Input'}
+            <Password
+              testID={'password'}
               placeholder={i18next.t('UNIFY00003')}
-              icon={'lock-closed'}
-              iconAlling="left"
-              onChangeText={(text) => onLoginInfoChange(text, 'password')}
-              value={FormDataInfo.password}
+              password={FormDataInfo.password}
+              onChange={(text: string) => onLoginInfoChange(text, 'password')}
             />
           </View>
         </View>

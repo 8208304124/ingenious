@@ -22,6 +22,7 @@ export type colorsType = {
   APP_FOOTER_BG: string;
   CHECKBOX_TICK: string;
   CHECKBOX_UNFILLED: string;
+  CHECKBOX_FILLED: string;
   BOTTOM_NAVIGATION_BACKGROUND: string;
   INFO_COLOR: string;
   INPUT_OUTLINE: string;
