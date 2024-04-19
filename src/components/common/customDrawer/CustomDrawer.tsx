@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View, TouchableOpacity, Image, Modal } from 'react-native';
 import Text from '../../elements/text';
 import { DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
-import { DrawerNavigationState, ParamListBase, useNavigation } from '@react-navigation/native';
+import { DrawerNavigationState, ParamListBase } from '@react-navigation/native';
 import Alert from '../../elements/alert';
 import { AlertOptionsType } from '../../elements/alert/Alert';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -37,9 +37,7 @@ const user: UserType = {
   email: 'john.doe@example.com',
   profileIcon: 'user-large',
 };
-const CustomDrawer = (props: Props) => {
-  const navigation = useNavigation();
-
+const CustomDrawer = ({ navigation, state, descriptors }: Props) => {
   const theme = useTheme();
 
   const [cameraPhoto, setCameraPhoto] = useState<string | undefined>('');
@@ -58,7 +56,7 @@ const CustomDrawer = (props: Props) => {
     try {
       await AsyncStorage.removeItem('token');
       // Navigate to login screen
-      navigation.navigate('Login' as never);
+      navigation.navigate('Login');
     } catch (error) {
       setAlertOptions({
         visible: true,
@@ -125,7 +123,10 @@ const CustomDrawer = (props: Props) => {
 
   return (
     <View style={[styles.container, { backgroundColor: theme.colors.BACKGROUND }]}>
-      <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#8200d6' }}>
+      <DrawerContentScrollView
+        {...{ navigation, state, descriptors }}
+        contentContainerStyle={{ backgroundColor: '#8200d6' }}
+      >
         <View style={[styles.topContainer]}>
           <View style={[commonStyles.FlexDirectionRow, commonStyles.JustifyContentFlexSpaceAround]}>
             <View style={commonStyles.FlexDirectionRow}>
@@ -167,7 +168,7 @@ const CustomDrawer = (props: Props) => {
           </View>
         </View>
         <View style={[styles.drawerItemList, { backgroundColor: theme.colors.BACKGROUND }]}>
-          <DrawerItemList {...props} />
+          <DrawerItemList {...{ navigation, state, descriptors }} />
         </View>
       </DrawerContentScrollView>
       <View style={[styles.bottomContainer, { borderTopColor: theme.colors.ICON }]}>
