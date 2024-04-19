@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
@@ -16,13 +17,17 @@ import { langList } from '../../constants';
 import useLanguage from '../../utility/hooks/useLanguage';
 import TextInput from '../../components/elements/input/TextInput';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { post } from '../../Services/HttpServices';
 import i18next from 'i18next';
 import Button from '../../components/elements/button/Button';
 import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
 import Password from './components/password';
+import { useDispatch } from 'react-redux';
+import { callLogin, loginPayloadType } from '../../store/reducers/authReducer';
+import { ThunkDispatch } from 'redux-thunk';
+import { RootState } from '../../store/reducers';
+import { UnknownAction } from 'redux';
 
 export type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
@@ -38,7 +43,7 @@ const Login = ({ navigation }: LoginProps) => {
   const translate = useLanguage();
   const theme = useTheme();
   const [showLoader, setShowLoader] = useState<boolean>(false);
-
+  const dispatch: ThunkDispatch<RootState, void, UnknownAction> = useDispatch();
   const [FormDataInfo, setFormDataInfo] = useState({
     userName: '',
     password: '',
@@ -77,30 +82,20 @@ const Login = ({ navigation }: LoginProps) => {
       const requestBody = {
         username: FormDataInfo.userName,
         password: FormDataInfo.password,
-        expiresInMins: 30,
       };
-      const response = await post(requestBody, setShowLoader, setAlertOptions);
-
+      const payload: loginPayloadType = {
+        requestBody: requestBody,
+        setLoading: setShowLoader,
+        setAlertOptions: setAlertOptions,
+      };
+      const response = (await dispatch(callLogin(payload))).payload;
       setShowLoader(false);
-      if (response && response.token) {
+      if (response && response?.token) {
         await AsyncStorage.setItem('token', response.token);
-
         navigation.navigate('DrawerNavigation');
-      } else {
-        // Handle case where token is not present in the response
-        setAlertOptions({
-          visible: true,
-          title: i18next.t('TEMP00010'),
-          message: 'Token not found in response',
-        });
       }
-    } catch (error) {
+    } catch (error: any) {
       setShowLoader(false);
-      setAlertOptions({
-        visible: true,
-        title: i18next.t('TEMP00010'),
-        message: i18next.t('TEMP00020'),
-      });
     }
   };
 

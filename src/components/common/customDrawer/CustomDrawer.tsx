@@ -19,6 +19,8 @@ import User from '../../../assets/images/profile-image.svg';
 import useTheme from '../../../utility/hooks/useTheme';
 import { commonStyles } from '../../../assets/commonStyles';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+// import { useSelector } from 'react-redux';
+// import { RootState } from '../../../store/reducers';
 
 export type Props = {
   state: DrawerNavigationState<ParamListBase>;
@@ -38,6 +40,9 @@ const user: UserType = {
   profileIcon: 'user-large',
 };
 const CustomDrawer = ({ navigation, state, descriptors }: Props) => {
+  // const userData = useSelector((state: RootState) => state.auth);
+  // console.log('user data from redux', userData);
+
   const theme = useTheme();
 
   const [cameraPhoto, setCameraPhoto] = useState<string | undefined>('');
