@@ -90,7 +90,7 @@ const Login = ({ navigation }: LoginProps) => {
         // Handle case where token is not present in the response
         setAlertOptions({
           visible: true,
-          title: i18next.t('UNIFY00010'),
+          title: i18next.t('TEMP00010'),
           message: 'Token not found in response',
         });
       }
@@ -98,8 +98,8 @@ const Login = ({ navigation }: LoginProps) => {
       setShowLoader(false);
       setAlertOptions({
         visible: true,
-        title: i18next.t('UNIFY00010'),
-        message: i18next.t('UNIFY00021'),
+        title: i18next.t('TEMP00010'),
+        message: i18next.t('TEMP00020'),
       });
     }
   };
@@ -137,7 +137,7 @@ const Login = ({ navigation }: LoginProps) => {
                 { color: theme.colors.TEXT, fontSize: theme.typography.size.M },
               ]}
             >
-              {i18next.t('UNIFY00001')}
+              {i18next.t('TEMP00001')}
             </Text>
             {/* Login */}
           </View>
@@ -145,7 +145,7 @@ const Login = ({ navigation }: LoginProps) => {
             {/* Username */}
             <TextInput
               testID={'Username_Input'}
-              placeholder={i18next.t('UNIFY00002')}
+              placeholder={i18next.t('TEMP00002')}
               icon={'person'}
               iconAlling="left"
               onChangeText={(text) => onLoginInfoChange(text, 'userName')}
@@ -155,7 +155,7 @@ const Login = ({ navigation }: LoginProps) => {
           <View style={style.input}>
             <Password
               testID={'password'}
-              placeholder={i18next.t('UNIFY00003')}
+              placeholder={i18next.t('TEMP00003')}
               password={FormDataInfo.password}
               onChange={(text: string) => onLoginInfoChange(text, 'password')}
             />
@@ -164,7 +164,7 @@ const Login = ({ navigation }: LoginProps) => {
         <View style={style.ButtonContainer}>
           <Button
             testID="Login_Btn"
-            title={i18next.t('UNIFY00001')}
+            title={i18next.t('TEMP00001')}
             onPress={handleLogin}
             addonPrimaryStyle={style.loginButton}
           />
@@ -176,12 +176,12 @@ const Login = ({ navigation }: LoginProps) => {
             onPress={() => navigation.navigate('VersionInfo')}
           >
             <Text testID={'VersionInfo_Text'} style={{ color: theme.colors.BUTTON }}>
-              {i18next.t('UNIFY00006')}
+              {i18next.t('TEMP00006')}
             </Text>
             {/* Versioninfo */}
           </TouchableOpacity>
           <Text testID={'Theme_Text'} style={style.themeText}>
-            {i18next.t('UNIFY00007')}
+            {i18next.t('TEMP00007')}
           </Text>
           {/* Theme */}
           <Switch_

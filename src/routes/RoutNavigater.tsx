@@ -32,8 +32,8 @@ export const RouteNavigater = () => {
     } catch (error) {
       setAlertOptions({
         visible: true,
-        title: i18next.t('UNIFY00010'),
-        message: i18next.t('UNIFY00009'),
+        title: i18next.t('TEMP00010'),
+        message: i18next.t('TEMP00009'),
       });
     }
   };

@@ -50,8 +50,8 @@ const CustomDrawer = ({ navigation, state, descriptors }: Props) => {
     } catch (error) {
       setAlertOptions({
         visible: true,
-        title: i18next.t('UNIFY00010'),
-        message: i18next.t('UNIFY00011'),
+        title: i18next.t('TEMP00010'),
+        message: i18next.t('TEMP00011'),
         // error occurred during logout
       });
     }
