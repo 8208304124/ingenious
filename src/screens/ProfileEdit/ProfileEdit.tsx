@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import UserIcon from 'react-native-vector-icons/FontAwesome6';
 import styles from './styles';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import TextInput from '../../components/elements/input/TextInput';
+import i18next from 'i18next';
 
 interface User {
   name: string;
@@ -12,17 +13,17 @@ interface User {
   profileIcon: string;
 }
 
-interface ProfileEditProps {
+export interface ProfileEditProps {
   route: {
     params: {
       user: User;
     };
   };
+  navigation: NavigationProp<ParamListBase>;
 }
 
-const ProfileEdit: React.FC<ProfileEditProps> = ({ route }) => {
+const ProfileEdit: React.FC<ProfileEditProps> = ({ navigation, route }) => {
   const style = useThemedStyles(styles);
-  const navigation = useNavigation();
   const { user } = route.params;
   const [name, setName] = useState<string>(user.name);
   const [email, setEmail] = useState<string>(user.email);
@@ -60,7 +61,7 @@ const ProfileEdit: React.FC<ProfileEditProps> = ({ route }) => {
       </View>
       {/* Update Profile */}
       <TouchableOpacity testID="button" style={style.button} onPress={handleUpdateProfile}>
-        <Text style={style.buttonText}>Update Profile</Text>
+        <Text style={style.buttonText}>{i18next.t('TEMP00028')}</Text>
       </TouchableOpacity>
     </View>
   );

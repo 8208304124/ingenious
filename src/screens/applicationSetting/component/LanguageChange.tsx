@@ -50,7 +50,7 @@ const LanguageChange: React.FC<DropdownProps> = ({ options, onSelect, textStyle 
             textStyle,
           ]}
         >
-          {selectedOption ? selectedOption.label : i18next.t('UNIFY00025')}
+          {selectedOption ? selectedOption.label : i18next.t('TEMP00031')}
         </Text>
         <Icon
           name="chevron-down-outline"

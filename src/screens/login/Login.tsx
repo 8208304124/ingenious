@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
@@ -15,14 +16,19 @@ import { langList } from '../../constants';
 import useLanguage from '../../utility/hooks/useLanguage';
 import TextInput from '../../components/elements/input/TextInput';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { post } from '../../Services/HttpServices';
 import i18next from 'i18next';
 import Button from '../../components/elements/button/Button';
 import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
+import Password from './components/password';
+import { useDispatch } from 'react-redux';
+import { callLogin, loginPayloadType } from '../../store/reducers/authReducer';
+import { ThunkDispatch } from 'redux-thunk';
+import { RootState } from '../../store/reducers';
+import { UnknownAction } from 'redux';
 
-type LoginProps = {
+export type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
 };
 interface languageType {
@@ -36,7 +42,7 @@ const Login = ({ navigation }: LoginProps) => {
   const translate = useLanguage();
   const theme = useTheme();
   const [showLoader, setShowLoader] = useState<boolean>(false);
-
+  const dispatch: ThunkDispatch<RootState, void, UnknownAction> = useDispatch();
   const [FormDataInfo, setFormDataInfo] = useState({
     userName: '',
     password: '',
@@ -75,30 +81,20 @@ const Login = ({ navigation }: LoginProps) => {
       const requestBody = {
         username: FormDataInfo.userName,
         password: FormDataInfo.password,
-        expiresInMins: 30,
       };
-      const response = await post(requestBody, setShowLoader, setAlertOptions);
-
+      const payload: loginPayloadType = {
+        requestBody: requestBody,
+        setLoading: setShowLoader,
+        setAlertOptions: setAlertOptions,
+      };
+      const response = (await dispatch(callLogin(payload))).payload;
       setShowLoader(false);
-      if (response && response.token) {
+      if (response && response?.token) {
         await AsyncStorage.setItem('token', response.token);
-
         navigation.navigate('DrawerNavigation');
-      } else {
-        // Handle case where token is not present in the response
-        setAlertOptions({
-          visible: true,
-          title: i18next.t('UNIFY00010'),
-          message: 'Token not found in response',
-        });
       }
-    } catch (error) {
+    } catch (error: any) {
       setShowLoader(false);
-      setAlertOptions({
-        visible: true,
-        title: i18next.t('UNIFY00010'),
-        message: i18next.t('UNIFY00021'),
-      });
     }
   };
 
@@ -135,7 +131,7 @@ const Login = ({ navigation }: LoginProps) => {
                 { color: theme.colors.TEXT, fontSize: theme.typography.size.M },
               ]}
             >
-              {i18next.t('UNIFY00001')}
+              {i18next.t('TEMP00001')}
             </Text>
             {/* Login */}
           </View>
@@ -143,7 +139,7 @@ const Login = ({ navigation }: LoginProps) => {
             {/* Username */}
             <TextInput
               testID={'Username_Input'}
-              placeholder={i18next.t('UNIFY00002')}
+              placeholder={i18next.t('TEMP00002')}
               icon={'person'}
               iconAlling="left"
               onChangeText={(text) => onLoginInfoChange(text, 'userName')}
@@ -151,20 +147,18 @@ const Login = ({ navigation }: LoginProps) => {
             />
           </View>
           <View style={style.input}>
-            <TextInput
-              testID={'Password_Input'}
-              placeholder={i18next.t('UNIFY00003')}
-              icon={'lock-closed'}
-              iconAlling="left"
-              onChangeText={(text) => onLoginInfoChange(text, 'password')}
-              value={FormDataInfo.password}
+            <Password
+              testID={'password'}
+              placeholder={i18next.t('TEMP00003')}
+              password={FormDataInfo.password}
+              onChange={(text: string) => onLoginInfoChange(text, 'password')}
             />
           </View>
         </View>
         <View style={style.ButtonContainer}>
           <Button
             testID="Login_Btn"
-            title={i18next.t('UNIFY00001')}
+            title={i18next.t('TEMP00001')}
             onPress={handleLogin}
             addonPrimaryStyle={style.loginButton}
           />
@@ -176,7 +170,7 @@ const Login = ({ navigation }: LoginProps) => {
             onPress={() => navigation.navigate('VersionInfo')}
           >
             <Text testID={'VersionInfo_Text'} style={{ color: theme.colors.BUTTON }}>
-              {i18next.t('UNIFY00006')}
+              {i18next.t('TEMP00006')}
             </Text>
             {/* Versioninfo */}
           </TouchableOpacity>

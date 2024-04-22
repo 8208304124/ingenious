@@ -41,7 +41,7 @@ const SettingForm: React.FC = () => {
           <View style={style.commonStyle}>
             <TextInput
               testID={'ServiceURL'}
-              placeholder={i18next.t('UNIFY00021')}
+              placeholder={i18next.t('TEMP00029')}
               value={serviceURL}
               onChangeText={setServiceURL}
             />
@@ -50,7 +50,7 @@ const SettingForm: React.FC = () => {
           <View style={style.commonStyle}>
             <TextInput
               testID={'port'}
-              placeholder={i18next.t('UNIFY00022')}
+              placeholder={i18next.t('TEMP00030')}
               value={port}
               onChangeText={setPort}
             />
@@ -59,7 +59,7 @@ const SettingForm: React.FC = () => {
           {/* language */}
           <View style={style.language}>
             <LanguageChange
-              placeholder={i18next.t('UNIFY00025')}
+              placeholder={i18next.t('TEMP00031')}
               options={langList}
               onSelect={handleLangFun}
             />
@@ -69,7 +69,7 @@ const SettingForm: React.FC = () => {
           <View style={style.theme}>
             <View>
               <Text style={style.themeText}>
-                {i18next.t('UNIFY00026')}
+                {i18next.t('TEMP00032')}
                 {/* Dark Theme */}
               </Text>
             </View>

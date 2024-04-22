@@ -3,18 +3,11 @@ import { ThemeType } from '../../utility/interfaces/themeInterfaces/ThemeInterfa
 
 const styles = (theme: ThemeType) =>
   StyleSheet.create({
-    header: {
-      alignSelf: 'center',
-      paddingVertical: 10,
-      fontSize: theme.typography.size.M,
-      color: theme.colors.TEXT,
-      marginTop: '10%',
-    },
     container: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      marginTop: '15%',
+      marginTop: '30%',
     },
     inputContainer: {
       flexDirection: 'row',

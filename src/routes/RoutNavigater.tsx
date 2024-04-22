@@ -32,8 +32,8 @@ export const RouteNavigater = () => {
     } catch (error) {
       setAlertOptions({
         visible: true,
-        title: i18next.t('UNIFY00010'),
-        message: i18next.t('UNIFY00009'),
+        title: i18next.t('TEMP00010'),
+        message: i18next.t('TEMP00009'),
       });
     }
   };
@@ -65,6 +65,7 @@ export const RouteNavigater = () => {
                 backgroundColor: theme.colors.BACKGROUND,
               },
               headerTintColor: theme.colors.HEADER_TEXT,
+              headerBackTitleVisible: false,
             })}
           />
         ))}

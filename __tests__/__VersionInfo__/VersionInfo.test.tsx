@@ -18,8 +18,6 @@ describe('VersionInfo render correctly', () => {
       </ThemeProvider>
     );
 
-    expect(getByTestId('header_VersionIfo').props.children).toBe('Welcome back! to Mobile Store');
-
     expect(getByTestId('productVersion').props.value).toBe('V5.5 R10 SP4');
     expect(getByTestId('releaseDate').props.value).toBe('22-02-2023');
     expect(getByTestId('buildNo').props.value).toBe('0.28.0');

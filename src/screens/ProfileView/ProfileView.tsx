@@ -4,6 +4,7 @@ import Users from 'react-native-vector-icons/FontAwesome6';
 import styles from './styles';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import i18next from 'i18next';
 
 interface UserType {
   name: string;
@@ -11,7 +12,7 @@ interface UserType {
   profileIcon: string;
 }
 
-interface ProfileViewProps {
+export interface ProfileViewProps {
   navigation: NavigationProp<ParamListBase>;
 }
 
@@ -25,7 +26,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ navigation }) => {
   const style = useThemedStyles(styles);
 
   const handleEditProfile = () => {
-    navigation.navigate('ProfileEdit', { user });
+    navigation.navigate('ProfileEdit', { user: user });
   };
 
   return (
@@ -46,7 +47,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ navigation }) => {
 
       {/* handleEditProfile */}
       <TouchableOpacity testID="button" style={style.button} onPress={handleEditProfile}>
-        <Text style={style.buttonText}>Edit Profile</Text>
+        <Text style={style.buttonText}>{i18next.t('TEMP00027')}</Text>
       </TouchableOpacity>
     </View>
   );
