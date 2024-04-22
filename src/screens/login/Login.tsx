@@ -148,7 +148,7 @@ const Login = ({ navigation }: LoginProps) => {
           </View>
           <View style={style.input}>
             <Password
-              testID={'password'}
+              testID={'Password_Input'}
               placeholder={i18next.t('TEMP00003')}
               password={FormDataInfo.password}
               onChange={(text: string) => onLoginInfoChange(text, 'password')}
