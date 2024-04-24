@@ -4,3 +4,7 @@ export const langList = [
   { id: 3, value: 'bh', label: 'Bahasa' },
   { id: 4, value: 'th', label: 'Thai' },
 ];
+export const payment = [
+  { id: 'cash', value: 'cash', label: 'Cash' },
+  { id: 'creditCard', value: 'credit card', label: 'Credit card' },
+];

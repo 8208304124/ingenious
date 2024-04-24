@@ -4,6 +4,7 @@ import Login from '../screens/login/Login';
 import VersionInfo from '../screens/VersionInfo/VersionInfo';
 import ProfileView from '../screens/ProfileView/ProfileView';
 import ProfileEdit from '../screens/ProfileEdit/ProfileEdit';
+import ApplicationSetting from '../screens/applicationSetting';
 import Filter from '../screens/Filter';
 import Upload from '../screens/Upload';
 import Gift from '../screens/Gift';
@@ -108,6 +109,15 @@ const routes: Route[] = [
       ...screenOptions,
       headerShown: true,
       title: i18next.t('TEMP00026'),
+    },
+  },
+  {
+    key: 'ApplicationSetting',
+    name: 'ApplicationSetting',
+    component: ApplicationSetting, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
     },
   },
 ];

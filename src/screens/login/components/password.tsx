@@ -1,6 +1,5 @@
 import React from 'react';
 import { Pressable, TextInput, View } from 'react-native';
-
 import { useTogglePasswordVisibility } from '../../../utility/hooks/useTogglePasswordVisibility';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';

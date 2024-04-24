@@ -177,7 +177,10 @@ const CustomDrawer = ({ navigation, state, descriptors }: Props) => {
         </View>
       </DrawerContentScrollView>
       <View style={[styles.bottomContainer, { borderTopColor: theme.colors.ICON }]}>
-        <TouchableOpacity style={{ paddingVertical: theme.shape.padding.M }}>
+        <TouchableOpacity
+          style={{ paddingVertical: theme.shape.padding.M }}
+          onPress={() => navigation.navigate('ApplicationSetting')}
+        >
           <View style={[commonStyles.FlexDirectionRow, commonStyles.AlignItemsCenter]}>
             <Ionicons name="settings-outline" size={22} color={theme.colors.ICON} />
             <View style={[styles.bottomContainerText]}>

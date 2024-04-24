@@ -7,7 +7,6 @@ import useTheme from '../../utility/hooks/useTheme';
 import styles from './styles';
 import { loginValidation } from '../../utility/validations/Validations';
 import Text from '../../components/elements/text';
-import Switch_ from '../../components/elements/switch/Switch';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import { commonStyles } from '../../assets/commonStyles';
@@ -115,12 +114,12 @@ const Login = ({ navigation }: LoginProps) => {
             </View>
           </View>
           <View style={style.IconContainer}>
-            <Icon
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ApplicationSetting')}
               testID="icon"
-              name={'settings-sharp'}
-              size={theme.shape.icon.S}
-              color={theme.colors.TEXT}
-            />
+            >
+              <Icon name={'settings-sharp'} size={theme.shape.icon.S} color={theme.colors.TEXT} />
+            </TouchableOpacity>
           </View>
         </View>
         <View style={style.LoginContainer}>
@@ -149,7 +148,7 @@ const Login = ({ navigation }: LoginProps) => {
           </View>
           <View style={style.input}>
             <Password
-              testID={'password'}
+              testID={'Password_Input'}
               placeholder={i18next.t('TEMP00003')}
               password={FormDataInfo.password}
               onChange={(text: string) => onLoginInfoChange(text, 'password')}
@@ -175,16 +174,6 @@ const Login = ({ navigation }: LoginProps) => {
             </Text>
             {/* Versioninfo */}
           </TouchableOpacity>
-          <Text testID={'Theme_Text'} style={style.themeText}>
-            {i18next.t('TEMP00007')}
-          </Text>
-          {/* Theme */}
-          <Switch_
-            testID={'switch'}
-            onValueChange={theme.toggleTheme}
-            value={!theme.isLightTheme}
-            style={style.switchstyle}
-          />
         </View>
         <Loader loading={showLoader} />
         <Alert options={alertOptions} setOptions={setAlertOptions} />

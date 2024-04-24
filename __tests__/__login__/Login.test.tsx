@@ -6,6 +6,9 @@ import ThemeProvider from '../../src/theme/themeProvider/ThemeProvider';
 import fetchMock from 'jest-fetch-mock';
 import { langList } from '../../src/constants/index';
 
+jest.mock('react-redux', () => ({
+  useDispatch: jest.fn(),
+}));
 jest.mock('@react-native-async-storage/async-storage', () => ({
   getItem: jest.fn(),
   setItem: jest.fn(),

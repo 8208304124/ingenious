@@ -20,13 +20,17 @@
     "TEMP00018": "Username cannot be blank",
     "TEMP00019": "Password cannot be blank",
     "TEMP00020": "Invalid Credentials",
-    "TEMP00021":"Profile Edit",
-    "TEMP00022":"Profile View",
-    "TEMP00023":"Filter",
-    "TEMP00024":"Upload",
-    "TEMP00025":"Gift",
-    "TEMP00026":"Chat",
-    "TEMP00027":"Edit Profile",
-    "TEMP00028":"Update Profile"
+    "TEMP00021": "Profile Edit",
+    "TEMP00022": "Profile View",
+    "TEMP00023": "Filter",
+    "TEMP00024": "Upload", 
+    "TEMP00025": "Gift",
+    "TEMP00026": "Chat",
+    "TEMP00027": "Edit Profile",
+    "TEMP00028": "Update Profile",
+    "TEMP00029": "ServiceURL",
+    "TEMP00030": "Port",
+    "TEMP00031": "Select Language",
+    "TEMP00032": "Theme"
   }
 }
