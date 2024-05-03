@@ -5,6 +5,7 @@ import VersionInfo from '../screens/VersionInfo/VersionInfo';
 import ProfileView from '../screens/ProfileView/ProfileView';
 import ProfileEdit from '../screens/ProfileEdit/ProfileEdit';
 import ApplicationSetting from '../screens/applicationSetting';
+import Dummy from '../screens/Dummy';
 import Filter from '../screens/Filter';
 import Upload from '../screens/Upload';
 import Gift from '../screens/Gift';
@@ -115,6 +116,15 @@ const routes: Route[] = [
     key: 'ApplicationSetting',
     name: 'ApplicationSetting',
     component: ApplicationSetting, // done
+    options: {
+      headerShown: true,
+      headerShadowVisible: false,
+    },
+  },
+  {
+    key: 'Dummy',
+    name: 'Dummy',
+    component: Dummy, // done
     options: {
       headerShown: true,
       headerShadowVisible: false,

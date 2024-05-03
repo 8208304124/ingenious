@@ -110,7 +110,7 @@ const DashBoard = ({ navigation }: DashboardProps) => {
               vector: true,
               useRippleEffect: false,
               onPress: () => {
-                navigation.navigate('Filter');
+                navigation.navigate('Dummy');
                 //
               },
             },
