@@ -26,24 +26,30 @@ const Dummy: React.FC = () => {
 
   return (
     <View style={style.container}>
-      {Platform.OS === 'ios' && <KeyboardAvoidingViewCustom />}
-      <Confirm
-        showConfirm={showConfirm}
-        title="Confirm Title"
-        message="Confirmation message with parameters: $# and $#"
-        noText="No"
-        yesText="Yes"
-        onNoPress={handleNoPress}
-        onYesPress={handleYesPress}
-      />
+      <View style={style.imgStyle}>
+        <AnimationLoader />
+      </View>
+      <View>
+        {Platform.OS === 'ios' && <KeyboardAvoidingViewCustom />}
+        <View>
+          <Confirm
+            showConfirm={showConfirm}
+            title="Confirm Title"
+            message="Confirmation message with parameters: $# and $#"
+            noText="No"
+            yesText="Yes"
+            onNoPress={handleNoPress}
+            onYesPress={handleYesPress}
+          />
 
-      <View style={{ marginTop: 20, padding: 20 }}>
-        <Button title="Show Confirm" onPress={handleConfirm} />
+          <View style={style.conformButton}>
+            <Button title="Show Confirm" onPress={handleConfirm} />
+          </View>
+          <View style={style.datePicker}>
+            <DatePicker />
+          </View>
+        </View>
       </View>
-      <View style={{ marginTop: 20 }}>
-        <DatePicker />
-      </View>
-      <AnimationLoader />
     </View>
   );
 };

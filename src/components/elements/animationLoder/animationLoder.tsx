@@ -6,11 +6,11 @@ import Animated, {
   withRepeat,
   withTiming,
 } from 'react-native-reanimated';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import AnimatedImg from '../../../assets/images/animated-img.svg';
 
-const duration = 2000;
-const easing = Easing.bezier(0.25, -0.5, 0.25, 1);
+const duration = 400;
+const easing = Easing.bezier(0.1, -0.5, 0.25, 1);
 
 export default function AnimationLoader() {
   const sv = useSharedValue<number>(0);
@@ -20,7 +20,12 @@ export default function AnimationLoader() {
   }, []);
 
   const animatedStyle = useAnimatedStyle(() => ({
-    transform: [{ rotate: `${sv.value * 360}deg` }],
+    transform: [
+      { translateX: -60 },
+      { translateY: -60 },
+      { rotate: `${sv.value * 360}deg` },
+      { scale: 1 },
+    ],
   }));
 
   return (
@@ -28,7 +33,6 @@ export default function AnimationLoader() {
       <Animated.View style={[styles.box, animatedStyle]}>
         <View style={styles.content}>
           <AnimatedImg />
-          <Text style={styles.text}>Your Text Here</Text>
         </View>
       </Animated.View>
     </View>
@@ -47,7 +51,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 120,
     width: 120,
-    backgroundColor: '#b58df1',
     borderRadius: 20,
   },
   content: {
