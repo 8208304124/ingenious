@@ -9,7 +9,7 @@ import Animated, {
 import { StyleSheet, View } from 'react-native';
 import AnimatedImg from '../../../assets/images/animated-img.svg';
 
-const duration = 400;
+const duration = 300;
 const easing = Easing.bezier(0.1, -0.5, 0.25, 1);
 
 export default function AnimationLoader() {
