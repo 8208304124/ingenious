@@ -3814,8 +3814,8 @@
 		46EB2E000211B0 /* RNCSafeAreaViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E0000EBC0 /* RNCSafeAreaViewManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		46EB2E000211C0 /* RNCSafeAreaViewMode.h in Headers */ = {isa = PBXBuildFile; fileRef = 46EB2E0000EBE0 /* RNCSafeAreaViewMode.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		46EB2E00021220 /* react-native-safe-area-context-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00021210 /* react-native-safe-area-context-dummy.m */; };
-		46EB2E00021330 /* Pods-react_native_template-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00021320 /* Pods-react_native_template-dummy.m */; };
-		46EB2E00021440 /* Pods-react_native_template-react_native_templateTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00021430 /* Pods-react_native_template-react_native_templateTests-dummy.m */; };
+		46EB2E00021330 /* Pods-ingenious-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00021320 /* Pods-ingenious-dummy.m */; };
+		46EB2E00021440 /* Pods-ingenious-ingeniousTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 46EB2E00021430 /* Pods-ingenious-ingeniousTests-dummy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -6867,7 +6867,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0118D63B982959E33F7A3D5035D681D9 /* Pods-react_native_template */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-react_native_template"; path = "libPods-react_native_template.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0118D63B982959E33F7A3D5035D681D9 /* Pods-ingenious */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-ingenious"; path = "libPods-ingenious.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1936453FF2A7E3A13063C4917C4D5598 /* RCT-Folly */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "RCT-Folly"; path = "libRCT-Folly.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E04881EDF02715BD6AC2C6ED3FBB37E /* React-rendererdebug */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-rendererdebug"; path = "libReact-rendererdebug.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E649614D7644BF68C2F5D4CB3FBF8DC /* React-NativeModulesApple */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-NativeModulesApple"; path = "libReact-NativeModulesApple.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -10821,25 +10821,25 @@
 		46EB2E000211F0 /* react-native-safe-area-context.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "react-native-safe-area-context.release.xcconfig"; sourceTree = "<group>"; };
 		46EB2E00021200 /* react-native-safe-area-context-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "react-native-safe-area-context-prefix.pch"; sourceTree = "<group>"; };
 		46EB2E00021210 /* react-native-safe-area-context-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "react-native-safe-area-context-dummy.m"; sourceTree = "<group>"; };
-		46EB2E000212C0 /* Pods-react_native_template.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-react_native_template.release.xcconfig"; sourceTree = "<group>"; };
-		46EB2E000212D0 /* Pods-react_native_template.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-react_native_template.debug.xcconfig"; sourceTree = "<group>"; };
-		46EB2E000212E0 /* Pods-react_native_template-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-react_native_template-frameworks.sh"; sourceTree = "<group>"; };
-		46EB2E000212F0 /* Pods-react_native_template-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-react_native_template-resources.sh"; sourceTree = "<group>"; };
-		46EB2E00021300 /* Pods-react_native_template-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-react_native_template-acknowledgements.plist"; sourceTree = "<group>"; };
-		46EB2E00021310 /* Pods-react_native_template-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-react_native_template-acknowledgements.markdown"; sourceTree = "<group>"; };
-		46EB2E00021320 /* Pods-react_native_template-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-react_native_template-dummy.m"; sourceTree = "<group>"; };
-		46EB2E000213D0 /* Pods-react_native_template-react_native_templateTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-react_native_template-react_native_templateTests.release.xcconfig"; sourceTree = "<group>"; };
-		46EB2E000213E0 /* Pods-react_native_template-react_native_templateTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-react_native_template-react_native_templateTests.debug.xcconfig"; sourceTree = "<group>"; };
-		46EB2E000213F0 /* Pods-react_native_template-react_native_templateTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-react_native_template-react_native_templateTests-frameworks.sh"; sourceTree = "<group>"; };
-		46EB2E00021400 /* Pods-react_native_template-react_native_templateTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-react_native_template-react_native_templateTests-resources.sh"; sourceTree = "<group>"; };
-		46EB2E00021410 /* Pods-react_native_template-react_native_templateTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-react_native_template-react_native_templateTests-acknowledgements.plist"; sourceTree = "<group>"; };
-		46EB2E00021420 /* Pods-react_native_template-react_native_templateTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-react_native_template-react_native_templateTests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		46EB2E00021430 /* Pods-react_native_template-react_native_templateTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-react_native_template-react_native_templateTests-dummy.m"; sourceTree = "<group>"; };
+		46EB2E000212C0 /* Pods-ingenious.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ingenious.release.xcconfig"; sourceTree = "<group>"; };
+		46EB2E000212D0 /* Pods-ingenious.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ingenious.debug.xcconfig"; sourceTree = "<group>"; };
+		46EB2E000212E0 /* Pods-ingenious-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ingenious-frameworks.sh"; sourceTree = "<group>"; };
+		46EB2E000212F0 /* Pods-ingenious-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ingenious-resources.sh"; sourceTree = "<group>"; };
+		46EB2E00021300 /* Pods-ingenious-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ingenious-acknowledgements.plist"; sourceTree = "<group>"; };
+		46EB2E00021310 /* Pods-ingenious-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ingenious-acknowledgements.markdown"; sourceTree = "<group>"; };
+		46EB2E00021320 /* Pods-ingenious-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ingenious-dummy.m"; sourceTree = "<group>"; };
+		46EB2E000213D0 /* Pods-ingenious-ingeniousTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ingenious-ingeniousTests.release.xcconfig"; sourceTree = "<group>"; };
+		46EB2E000213E0 /* Pods-ingenious-ingeniousTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-ingenious-ingeniousTests.debug.xcconfig"; sourceTree = "<group>"; };
+		46EB2E000213F0 /* Pods-ingenious-ingeniousTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ingenious-ingeniousTests-frameworks.sh"; sourceTree = "<group>"; };
+		46EB2E00021400 /* Pods-ingenious-ingeniousTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-ingenious-ingeniousTests-resources.sh"; sourceTree = "<group>"; };
+		46EB2E00021410 /* Pods-ingenious-ingeniousTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-ingenious-ingeniousTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		46EB2E00021420 /* Pods-ingenious-ingeniousTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-ingenious-ingeniousTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		46EB2E00021430 /* Pods-ingenious-ingeniousTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-ingenious-ingeniousTests-dummy.m"; sourceTree = "<group>"; };
 		50B5347C9A6E93B7D4CFC3673BA6FB7E /* RNScreens */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = RNScreens; path = libRNScreens.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		52FCF98CEFF94C742080B6965D537AD0 /* react-native-safe-area-context */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "react-native-safe-area-context"; path = "libreact-native-safe-area-context.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5737DDB4BC95AD399B3206838AB97095 /* RNCAsyncStorage */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = RNCAsyncStorage; path = libRNCAsyncStorage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AA54A19E2135E09B9C8C0767385FD3A /* React-graphics */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-graphics"; path = "libReact-graphics.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		6039D332BF9FBFCB37C7FB977F2BC53E /* Pods-react_native_template-react_native_templateTests */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-react_native_template-react_native_templateTests"; path = "libPods-react_native_template-react_native_templateTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6039D332BF9FBFCB37C7FB977F2BC53E /* Pods-ingenious-ingeniousTests */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "Pods-ingenious-ingeniousTests"; path = "libPods-ingenious-ingeniousTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60D5A56E763D6E7C4FBE797565062EEA /* React-nativeconfig */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-nativeconfig"; path = "libReact-nativeconfig.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A80F68AE163B384B7D7A9E76B6046C /* React-FabricImage */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "React-FabricImage"; path = "libReact-FabricImage.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65234B3E668A42D9137B2C7AB051EE37 /* FlipperKit */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = FlipperKit; path = libFlipperKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -11329,8 +11329,8 @@
 				F4BDA69E3BCB0166D49FB679ABADCA00 /* fmt */,
 				3CA7A9404CCDD6BA22C97F8348CE3209 /* glog */,
 				FB6FAD8F0183E86ACBFBD8A81BA7BF3A /* libevent */,
-				0118D63B982959E33F7A3D5035D681D9 /* Pods-react_native_template */,
-				6039D332BF9FBFCB37C7FB977F2BC53E /* Pods-react_native_template-react_native_templateTests */,
+				0118D63B982959E33F7A3D5035D681D9 /* Pods-ingenious */,
+				6039D332BF9FBFCB37C7FB977F2BC53E /* Pods-ingenious-ingeniousTests */,
 				1936453FF2A7E3A13063C4917C4D5598 /* RCT-Folly */,
 				F958876A082BF810B342435CE3FB5AF6 /* RCTTypeSafety */,
 				E7178FECB829C9576A3723658B07F087 /* React-Codegen */,
@@ -11391,8 +11391,8 @@
 		46EB2E00000070 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				46EB2E000212B0 /* Pods-react_native_template */,
-				46EB2E000213C0 /* Pods-react_native_template-react_native_templateTests */,
+				46EB2E000212B0 /* Pods-ingenious */,
+				46EB2E000213C0 /* Pods-ingenious-ingeniousTests */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
@@ -18465,34 +18465,34 @@
 			path = "../../ios/Pods/Target Support Files/react-native-safe-area-context";
 			sourceTree = "<group>";
 		};
-		46EB2E000212B0 /* Pods-react_native_template */ = {
+		46EB2E000212B0 /* Pods-ingenious */ = {
 			isa = PBXGroup;
 			children = (
-				46EB2E00021310 /* Pods-react_native_template-acknowledgements.markdown */,
-				46EB2E00021300 /* Pods-react_native_template-acknowledgements.plist */,
-				46EB2E00021320 /* Pods-react_native_template-dummy.m */,
-				46EB2E000212E0 /* Pods-react_native_template-frameworks.sh */,
-				46EB2E000212F0 /* Pods-react_native_template-resources.sh */,
-				46EB2E000212D0 /* Pods-react_native_template.debug.xcconfig */,
-				46EB2E000212C0 /* Pods-react_native_template.release.xcconfig */,
+				46EB2E00021310 /* Pods-ingenious-acknowledgements.markdown */,
+				46EB2E00021300 /* Pods-ingenious-acknowledgements.plist */,
+				46EB2E00021320 /* Pods-ingenious-dummy.m */,
+				46EB2E000212E0 /* Pods-ingenious-frameworks.sh */,
+				46EB2E000212F0 /* Pods-ingenious-resources.sh */,
+				46EB2E000212D0 /* Pods-ingenious.debug.xcconfig */,
+				46EB2E000212C0 /* Pods-ingenious.release.xcconfig */,
 			);
-			name = "Pods-react_native_template";
-			path = "Target Support Files/Pods-react_native_template";
+			name = "Pods-ingenious";
+			path = "Target Support Files/Pods-ingenious";
 			sourceTree = "<group>";
 		};
-		46EB2E000213C0 /* Pods-react_native_template-react_native_templateTests */ = {
+		46EB2E000213C0 /* Pods-ingenious-ingeniousTests */ = {
 			isa = PBXGroup;
 			children = (
-				46EB2E00021420 /* Pods-react_native_template-react_native_templateTests-acknowledgements.markdown */,
-				46EB2E00021410 /* Pods-react_native_template-react_native_templateTests-acknowledgements.plist */,
-				46EB2E00021430 /* Pods-react_native_template-react_native_templateTests-dummy.m */,
-				46EB2E000213F0 /* Pods-react_native_template-react_native_templateTests-frameworks.sh */,
-				46EB2E00021400 /* Pods-react_native_template-react_native_templateTests-resources.sh */,
-				46EB2E000213E0 /* Pods-react_native_template-react_native_templateTests.debug.xcconfig */,
-				46EB2E000213D0 /* Pods-react_native_template-react_native_templateTests.release.xcconfig */,
+				46EB2E00021420 /* Pods-ingenious-ingeniousTests-acknowledgements.markdown */,
+				46EB2E00021410 /* Pods-ingenious-ingeniousTests-acknowledgements.plist */,
+				46EB2E00021430 /* Pods-ingenious-ingeniousTests-dummy.m */,
+				46EB2E000213F0 /* Pods-ingenious-ingeniousTests-frameworks.sh */,
+				46EB2E00021400 /* Pods-ingenious-ingeniousTests-resources.sh */,
+				46EB2E000213E0 /* Pods-ingenious-ingeniousTests.debug.xcconfig */,
+				46EB2E000213D0 /* Pods-ingenious-ingeniousTests.release.xcconfig */,
 			);
-			name = "Pods-react_native_template-react_native_templateTests";
-			path = "Target Support Files/Pods-react_native_template-react_native_templateTests";
+			name = "Pods-ingenious-ingeniousTests";
+			path = "Target Support Files/Pods-ingenious-ingeniousTests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -21497,9 +21497,9 @@
 			productReference = 85A01882ED06DFEA2E0CE78BCDB204A7 /* SocketRocket */;
 			productType = "com.apple.product-type.library.static";
 		};
-		194A9C52D19991398D95BA64E098FBDB /* Pods-react_native_template-react_native_templateTests */ = {
+		194A9C52D19991398D95BA64E098FBDB /* Pods-ingenious-ingeniousTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 46EB2E00021350 /* Build configuration list for PBXNativeTarget "Pods-react_native_template-react_native_templateTests" */;
+			buildConfigurationList = 46EB2E00021350 /* Build configuration list for PBXNativeTarget "Pods-ingenious-ingeniousTests" */;
 			buildPhases = (
 				46EB2E00021390 /* Headers */,
 				46EB2E000213A0 /* Sources */,
@@ -21577,9 +21577,9 @@
 				46EB2E00022590 /* PBXTargetDependency */,
 				46EB2E000225B0 /* PBXTargetDependency */,
 			);
-			name = "Pods-react_native_template-react_native_templateTests";
-			productName = "Pods-react_native_template-react_native_templateTests";
-			productReference = 6039D332BF9FBFCB37C7FB977F2BC53E /* Pods-react_native_template-react_native_templateTests */;
+			name = "Pods-ingenious-ingeniousTests";
+			productName = "Pods-ingenious-ingeniousTests";
+			productReference = 6039D332BF9FBFCB37C7FB977F2BC53E /* Pods-ingenious-ingeniousTests */;
 			productType = "com.apple.product-type.library.static";
 		};
 		20F066A71CEA5EECC7463413442F2B77 /* React-hermes */ = {
@@ -22195,9 +22195,9 @@
 			productReference = 8998273719FDD789E6F9C7541AFD0B33 /* RNVectorIcons */;
 			productType = "com.apple.product-type.library.static";
 		};
-		97695F2FA97B9775F76C86302E309F21 /* Pods-react_native_template */ = {
+		97695F2FA97B9775F76C86302E309F21 /* Pods-ingenious */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 46EB2E00021240 /* Build configuration list for PBXNativeTarget "Pods-react_native_template" */;
+			buildConfigurationList = 46EB2E00021240 /* Build configuration list for PBXNativeTarget "Pods-ingenious" */;
 			buildPhases = (
 				46EB2E00021280 /* Headers */,
 				46EB2E00021290 /* Sources */,
@@ -22275,9 +22275,9 @@
 				46EB2E00021D10 /* PBXTargetDependency */,
 				46EB2E00021D30 /* PBXTargetDependency */,
 			);
-			name = "Pods-react_native_template";
-			productName = "Pods-react_native_template";
-			productReference = 0118D63B982959E33F7A3D5035D681D9 /* Pods-react_native_template */;
+			name = "Pods-ingenious";
+			productName = "Pods-ingenious";
+			productReference = 0118D63B982959E33F7A3D5035D681D9 /* Pods-ingenious */;
 			productType = "com.apple.product-type.library.static";
 		};
 		982644B5B647690B2E4F5B3F54EB5717 /* FlipperKit */ = {
@@ -22871,8 +22871,8 @@
 				985FEA01F314F3C00F0C1E1181E6C4A5 /* hermes-engine */,
 				04A30E186743192DFB26B0FD7DB8F250 /* libevent */,
 				B9ED5194E665042005069EF06C82A050 /* OpenSSL-Universal */,
-				97695F2FA97B9775F76C86302E309F21 /* Pods-react_native_template */,
-				194A9C52D19991398D95BA64E098FBDB /* Pods-react_native_template-react_native_templateTests */,
+				97695F2FA97B9775F76C86302E309F21 /* Pods-ingenious */,
+				194A9C52D19991398D95BA64E098FBDB /* Pods-ingenious-ingeniousTests */,
 				EC55D52694092A9D0E6A78EB01207EB5 /* RCT-Folly */,
 				E7E7CE52C8C68B17224FF8C262D80ABF /* RCTRequired */,
 				D20469A9A1E5CFB26045EAEBE3F88E5E /* RCTTypeSafety */,
@@ -24760,7 +24760,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46EB2E00021330 /* Pods-react_native_template-dummy.m in Sources */,
+				46EB2E00021330 /* Pods-ingenious-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -24768,7 +24768,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				46EB2E00021440 /* Pods-react_native_template-react_native_templateTests-dummy.m in Sources */,
+				46EB2E00021440 /* Pods-ingenious-ingeniousTests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -30788,7 +30788,7 @@
 		};
 		46EB2E00021250 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46EB2E000212C0 /* Pods-react_native_template.release.xcconfig */;
+			baseConfigurationReference = 46EB2E000212C0 /* Pods-ingenious.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -30810,7 +30810,7 @@
 		};
 		46EB2E00021260 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46EB2E000212D0 /* Pods-react_native_template.debug.xcconfig */;
+			baseConfigurationReference = 46EB2E000212D0 /* Pods-ingenious.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -30831,7 +30831,7 @@
 		};
 		46EB2E00021360 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46EB2E000213D0 /* Pods-react_native_template-react_native_templateTests.release.xcconfig */;
+			baseConfigurationReference = 46EB2E000213D0 /* Pods-ingenious-ingeniousTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -30853,7 +30853,7 @@
 		};
 		46EB2E00021370 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 46EB2E000213E0 /* Pods-react_native_template-react_native_templateTests.debug.xcconfig */;
+			baseConfigurationReference = 46EB2E000213E0 /* Pods-ingenious-ingeniousTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -31514,7 +31514,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		46EB2E00021240 /* Build configuration list for PBXNativeTarget "Pods-react_native_template" */ = {
+		46EB2E00021240 /* Build configuration list for PBXNativeTarget "Pods-ingenious" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46EB2E00021260 /* Debug */,
@@ -31523,7 +31523,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		46EB2E00021350 /* Build configuration list for PBXNativeTarget "Pods-react_native_template-react_native_templateTests" */ = {
+		46EB2E00021350 /* Build configuration list for PBXNativeTarget "Pods-ingenious-ingeniousTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				46EB2E00021370 /* Debug */,

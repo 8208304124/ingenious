@@ -1,4 +1,4 @@
-${PODS_ROOT}/Target Support Files/Pods-react_native_template-react_native_templateTests/Pods-react_native_template-react_native_templateTests-resources.sh
+${PODS_ROOT}/Target Support Files/Pods-ingenious-ingeniousTests/Pods-ingenious-ingeniousTests-resources.sh
 ${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage/RNCAsyncStorage_resources.bundle
 ${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf
 ${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf

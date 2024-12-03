@@ -1,4 +1,4 @@
-package com.react_native_template
+package com.ingenious
 
 import android.app.Application
 import com.facebook.react.PackageList

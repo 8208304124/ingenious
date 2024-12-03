@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_react_native_template : NSObject
+@interface PodsDummy_Pods_ingenious : NSObject
 @end
-@implementation PodsDummy_Pods_react_native_template
+@implementation PodsDummy_Pods_ingenious
 @end

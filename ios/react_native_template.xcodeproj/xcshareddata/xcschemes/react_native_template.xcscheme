@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "react_native_template.app"
-               BlueprintName = "react_native_template"
-               ReferencedContainer = "container:react_native_template.xcodeproj">
+               BuildableName = "ingenious.app"
+               BlueprintName = "ingenious"
+               ReferencedContainer = "container:ingenious.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "react_native_templateTests.xctest"
-               BlueprintName = "react_native_templateTests"
-               ReferencedContainer = "container:react_native_template.xcodeproj">
+               BuildableName = "ingeniousTests.xctest"
+               BlueprintName = "ingeniousTests"
+               ReferencedContainer = "container:ingenious.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "react_native_template.app"
-            BlueprintName = "react_native_template"
-            ReferencedContainer = "container:react_native_template.xcodeproj">
+            BuildableName = "ingenious.app"
+            BlueprintName = "ingenious"
+            ReferencedContainer = "container:ingenious.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "react_native_template.app"
-            BlueprintName = "react_native_template"
-            ReferencedContainer = "container:react_native_template.xcodeproj">
+            BuildableName = "ingenious.app"
+            BlueprintName = "ingenious"
+            ReferencedContainer = "container:ingenious.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
