@@ -12,10 +12,12 @@ __generated__
 
 ### ReactNative.Android Stack ###
 # Gradle files
-build/
-android/.gradle/
-android/app/build/
+/android/app/build/
+/android/.gradle
 
+# Ignore iOS pod files
+/ios/Pods/
+/ios/Podfile.lock
 
 # Local configuration file (sdk path, etc)
 local.properties
