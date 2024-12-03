@@ -4,7 +4,7 @@ import { ThemeType } from '../../utility/interfaces/themeInterfaces/ThemeInterfa
 const styles = (theme: ThemeType) =>
   StyleSheet.create({
     container: {
-      backgroundColor: theme.colors.BACKGROUND,
+      // backgroundColor: theme.colors.BACKGROUND,
     },
     DropDown: {
       width: 145,

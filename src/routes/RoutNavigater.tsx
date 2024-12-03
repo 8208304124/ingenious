@@ -42,9 +42,9 @@ export const RouteNavigater = () => {
       theme={{
         ...DefaultTheme,
         colors: {
-          background: theme.colors.BACKGROUND,
+          background: 'white',
           primary: theme.colors.PRIMARY,
-          text: theme.colors.TEXT,
+          text: 'black',
           card: '',
           border: '',
           notification: '',
@@ -62,9 +62,9 @@ export const RouteNavigater = () => {
             options={() => ({
               ...route.options,
               headerStyle: {
-                backgroundColor: theme.colors.BACKGROUND,
+                backgroundColor: 'white',
               },
-              headerTintColor: theme.colors.HEADER_TEXT,
+              headerTintColor: 'black',
               headerBackTitleVisible: false,
             })}
           />
