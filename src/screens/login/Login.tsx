@@ -21,7 +21,6 @@ import Button from '../../components/elements/button/Button';
 import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
-import Password from './components/password';
 import { useDispatch } from 'react-redux';
 import { callLogin, loginPayloadType } from '../../store/reducers/authReducer';
 import { ThunkDispatch } from 'redux-thunk';
@@ -146,14 +145,14 @@ const Login = ({ navigation }: LoginProps) => {
               value={FormDataInfo?.userName}
             />
           </View>
-          <View style={style.input}>
+          {/* <View style={style.input}>
             <Password
               testID={'Password_Input'}
               placeholder={i18next.t('TEMP00003')}
               password={FormDataInfo.password}
               onChange={(text: string) => onLoginInfoChange(text, 'password')}
             />
-          </View>
+          </View> */}
         </View>
         <View style={style.ButtonContainer}>
           <Button

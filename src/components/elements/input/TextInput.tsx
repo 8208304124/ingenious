@@ -1,12 +1,12 @@
 import React, { useMemo, forwardRef, ForwardedRef } from 'react';
-import { TextInput, Pressable, TouchableOpacity, TextInputProps } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { TextInput, TextInputProps } from 'react-native';
+// import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 import i18next from 'i18next';
 import useLanguage from '../../../utility/hooks/useLanguage';
 import useThemedStyles from '../../../utility/hooks/useThemedStyles';
-import useTheme from '../../../utility/hooks/useTheme';
-import { SvgProps } from 'react-native-svg';
+// import useTheme from '../../../utility/hooks/useTheme';
+// import { SvgProps } from 'react-native-svg';
 
 interface Props extends TextInputProps {
   testID?: string;
@@ -24,10 +24,10 @@ interface Props extends TextInputProps {
   isCapitalized?: boolean;
   disabled?: boolean;
   onKeyPress?: () => void;
-  svgImage?: {
-    image?: React.FC<SvgProps>;
-    onPress?: () => void;
-  };
+  // svgImage?: {
+  //   image?: React.FC<SvgProps>;
+  //   onPress?: () => void;
+  // };
   borderColor?: string;
 }
 
@@ -41,22 +41,22 @@ function TextInput_(
     onTouchStart = () => {
       //nothing to do here
     },
-    icon = null,
-    iconAlling = 'left',
-    iconButton = {
-      icon: undefined,
-      onPress: () => {
-        //
-      },
-      color: '#fff',
-    },
+    // icon = null,
+    // iconAlling = 'left',
+    // iconButton = {
+    //   icon: undefined,
+    //   onPress: () => {
+    //     //
+    //   },
+    //   color: '#fff',
+    // },
     onFocus,
     onBlur,
     addOnTextInputStyle = {},
-    onIconPress = () => {
-      /*default param */
-    },
-    iconStyle,
+    // onIconPress = () => {
+    //   /*default param */
+    // },
+    // iconStyle,
     maxLength,
     isCapitalized,
     disabled = false,
@@ -64,20 +64,19 @@ function TextInput_(
     onKeyPress = () => {
       //nothing to do here
     },
-    svgImage = {
-      image: undefined,
-      onPress: () => {
-        //
-      },
-    },
-    borderColor = '#797C8B4D',
-  }: Props,
+  }: // svgImage = {
+  //   image: undefined,
+  //   onPress: () => {
+  //     //
+  //   },
+  // },
+  Props,
   ref: ForwardedRef<TextInput>
 ) {
   const translate = useLanguage();
   i18next.t(translate);
   const style = useThemedStyles(styles);
-  const theme = useTheme();
+  // const theme = useTheme();
   // const [bg, setBg] = useState('#797C8B4D')
   // handles numeric values
   const valueString = useMemo(() => (value ? value.toString() : ''), [value]);
@@ -90,56 +89,27 @@ function TextInput_(
   // }
 
   return (
-    <TouchableOpacity onPress={onTouchStart} style={[style.section, { borderColor: borderColor }]}>
-      {icon && iconAlling === 'left' && (
-        <Icon
-          onPress={onIconPress}
-          style={[style.icon, { ...iconStyle }]}
-          name={icon}
-          size={20}
-          color={theme.colors.PLACEHOLDER}
-        />
-      )}
-      <TextInput
-        testID={testID}
-        ref={ref}
-        onSubmitEditing={onSubmitEditing}
-        onKeyPress={() => onKeyPress()}
-        onFocus={onFocus}
-        onBlur={onBlur}
-        onTouchStart={onTouchStart}
-        style={[style.input, addOnTextInputStyle]}
-        placeholder={i18next.t(placeholder)}
-        onChangeText={onChangeText}
-        value={valueString}
-        keyboardType={keyboardType}
-        autoCapitalize={isCapitalized ? 'characters' : 'none'}
-        placeholderTextColor={theme.colors.PLACEHOLDER}
-        underlineColorAndroid="transparent"
-        maxLength={maxLength}
-        editable={!disabled}
-        selectTextOnFocus={!disabled}
-      />
-      {icon && iconAlling === 'right' && (
-        <Icon
-          onPress={onIconPress}
-          style={[style.icon, { ...iconStyle }]}
-          name={icon}
-          size={20}
-          color={theme.colors.PLACEHOLDER}
-        />
-      )}
-      {iconButton.icon && (
-        <Pressable onPress={iconButton.onPress} style={style.iconButton}>
-          <Icon style={style.icon} name={iconButton.icon} size={20} color={theme.colors.TEXT} />
-        </Pressable>
-      )}
-      {svgImage.image && (
-        <Pressable onPress={svgImage.onPress}>
-          <svgImage.image />
-        </Pressable>
-      )}
-    </TouchableOpacity>
+    <TextInput
+      testID={testID}
+      ref={ref}
+      onSubmitEditing={onSubmitEditing}
+      onKeyPress={() => onKeyPress()}
+      onFocus={onFocus}
+      onBlur={onBlur}
+      onTouchStart={onTouchStart}
+      style={[style.input, addOnTextInputStyle]}
+      placeholder={i18next.t(placeholder)}
+      onChangeText={onChangeText}
+      value={valueString}
+      textAlign="center"
+      keyboardType={keyboardType}
+      autoCapitalize={isCapitalized ? 'characters' : 'none'}
+      placeholderTextColor={'#CECECE'}
+      underlineColorAndroid="transparent"
+      maxLength={maxLength}
+      editable={!disabled}
+      selectTextOnFocus={!disabled}
+    />
   );
 }
 
