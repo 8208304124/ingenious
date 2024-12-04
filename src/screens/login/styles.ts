@@ -1,13 +1,42 @@
 import { StyleSheet } from 'react-native';
 import { ThemeType } from '../../utility/interfaces/themeInterfaces/ThemeInterfaces';
+import { scale } from 'react-native-size-matters';
 
 const styles = (theme: ThemeType) =>
   StyleSheet.create({
     container: {
-      // backgroundColor: theme.colors.BACKGROUND,
+      flex: 1,
+      justifyContent: 'space-evenly',
+    },
+    headerText: {
+      textAlign: 'center',
+      fontFamily: 'Merriweather-Black',
+      color: 'black',
+      fontSize: 30,
+    },
+    loginSubText: {
+      color: '#7F8C8D',
+      textAlign: 'center',
+      paddingHorizontal: 5,
+      fontSize: 14,
+      lineHeight: 19,
+    },
+    button: {
+      height: scale(45),
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: scale(130),
+      borderRadius: 7,
+      backgroundColor: '#4169E1',
+    },
+    buttonText: {
+      color: 'white',
+      fontSize: 16,
+      fontWeight: '500',
+      lineHeight: 24,
     },
     DropDown: {
-      width: 145,
+      width: 147,
       height: 28,
       marginTop: '8%',
       marginLeft: '8%',
@@ -18,17 +47,15 @@ const styles = (theme: ThemeType) =>
       color: theme.colors.TEXT,
     },
     LoginContainer: {
-      zIndex: -1,
-      marginTop: '20%',
+      gap: 20,
+      paddingHorizontal: 35,
     },
     LoginTextContainer: {
       marginTop: '20%',
     },
     loginText: { fontWeight: '600', textAlign: 'center' },
     input: {
-      marginTop: '6%',
       flexDirection: 'row',
-      paddingHorizontal: '9%',
     },
     VersionInfoContainer: {
       marginTop: '5%',
@@ -50,6 +77,7 @@ const styles = (theme: ThemeType) =>
       marginTop: '1%',
     },
     ButtonContainer: {
+      alignItems: 'center',
       paddingHorizontal: '9%',
     },
     IconContainer: {

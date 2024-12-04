@@ -1,9 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import React, { useState } from 'react';
-import { View, TouchableOpacity } from 'react-native';
+import { Pressable, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import useTheme from '../../utility/hooks/useTheme';
 import styles from './styles';
 import { loginValidation } from '../../utility/validations/Validations';
 import Text from '../../components/elements/text';
@@ -11,13 +10,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import { commonStyles } from '../../assets/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CustomDropdown from '../../components/common/dropdown';
-import { langList } from '../../constants';
-import useLanguage from '../../utility/hooks/useLanguage';
 import TextInput from '../../components/elements/input/TextInput';
-import Icon from 'react-native-vector-icons/Ionicons';
-import i18next from 'i18next';
-import Button from '../../components/elements/button/Button';
 import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
@@ -26,20 +19,13 @@ import { callLogin, loginPayloadType } from '../../store/reducers/authReducer';
 import { ThunkDispatch } from 'redux-thunk';
 import { RootState } from '../../store/reducers';
 import { UnknownAction } from 'redux';
-
+import HeadLogo from '../../assets/images/headLogo.svg';
 export type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
 };
-interface languageType {
-  id: number;
-  value: string;
-  label: string;
-}
 
 const Login = ({ navigation }: LoginProps) => {
   const style = useThemedStyles(styles);
-  const translate = useLanguage();
-  const theme = useTheme();
   const [showLoader, setShowLoader] = useState<boolean>(false);
   const dispatch: ThunkDispatch<RootState, void, UnknownAction> = useDispatch();
   const [FormDataInfo, setFormDataInfo] = useState({
@@ -52,13 +38,6 @@ const Login = ({ navigation }: LoginProps) => {
     title: '',
     message: '',
   });
-
-  // useEffect(() => {
-  //   checkToken();
-  // }, []);
-  const handleLangFun = (selectedValue: languageType) => {
-    translate.changeLanguage(selectedValue.value);
-  };
 
   const onLoginInfoChange = (text: string, key: string) => {
     setFormDataInfo((prevState) => ({
@@ -100,79 +79,38 @@ const Login = ({ navigation }: LoginProps) => {
   return (
     <GestureHandlerRootView style={commonStyles.Flex1}>
       <SafeAreaView style={[style.container, commonStyles.Flex1]}>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <View style={style.DropDown}>
-            <View style={commonStyles.Flex1}>
-              <TouchableOpacity testID="DropDown_BTN">
-                <CustomDropdown
-                  options={langList}
-                  onSelect={handleLangFun}
-                  placeholder={'Language'}
-                />
-              </TouchableOpacity>
-            </View>
-          </View>
-          <View style={style.IconContainer}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('ApplicationSetting')}
-              testID="icon"
-            >
-              <Icon name={'settings-sharp'} size={theme.shape.icon.S} color={theme.colors.TEXT} />
-            </TouchableOpacity>
-          </View>
+        <View style={{ alignItems: 'center' }}>
+          <HeadLogo />
         </View>
         <View style={style.LoginContainer}>
-          <View style={style.LoginTextContainer}>
-            <Text
-              testID={'Login_Text'}
-              style={[
-                style.loginText,
-                { color: theme.colors.TEXT, fontSize: theme.typography.size.M },
-              ]}
-            >
-              {i18next.t('TEMP00001')}
+          <View>
+            <Text style={style.headerText}>Login</Text>
+          </View>
+          <View>
+            <Text style={style.loginSubText}>
+              Create your account to access expert-led courses and unlock your potential in law.
             </Text>
-            {/* Login */}
           </View>
           <View style={style.input}>
             {/* Username */}
             <TextInput
               testID={'Username_Input'}
-              placeholder={i18next.t('TEMP00002')}
+              placeholder={'Enter your registered mobile no.'}
               icon={'person'}
               iconAlling="left"
               onChangeText={(text) => onLoginInfoChange(text, 'userName')}
               value={FormDataInfo?.userName}
             />
           </View>
-          {/* <View style={style.input}>
-            <Password
-              testID={'Password_Input'}
-              placeholder={i18next.t('TEMP00003')}
-              password={FormDataInfo.password}
-              onChange={(text: string) => onLoginInfoChange(text, 'password')}
-            />
-          </View> */}
+          <View style={style.ButtonContainer}>
+            <Pressable style={style.button} onPress={handleLogin}>
+              <Text style={style.buttonText}>Send OTP</Text>
+            </Pressable>
+          </View>
         </View>
-        <View style={style.ButtonContainer}>
-          <Button
-            testID="Login_Btn"
-            title={i18next.t('TEMP00001')}
-            onPress={handleLogin}
-            addonPrimaryStyle={style.loginButton}
-          />
-        </View>
-        <View style={style.VersionInfoContainer}>
-          <TouchableOpacity
-            testID="Version_Btn"
-            style={style.VersionInfoText}
-            onPress={() => navigation.navigate('VersionInfo')}
-          >
-            <Text testID={'VersionInfo_Text'} style={{ color: theme.colors.BUTTON }}>
-              {i18next.t('TEMP00006')}
-            </Text>
-            {/* Versioninfo */}
-          </TouchableOpacity>
+        <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 3 }}>
+          <Text style={{ color: '#7F8C8D' }}>Don’t have account?</Text>
+          <Text style={{ color: '#4169E1', fontWeight: '600' }}>Sign Up</Text>
         </View>
         <Loader loading={showLoader} />
         <Alert options={alertOptions} setOptions={setAlertOptions} />
