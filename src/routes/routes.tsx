@@ -12,6 +12,7 @@ import Gift from '../screens/Gift';
 import Chat from '../screens/Chat';
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import i18next from 'i18next';
+import SignUp from '../screens/login/SignUp';
 
 type Route = {
   key: React.Key;
@@ -32,6 +33,15 @@ const routes: Route[] = [
     options: {
       headerShown: false,
       title: i18next.t('TEMP00001'),
+    },
+  },
+  {
+    key: 'SignUp',
+    name: 'SignUp',
+    component: SignUp,
+    options: {
+      headerShown: false,
+      title: 'SignUp',
     },
   },
   {

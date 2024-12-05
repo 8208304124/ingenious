@@ -28,7 +28,7 @@ const styles = (theme: ThemeType) => {
       borderColor: '#50C878',
       backgroundColor: '#F9F9F9',
       paddingHorizontal: 10,
-      height: scale(45),
+      height: scale(42),
       borderWidth: 0.5,
       borderRadius: 7,
       textAlign: 'center',

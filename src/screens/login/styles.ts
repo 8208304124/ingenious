@@ -10,9 +10,9 @@ const styles = (theme: ThemeType) =>
     },
     headerText: {
       textAlign: 'center',
-      fontFamily: 'Merriweather-Black',
+      fontFamily: 'Merriweather-Bold',
       color: 'black',
-      fontSize: 30,
+      fontSize: 28,
     },
     loginSubText: {
       color: '#7F8C8D',
@@ -22,7 +22,7 @@ const styles = (theme: ThemeType) =>
       lineHeight: 19,
     },
     button: {
-      height: scale(45),
+      height: scale(42),
       alignItems: 'center',
       justifyContent: 'center',
       width: scale(130),
@@ -31,9 +31,8 @@ const styles = (theme: ThemeType) =>
     },
     buttonText: {
       color: 'white',
-      fontSize: 16,
+      fontSize: 14,
       fontWeight: '500',
-      lineHeight: 24,
     },
     DropDown: {
       width: 147,
