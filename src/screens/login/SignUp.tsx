@@ -1,30 +1,22 @@
 import React, { useState } from 'react';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import { Pressable, ScrollView, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles';
-import { loginValidation } from '../../utility/validations/Validations';
 import Text from '../../components/elements/text';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import { commonStyles } from '../../assets/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TextInput from '../../components/elements/input/TextInput';
-import Loader from '../../components/elements/loader';
+// import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
-import { useDispatch } from 'react-redux';
-import { callLogin, loginPayloadType } from '../../store/reducers/authReducer';
-import { ThunkDispatch } from 'redux-thunk';
-import { RootState } from '../../store/reducers';
-import { UnknownAction } from 'redux';
+
 import HeadLogo from '../../assets/images/headLogo.svg';
 export type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
 };
 function SignUp({ navigation }: LoginProps) {
   const style = useThemedStyles(styles);
-  const [showLoader, setShowLoader] = useState<boolean>(false);
-  const dispatch: ThunkDispatch<RootState, void, UnknownAction> = useDispatch();
   const [FormDataInfo, setFormDataInfo] = useState({
     userName: '',
     password: '',
@@ -43,35 +35,6 @@ function SignUp({ navigation }: LoginProps) {
     }));
   };
 
-  const handleLogin = async () => {
-    setShowLoader(true);
-
-    if (!loginValidation(FormDataInfo.userName, FormDataInfo.password, setAlertOptions)) {
-      // Validation failed, return early
-      setShowLoader(false);
-      return;
-    }
-    try {
-      setShowLoader(true);
-      const requestBody = {
-        username: FormDataInfo.userName,
-        password: FormDataInfo.password,
-      };
-      const payload: loginPayloadType = {
-        requestBody: requestBody,
-        setLoading: setShowLoader,
-        setAlertOptions: setAlertOptions,
-      };
-      const response = (await dispatch(callLogin(payload))).payload;
-      setShowLoader(false);
-      if (response && response?.token) {
-        await AsyncStorage.setItem('token', response.token);
-        navigation.navigate('DrawerNavigation');
-      }
-    } catch (error) {
-      setShowLoader(false);
-    }
-  };
   return (
     <SafeAreaView style={[commonStyles.Flex1]}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -122,7 +85,7 @@ function SignUp({ navigation }: LoginProps) {
               />
             </View>
             <View style={style.ButtonContainer}>
-              <Pressable style={style.button} onPress={handleLogin}>
+              <Pressable style={style.button} onPress={() => navigation.navigate('OTPScreen')}>
                 <Text style={style.buttonText}>Continue</Text>
               </Pressable>
             </View>
@@ -135,7 +98,7 @@ function SignUp({ navigation }: LoginProps) {
           </View>
         </View>
       </ScrollView>
-      <Loader loading={showLoader} />
+      {/* <Loader loading={showLoader} /> */}
       <Alert options={alertOptions} setOptions={setAlertOptions} />
     </SafeAreaView>
   );

@@ -13,6 +13,7 @@ import Chat from '../screens/Chat';
 import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import i18next from 'i18next';
 import SignUp from '../screens/login/SignUp';
+import OTPScreen from '../screens/login/OTPScreen';
 
 type Route = {
   key: React.Key;
@@ -42,6 +43,15 @@ const routes: Route[] = [
     options: {
       headerShown: false,
       title: 'SignUp',
+    },
+  },
+  {
+    key: 'OTPScreen',
+    name: 'OTPScreen',
+    component: OTPScreen,
+    options: {
+      headerShown: false,
+      title: 'OTPScreen',
     },
   },
   {
