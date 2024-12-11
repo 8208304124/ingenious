@@ -14,6 +14,7 @@ import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import i18next from 'i18next';
 import SignUp from '../screens/login/SignUp';
 import OTPScreen from '../screens/login/OTPScreen';
+import BottomNavTabs from '../screens/BottomNavTabs/BottomNavTabs';
 
 type Route = {
   key: React.Key;
@@ -43,6 +44,14 @@ const routes: Route[] = [
     options: {
       headerShown: false,
       title: 'SignUp',
+    },
+  },
+  {
+    key: 'MainDashboard',
+    name: 'MainDashboard',
+    component: BottomNavTabs,
+    options: {
+      headerShown: false,
     },
   },
   {

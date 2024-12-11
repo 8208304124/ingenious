@@ -4,6 +4,7 @@ import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import HeadLogo from '../../assets/images/headLogo.svg';
+import { navigate } from '../../routes/RootNavigation';
 const OTPScreen = () => {
   const [otp, setOtp] = useState(['', '', '', '']);
   const inputRefs = useRef<Array<TextInput | null>>(Array(4).fill(null));
@@ -13,15 +14,12 @@ const OTPScreen = () => {
     newOtp[index] = value;
 
     setOtp(newOtp);
-
-    // Automatically move to the next input
     if (value.length === 1 && index < otp.length - 1) {
       inputRefs.current[index + 1]?.focus();
     }
   };
 
   const handleKeyPress = (index: number, key: string) => {
-    // Handle backspace: Clear the current input and move focus to the previous input
     if (key === 'Backspace' && !otp[index] && index > 0) {
       const newOtp = [...otp];
       newOtp[index - 1] = '';
@@ -59,7 +57,12 @@ const OTPScreen = () => {
             />
           ))}
         </View>
-        <Pressable style={style.button}>
+        <Pressable
+          style={style.button}
+          onPress={() => {
+            navigate('MainDashboard');
+          }}
+        >
           <Text style={style.buttonText}>Verify</Text>
         </Pressable>
         <View style={{ flexDirection: 'row', gap: 5, paddingBottom: 25 }}>
