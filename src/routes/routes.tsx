@@ -15,19 +15,13 @@ import i18next from 'i18next';
 import SignUp from '../screens/login/SignUp';
 import OTPScreen from '../screens/login/OTPScreen';
 import BottomNavTabs from '../screens/BottomNavTabs/BottomNavTabs';
-
-type Route = {
-  key: React.Key;
-  name: string;
-  component: React.ComponentType<any>;
-  options?: NativeStackNavigationOptions;
-};
+import CourseDetails from '../screens/CourseDetails/CourseDetails';
 
 const screenOptions: NativeStackNavigationOptions = {
   headerShadowVisible: false,
   headerTitleAlign: 'center',
 };
-const routes: Route[] = [
+const routes = [
   {
     key: 'Login',
     name: 'Login',
@@ -129,6 +123,19 @@ const routes: Route[] = [
       ...screenOptions,
       headerShown: true,
       title: i18next.t('TEMP00025'),
+    },
+  },
+  {
+    key: 'CourseDetails',
+    name: 'CourseDetails',
+    component: CourseDetails,
+    options: {
+      headerShadowVisible: false,
+      headerShown: true,
+      showNotification: true,
+      showShare: true,
+      showHeaderRight: true,
+      title: 'Course',
     },
   },
   {

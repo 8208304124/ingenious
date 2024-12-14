@@ -32,7 +32,6 @@ export default function BottomNavTabs() {
         headerTitleContainerStyle: { paddingHorizontal: 10 },
         headerTintColor: '#4169E1',
         headerTitleStyle: { fontSize: 24, fontWeight: '700' },
-        headerBackgroundContainerStyle: { backgroundColor: '#F7F8FA' },
         tabBarStyle: {
           borderWidth: 1,
           borderTopLeftRadius: 35,
@@ -48,7 +47,7 @@ export default function BottomNavTabs() {
         name="VishwaLaw"
         component={Home}
         options={{
-          headerRight: () => <HeaderRight showNotification={true} showHome={false} />,
+          headerRight: () => <HeaderRight showNotification={true} showShare={false} />,
           tabBarIcon: ({ color, size }) => (
             <FeatherIconwithBack
               name={'home'}

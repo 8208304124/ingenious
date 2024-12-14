@@ -2,6 +2,8 @@ import React from 'react';
 import { Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
 import { scale } from 'react-native-size-matters';
 import Feather from 'react-native-vector-icons/Feather';
+import { navigate } from '../../../routes/RootNavigation';
+
 interface CoursesCardType {
   type: string;
   headerTitle: string;
@@ -14,39 +16,45 @@ interface CoursesCardMain {
 }
 function CoursesCard({ course }: CoursesCardMain) {
   return (
-    <View style={styles.cardContainer}>
-      <View>
-        <Text style={styles.labelText}>{course.type.toUpperCase()}</Text>
-        <Image
-          source={require('../../../assets/images/GradientLight.png')}
-          style={styles.shadowContainer}
-        />
-        <Text style={styles.subText}>ADVANCE COURSE</Text>
-        <Feather
-          size={22}
-          name="heart"
-          color={'white'}
-          style={{ position: 'absolute', bottom: 10, right: 10, zIndex: 10 }}
-        />
-        <Image
-          resizeMode="cover"
-          style={styles.imageStyle}
-          source={{
-            uri: course.image,
-          }}
-        />
-      </View>
-      <View style={{ marginRight: 15, marginLeft: 5 }}>
-        <Text style={styles.textHead}>{course.headerTitle}</Text>
-        <Text style={styles.subHeaderText}>{course.headerSubTitle}</Text>
-      </View>
-      <View style={styles.bottomContainer}>
-        <Text style={{ color: '#4169E1', fontSize: 18, fontWeight: '500' }}>₹{course.price}</Text>
-        <TouchableHighlight style={styles.enrollButton}>
-          <Text style={{ color: 'white', fontSize: 12 }}>Enroll Now</Text>
-        </TouchableHighlight>
-      </View>
-    </View>
+    <TouchableHighlight
+      style={styles.cardContainer}
+      onPress={() => navigate('CourseDetails')}
+      underlayColor="#e1e1e1"
+    >
+      <>
+        <View>
+          <Text style={styles.labelText}>{course.type.toUpperCase()}</Text>
+          <Image
+            source={require('../../../assets/images/GradientLight.png')}
+            style={styles.shadowContainer}
+          />
+          <Text style={styles.subText}>ADVANCE COURSE</Text>
+          <Feather
+            size={22}
+            name="heart"
+            color={'white'}
+            style={{ position: 'absolute', bottom: 10, right: 10, zIndex: 10 }}
+          />
+          <Image
+            resizeMode="cover"
+            style={styles.imageStyle}
+            source={{
+              uri: course.image,
+            }}
+          />
+        </View>
+        <View style={{ marginRight: 15, marginLeft: 5 }}>
+          <Text style={styles.textHead}>{course.headerTitle}</Text>
+          <Text style={styles.subHeaderText}>{course.headerSubTitle}</Text>
+        </View>
+        <View style={styles.bottomContainer}>
+          <Text style={{ color: '#4169E1', fontSize: 18, fontWeight: '500' }}>₹{course.price}</Text>
+          <TouchableHighlight style={styles.enrollButton}>
+            <Text style={{ color: 'white', fontSize: 12 }}>Enroll Now</Text>
+          </TouchableHighlight>
+        </View>
+      </>
+    </TouchableHighlight>
   );
 }
 

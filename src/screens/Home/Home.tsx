@@ -5,7 +5,11 @@ import Feather from 'react-native-vector-icons/Feather';
 import FilterIcon from '../../assets/images/Filter_big.svg';
 import CoursesCard from './Components/CoursesCard';
 import ClientSaysCard from './Components/ClientSaysCard';
-
+import FacebookIcon from '../../assets/images/facebook.svg';
+import GmailIcon from '../../assets/images/mail.svg';
+import LinkedinIcon from '../../assets/images/linkedin.svg';
+import Xicon from '../../assets/images/x.svg';
+import InstaIcon from '../../assets/images/insta.svg';
 function Home() {
   const category = ['Corporate Law', 'Tax Law', 'Taxation Law', 'Contract Law', 'Family Law'];
   const courses = [
@@ -66,7 +70,7 @@ function Home() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.mainPage}>
-        <View style={{ marginTop: 15, gap: 15 }}>
+        <View style={{ marginTop: 15, gap: 20 }}>
           <Text style={styles.homeHeaderSearchText}>What do you want to learn Today?</Text>
           <View style={styles.inputSearch}>
             <Feather size={20} name="search" color={'#C1C1C1'} />
@@ -103,7 +107,7 @@ function Home() {
           </ScrollView>
         </View>
 
-        <View style={{ marginTop: 15, gap: 15 }}>
+        <View style={{ marginTop: 20, gap: 20 }}>
           <Text style={styles.homeHeaderSearchText}>Featured courses</Text>
           <ScrollView
             horizontal={true}
@@ -115,7 +119,7 @@ function Home() {
             ))}
           </ScrollView>
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, marginTop: 20, gap: 20 }}>
           <Text style={styles.homeHeaderSearchText}>What our clients says</Text>
           <ScrollView
             horizontal={true}
@@ -126,6 +130,16 @@ function Home() {
               <ClientSaysCard client={client} key={i} />
             ))}
           </ScrollView>
+        </View>
+        <View style={{ marginBottom: 30, gap: 20, marginTop: 20 }}>
+          <Text style={styles.homeHeaderSearchText}>Lets connect</Text>
+          <View style={styles.letsConnectContainer}>
+            <FacebookIcon />
+            <InstaIcon />
+            <LinkedinIcon />
+            <Xicon />
+            <GmailIcon />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>

@@ -44,4 +44,13 @@ export const styles = StyleSheet.create({
     shadowRadius: 1,
     elevation: 5,
   },
+  letsConnectContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    borderWidth: 1,
+    borderColor: '#50C878',
+    padding: 20,
+    borderRadius: 9,
+  },
 });

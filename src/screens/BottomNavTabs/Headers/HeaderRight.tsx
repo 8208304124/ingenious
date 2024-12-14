@@ -6,33 +6,43 @@ import Notification from 'react-native-vector-icons/SimpleLineIcons';
 
 interface HeaderRightProps {
   showNotification: boolean | undefined;
-  showHome: boolean | undefined;
+  showShare: boolean | undefined;
+  showWhiteNotify?: boolean | undefined;
+  showHeaderForPadding?: boolean | undefined;
 }
 
-const HeaderRight: React.FC<HeaderRightProps> = ({ showNotification = true, showHome = false }) => {
+const HeaderRight: React.FC<HeaderRightProps> = ({
+  showNotification = true,
+  showShare = false,
+  showWhiteNotify = false,
+  showHeaderForPadding = false,
+}) => {
   const handleHomePress = () => {
     navigate('Home');
   };
   return (
-    <>
-      <View style={styles.container}>
-        {showHome && (
-          <TouchableOpacity style={styles.icon} onPress={handleHomePress}>
-            <Feather size={20} name="share-2" color={'#4169E1'} />
-          </TouchableOpacity>
-        )}
-        {showNotification && (
-          <TouchableOpacity style={styles.NotificationIcon}>
-            <Notification
-              name="bell" // Choose an appropriate icon name
-              size={20}
-              color={'#4169E1'}
-              // onPress={fetchNotifications}
-            />
-          </TouchableOpacity>
-        )}
-      </View>
-    </>
+    <View style={[styles.container, { marginRight: showHeaderForPadding ? 10 : 25 }]}>
+      {showShare && (
+        <TouchableOpacity style={styles.icon} onPress={handleHomePress}>
+          <Feather size={20} name="share-2" color={'#4169E1'} />
+        </TouchableOpacity>
+      )}
+      {showNotification && (
+        <TouchableOpacity
+          style={[
+            styles.NotificationIcon,
+            { backgroundColor: showWhiteNotify ? 'white' : '#eaeaea' },
+          ]}
+        >
+          <Notification
+            name="bell"
+            size={20}
+            color={'#4169E1'}
+            // onPress={fetchNotifications}
+          />
+        </TouchableOpacity>
+      )}
+    </View>
   );
 };
 
@@ -44,13 +54,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 20,
   },
-  singleIcon: {
-    paddingHorizontal: 15,
-  },
   icon: {},
   NotificationIcon: {
-    marginRight: 25,
-    backgroundColor: '#eaeaea',
     padding: 8,
     borderRadius: 30,
   },

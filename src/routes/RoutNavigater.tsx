@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -7,12 +8,24 @@ import useTheme from '../utility/hooks/useTheme';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18next from 'i18next';
 import Alert, { AlertOptionsType } from '../components/elements/alert/Alert';
+import HeaderLeft from './Headers/HeaderLeft';
+import HeaderRight from '../screens/BottomNavTabs/Headers/HeaderRight';
 
 const Stack = createNativeStackNavigator();
+const defaultOptions = {
+  showHeaderRight: false,
+  showNotification: false,
+  showShare: false,
+};
 
+const mergeOptionsWithDefaults = (options: any) => {
+  return {
+    ...defaultOptions,
+    ...options,
+  };
+};
 export const RouteNavigater = () => {
   const theme = useTheme();
-
   const [alertOptions, setAlertOptions] = useState<AlertOptionsType>({
     visible: false,
     title: '',
@@ -58,15 +71,28 @@ export const RouteNavigater = () => {
           <Stack.Screen
             key={route.name}
             name={route.name}
-            component={route.component}
-            options={() => ({
-              ...route.options,
-              headerStyle: {
-                backgroundColor: 'white',
-              },
-              headerTintColor: 'black',
-              headerBackTitleVisible: false,
-            })}
+            component={route.component as React.ComponentType<any>}
+            options={() => {
+              const mergedOptions = mergeOptionsWithDefaults(route.options);
+              return {
+                ...mergedOptions,
+                headerStyle: {
+                  backgroundColor: '#F7F8FA',
+                },
+                headerRight: () =>
+                  mergedOptions.showHeaderRight && (
+                    <HeaderRight
+                      showWhiteNotify
+                      showHeaderForPadding
+                      showNotification={mergedOptions.showNotification}
+                      showShare={mergedOptions.showShare}
+                    />
+                  ),
+                headerLeft: () => <HeaderLeft />,
+                headerTitleStyle: { fontSize: 24, fontWeight: '700' },
+                headerTintColor: '#4169E1',
+              };
+            }}
           />
         ))}
       </Stack.Navigator>
