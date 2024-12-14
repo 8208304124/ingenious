@@ -117,9 +117,3 @@ dependencies {
 }
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
-
-// React Native assets configuration for fonts
-project.ext.react = [
-    entryFile: "index.js",
-    assetsDirs: ["assets/fonts"] // Root-level assets folder for custom fonts
-]

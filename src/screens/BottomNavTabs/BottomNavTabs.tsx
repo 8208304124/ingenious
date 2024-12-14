@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
-import Home from '../Home/Home';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Settings from '../Settings/Settings';
@@ -14,6 +13,8 @@ import HeartBackgroundIcon from './Icons/HeartBackgroundIcon';
 import Person from '../../assets/images/Person.svg';
 import ColorPerson from '../../assets/images/colorPerson.svg';
 import Video from '../Video/Video';
+import HeaderRight from './Headers/HeaderRight';
+import Home from '../Home/Home';
 export type BottomNavTabsProps = {
   navigation: NavigationProp<ParamListBase>;
 };
@@ -28,22 +29,26 @@ export default function BottomNavTabs() {
         tabBarActiveTintColor: '#50C878',
         tabBarInactiveTintColor: 'white',
         tabBarShowLabel: false,
+        headerTitleContainerStyle: { paddingHorizontal: 10 },
+        headerTintColor: '#4169E1',
+        headerTitleStyle: { fontSize: 24, fontWeight: '700' },
         headerBackgroundContainerStyle: { backgroundColor: '#F7F8FA' },
         tabBarStyle: {
           borderWidth: 1,
-          borderTopLeftRadius: 30,
-          borderTopRightRadius: 30,
+          borderTopLeftRadius: 35,
+          borderTopRightRadius: 35,
           borderColor: '#50C878',
           backgroundColor: 'white',
-          height: scale(50),
-          paddingTop: 5,
+          height: scale(55),
+          paddingTop: 10,
         },
       }}
     >
       <Tab.Screen
-        name="Home"
+        name="VishwaLaw"
         component={Home}
         options={{
+          headerRight: () => <HeaderRight showNotification={true} showHome={false} />,
           tabBarIcon: ({ color, size }) => (
             <FeatherIconwithBack
               name={'home'}
