@@ -19,6 +19,12 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 20,
   },
+  InstructorName: {
+    fontFamily: 'Merriweather-Black',
+    color: '#2C2C2C',
+    fontSize: 14,
+    lineHeight: 17,
+  },
   shadowContainer: {
     position: 'absolute',
     top: 0,
@@ -34,6 +40,12 @@ export const styles = StyleSheet.create({
     height: scale(202),
     width: '100%',
   },
+  profileImage: {
+    borderRadius: 12,
+    overflow: 'hidden',
+    height: scale(70),
+    width: scale(75),
+  },
   simpleText: {
     fontSize: 14,
     color: '#7B8A99',
@@ -43,6 +55,11 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '500',
     color: '#50C878',
+  },
+  instructorSubText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: '#2C2C2C',
   },
   commonFlexdirection: { flexDirection: 'row', gap: 5 },
   priceTag: {
@@ -76,5 +93,16 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     gap: 10,
+  },
+  intructorContainer: {
+    flex: 1,
+    marginTop: 20,
+    gap: 15,
+  },
+  instructorNameContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 30,
   },
 });

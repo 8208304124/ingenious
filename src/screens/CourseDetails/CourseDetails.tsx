@@ -3,6 +3,7 @@ import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'r
 import { styles } from './Styles';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import TutorialCard from './Components/TutorialCard';
 function CourseDetails() {
   const learnPoints = [
     'Corporate Restructure',
@@ -13,6 +14,92 @@ function CourseDetails() {
     'Capital Gains Provisions',
     'Drafting of Schemes',
     'Procedure',
+  ];
+  const tutorialArray = [
+    {
+      title: 'Module 1',
+      subTitle: 'Introduction to Corporate Restructuring',
+      tutorialLessons: [
+        {
+          access: true,
+          topic: 'Lesson 1.1',
+          subTopic: 'Understanding Corporate Restructuring',
+        },
+        {
+          access: true,
+          topic: 'Lesson 1.2',
+          subTopic: 'Strategic Importance of Restructuring',
+        },
+        {
+          access: false,
+          topic: 'Lesson 1.3',
+          subTopic: 'Case Studies on Successful Restructuring',
+        },
+      ],
+    },
+    {
+      title: 'Module 1',
+      subTitle: 'Introduction to Corporate Restructuring',
+      tutorialLessons: [
+        {
+          access: true,
+          topic: 'Lesson 1.1',
+          subTopic: 'Understanding Corporate Restructuring',
+        },
+        {
+          access: true,
+          topic: 'Lesson 1.2',
+          subTopic: 'Strategic Importance of Restructuring',
+        },
+        {
+          access: false,
+          topic: 'Lesson 1.3',
+          subTopic: 'Case Studies on Successful Restructuring',
+        },
+      ],
+    },
+    {
+      title: 'Module 1',
+      subTitle: 'Introduction to Corporate Restructuring',
+      tutorialLessons: [
+        {
+          access: true,
+          topic: 'Lesson 1.1',
+          subTopic: 'Understanding Corporate Restructuring',
+        },
+        {
+          access: true,
+          topic: 'Lesson 1.2',
+          subTopic: 'Strategic Importance of Restructuring',
+        },
+        {
+          access: false,
+          topic: 'Lesson 1.3',
+          subTopic: 'Case Studies on Successful Restructuring',
+        },
+      ],
+    },
+    {
+      title: 'Module 1',
+      subTitle: 'Introduction to Corporate Restructuring',
+      tutorialLessons: [
+        {
+          access: true,
+          topic: 'Lesson 1.1',
+          subTopic: 'Understanding Corporate Restructuring',
+        },
+        {
+          access: true,
+          topic: 'Lesson 1.2',
+          subTopic: 'Strategic Importance of Restructuring',
+        },
+        {
+          access: false,
+          topic: 'Lesson 1.3',
+          subTopic: 'Case Studies on Successful Restructuring',
+        },
+      ],
+    },
   ];
   return (
     <SafeAreaView style={{ flex: 1 }}>
@@ -96,6 +183,40 @@ function CourseDetails() {
               </View>
             ))}
           </View>
+        </View>
+        <View style={{ gap: 15, marginTop: 20 }}>
+          {tutorialArray.map((tutorial, i) => (
+            <TutorialCard key={i} tutorial={tutorial} />
+          ))}
+        </View>
+        <View style={styles.intructorContainer}>
+          <Text style={styles.simpleFontheader}>Instructor</Text>
+          <View style={styles.instructorNameContainer}>
+            <Image
+              resizeMode="cover"
+              style={styles.profileImage}
+              source={{
+                uri: 'https://www.profilebakery.com/wp-content/uploads/2023/04/AI-Profile-Picture.jpg',
+              }}
+            />
+            <View style={{ justifyContent: 'flex-start', gap: 6 }}>
+              <Text style={styles.InstructorName}>Adv. (Dr.) Swapnali Bangali</Text>
+              <Text style={styles.instructorSubText}>4.5 Rating</Text>
+              <Text style={styles.instructorSubText}>3 courses</Text>
+            </View>
+          </View>
+          <Text style={styles.simpleText}>
+            Dr. Swapnil Bangali, Member of the Committee to examine issues related to admissibility
+            of information received through Exchange of Information on Request as ‘evidence’ in
+            prosecution proceedings for Central Board of Direct Taxes, Ministry of Finance, North
+            Block, New Delhi, Pune and enrolled himself as an Advocate in Bar Council of Maharashtra
+            & Goa in 2004.
+          </Text>
+        </View>
+        <View style={{ marginTop: 20, marginBottom: 20 }}>
+          <TouchableOpacity style={styles.primaryButton}>
+            <Text style={{ fontSize: 14, color: 'white', fontWeight: '500' }}>Enroll Now</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>

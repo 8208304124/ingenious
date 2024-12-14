@@ -59,9 +59,10 @@ export default function BottomNavTabs() {
         }}
       />
       <Tab.Screen
-        name="Books"
+        name="Course"
         component={Books}
         options={{
+          headerRight: () => <HeaderRight showNotification={true} showShare={false} />,
           tabBarIcon: ({ color, size }) => (
             <FeatherIconBook
               name={'book-open'}
