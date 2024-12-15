@@ -1,5 +1,13 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, Text, TextInput, TouchableHighlight, View } from 'react-native';
+import {
+  SafeAreaView,
+  ScrollView,
+  Text,
+  TextInput,
+  TouchableHighlight,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { styles } from './Style';
 import Feather from 'react-native-vector-icons/Feather';
 import FilterIcon from '../../assets/images/Filter_big.svg';
@@ -10,6 +18,7 @@ import GmailIcon from '../../assets/images/mail.svg';
 import LinkedinIcon from '../../assets/images/linkedin.svg';
 import Xicon from '../../assets/images/x.svg';
 import InstaIcon from '../../assets/images/insta.svg';
+import { navigate } from '../../routes/RootNavigation';
 function Home() {
   const category = ['Corporate Law', 'Tax Law', 'Taxation Law', 'Contract Law', 'Family Law'];
   const courses = [
@@ -86,7 +95,9 @@ function Home() {
         <View style={styles.buttonContainer}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Text style={styles.homeHeaderSearchText}>Category</Text>
-            <Text style={{ color: '#4169E1', textDecorationLine: 'underline' }}>View all</Text>
+            <TouchableOpacity onPress={() => navigate('Category')}>
+              <Text style={{ color: '#4169E1', textDecorationLine: 'underline' }}>View all</Text>
+            </TouchableOpacity>
           </View>
 
           <ScrollView

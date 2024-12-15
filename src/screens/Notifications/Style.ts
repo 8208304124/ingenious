@@ -21,14 +21,15 @@ export const styles = StyleSheet.create({
   },
   noCourse: {
     flex: 1,
-    gap: 20,
-    marginBottom: 60,
+    gap: 50,
+    marginBottom: 100,
     justifyContent: 'center',
     alignItems: 'center',
   },
   simpleText: {
     fontWeight: '500',
     fontSize: 14,
+    width: '50%',
     textAlign: 'center',
     color: '#939090',
     lineHeight: 20,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Settings from '../Settings/Settings';
 import Books from '../Books/Books';
 import FeatherIconwithBack from './Icons/FeatherIconwithBack';
@@ -15,13 +15,49 @@ import ColorPerson from '../../assets/images/colorPerson.svg';
 import Video from '../Video/Video';
 import HeaderRight from './Headers/HeaderRight';
 import Home from '../Home/Home';
+import MyProfile from '../Settings/MyProfile/MyProfile';
+import HeaderLeft from '../../routes/Headers/HeaderLeft';
+import { View } from 'react-native';
 export type BottomNavTabsProps = {
   navigation: NavigationProp<ParamListBase>;
 };
 
 const Tab = createBottomTabNavigator();
-// const Stack = createNativeStackNavigator();
-
+const Stack = createNativeStackNavigator();
+function MyProfileStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: true,
+        headerShadowVisible: false,
+        headerTintColor: '#4169E1',
+        headerTitleStyle: { fontSize: 24, fontWeight: '700' },
+      }}
+    >
+      <Stack.Screen
+        name="MyProfileMain"
+        component={Settings}
+        options={{ headerBackVisible: true }}
+      />
+      <Stack.Screen
+        name="My Profile"
+        component={MyProfile}
+        options={{
+          headerBackground: () => <View style={{ flex: 1, backgroundColor: '#F7F8FA' }} />,
+          headerLeft: () => <HeaderLeft />,
+          headerRight: () => (
+            <HeaderRight
+              showNotification={true}
+              showShare={false}
+              showWhiteNotify
+              showHeaderForPadding
+            />
+          ),
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
 export default function BottomNavTabs() {
   return (
     <Tab.Navigator
@@ -111,12 +147,9 @@ export default function BottomNavTabs() {
       />
       <Tab.Screen
         name="My Profile"
-        component={Settings}
+        component={MyProfileStack}
         options={{
-          headerBackgroundContainerStyle: { backgroundColor: '#F7F8FA' },
-          headerRight: () => (
-            <HeaderRight showNotification={true} showShare={false} showWhiteNotify />
-          ),
+          headerShown: false,
           tabBarIcon: ({ color }) => (color == '#50C878' ? <ColorPerson /> : <Person />),
         }}
       />

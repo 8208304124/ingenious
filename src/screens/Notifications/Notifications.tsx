@@ -1,16 +1,14 @@
 import React from 'react';
 import { SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import NotificationEmpty from '../../assets/images/NotificationEmpty.svg';
 import { styles } from './Style';
-import WishlistEmpty from '../../assets/images/WishlistEmpty.svg';
-function Favourite() {
+
+function Notifications() {
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.noCourse}>
-        <WishlistEmpty />
-        <View style={{ gap: 3 }}>
-          <Text style={styles.simpleText}>It seems you didn’t saved anything yet</Text>
-          <Text style={styles.simpleText}>Tap on this button to add here</Text>
-        </View>
+        <Text style={styles.simpleText}>It seems you don’t have any Notification</Text>
+        <NotificationEmpty />
         <TouchableOpacity style={styles.primaryButton}>
           <Text style={styles.buttonText}>Explore courses</Text>
         </TouchableOpacity>
@@ -19,4 +17,4 @@ function Favourite() {
   );
 }
 
-export default Favourite;
+export default Notifications;

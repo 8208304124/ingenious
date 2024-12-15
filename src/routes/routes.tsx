@@ -7,6 +7,8 @@ import OTPScreen from '../screens/login/OTPScreen';
 import BottomNavTabs from '../screens/BottomNavTabs/BottomNavTabs';
 import CourseDetails from '../screens/CourseDetails/CourseDetails';
 import Checkout from '../screens/CheckoutFlow/Checkout';
+import Notifications from '../screens/Notifications/Notifications';
+import Category from '../screens/Category/Category';
 
 // const screenOptions: NativeStackNavigationOptions = {
 //   headerShadowVisible: false,
@@ -62,6 +64,19 @@ const routes = [
     },
   },
   {
+    key: 'Notifications',
+    name: 'Notifications',
+    component: Notifications,
+    options: {
+      headerShadowVisible: false,
+      headerShown: true,
+      showNotification: true,
+      showShare: false,
+      showHeaderRight: true,
+      title: 'Notification',
+    },
+  },
+  {
     key: 'Checkout',
     name: 'Checkout',
     component: Checkout,
@@ -72,6 +87,19 @@ const routes = [
       showShare: false,
       showHeaderRight: true,
       title: 'Checkout',
+    },
+  },
+  {
+    key: 'Category',
+    name: 'Category',
+    component: Category,
+    options: {
+      headerShadowVisible: false,
+      headerShown: true,
+      showNotification: true,
+      showShare: false,
+      showHeaderRight: true,
+      title: 'Category',
     },
   },
 ];

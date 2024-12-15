@@ -4,6 +4,7 @@ import { styles } from './Style';
 import Feather from 'react-native-vector-icons/Feather';
 import Octicons from 'react-native-vector-icons/Octicons';
 import Payment from '../../assets/images/payment.svg';
+import { navigate } from '../../routes/RootNavigation';
 
 function Settings() {
   return (
@@ -29,7 +30,7 @@ function Settings() {
             <Payment />
             <Text style={styles.optionText}>Payment History</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.option}>
+          <TouchableOpacity style={styles.option} onPress={() => navigate('My Profile')}>
             <Feather name="info" size={22} color={'#50C878'} />
             <Text style={styles.optionText}>About Vishwaguru</Text>
           </TouchableOpacity>

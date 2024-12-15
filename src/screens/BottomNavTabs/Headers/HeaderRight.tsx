@@ -33,6 +33,7 @@ const HeaderRight: React.FC<HeaderRightProps> = ({
             styles.NotificationIcon,
             { backgroundColor: showWhiteNotify ? 'white' : '#F7F7F7' },
           ]}
+          onPress={() => navigate('Notifications')}
         >
           <Notification
             name="bell"
