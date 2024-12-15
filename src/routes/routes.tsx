@@ -1,26 +1,16 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import DrawerNavigation from '../components/common/customDrawer/DrawerNavigation';
 import Login from '../screens/login/Login';
-import VersionInfo from '../screens/VersionInfo/VersionInfo';
-import ProfileView from '../screens/ProfileView/ProfileView';
-import ProfileEdit from '../screens/ProfileEdit/ProfileEdit';
-import ApplicationSetting from '../screens/applicationSetting';
-import Dummy from '../screens/Dummy';
-import Filter from '../screens/Filter';
-import Upload from '../screens/Upload';
-import Gift from '../screens/Gift';
-import Chat from '../screens/Chat';
-import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
+// import { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 import i18next from 'i18next';
 import SignUp from '../screens/login/SignUp';
 import OTPScreen from '../screens/login/OTPScreen';
 import BottomNavTabs from '../screens/BottomNavTabs/BottomNavTabs';
 import CourseDetails from '../screens/CourseDetails/CourseDetails';
 
-const screenOptions: NativeStackNavigationOptions = {
-  headerShadowVisible: false,
-  headerTitleAlign: 'center',
-};
+// const screenOptions: NativeStackNavigationOptions = {
+//   headerShadowVisible: false,
+//   headerTitleAlign: 'center',
+// };
 const routes = [
   {
     key: 'Login',
@@ -57,74 +47,7 @@ const routes = [
       title: 'OTPScreen',
     },
   },
-  {
-    key: 'DrawerNavigation',
-    name: 'DrawerNavigation',
-    component: DrawerNavigation,
-    options: {
-      headerShown: false,
-    },
-  },
-  {
-    key: 'VersionInfo',
-    name: 'VersionInfo',
-    component: VersionInfo,
-    options: {
-      ...screenOptions,
-      headerShown: true,
-      title: i18next.t('TEMP00006'),
-    },
-  },
-  {
-    key: 'ProfileView',
-    name: 'ProfileView',
-    component: ProfileView,
-    options: {
-      ...screenOptions,
-      headerShown: true,
-      title: i18next.t('TEMP00022'),
-    },
-  },
-  {
-    key: 'ProfileEdit',
-    name: 'ProfileEdit',
-    component: ProfileEdit,
-    options: {
-      ...screenOptions,
-      headerShown: true,
-      title: i18next.t('TEMP00021'),
-    },
-  },
-  {
-    key: 'Filter',
-    name: 'Filter',
-    component: Filter, // done
-    options: {
-      ...screenOptions,
-      headerShown: true,
-      title: i18next.t('TEMP00023'),
-    },
-  },
-  {
-    key: 'Upload',
-    name: 'Upload',
-    component: Upload, // done
-    options: {
-      ...screenOptions,
-      headerShown: true,
-      title: i18next.t('TEMP00024'),
-    },
-  },
-  {
-    key: 'Gift',
-    name: 'Gift',
-    component: Gift, // done
-    options: {
-      ...screenOptions,
-      headerShown: true,
-      title: i18next.t('TEMP00025'),
-    },
-  },
+
   {
     key: 'CourseDetails',
     name: 'CourseDetails',
@@ -136,34 +59,6 @@ const routes = [
       showShare: true,
       showHeaderRight: true,
       title: 'Course',
-    },
-  },
-  {
-    key: 'Chat',
-    name: 'Chat',
-    component: Chat, // done
-    options: {
-      ...screenOptions,
-      headerShown: true,
-      title: i18next.t('TEMP00026'),
-    },
-  },
-  {
-    key: 'ApplicationSetting',
-    name: 'ApplicationSetting',
-    component: ApplicationSetting, // done
-    options: {
-      headerShown: true,
-      headerShadowVisible: false,
-    },
-  },
-  {
-    key: 'Dummy',
-    name: 'Dummy',
-    component: Dummy, // done
-    options: {
-      headerShown: true,
-      headerShadowVisible: false,
     },
   },
 ];

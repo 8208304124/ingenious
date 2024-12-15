@@ -41,7 +41,7 @@ export const styles = StyleSheet.create({
     width: '100%',
   },
   profileImage: {
-    borderRadius: 12,
+    borderRadius: 5,
     overflow: 'hidden',
     height: scale(70),
     width: scale(75),
