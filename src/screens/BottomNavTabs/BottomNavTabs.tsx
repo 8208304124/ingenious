@@ -18,6 +18,7 @@ import Home from '../Home/Home';
 import MyProfile from '../Settings/MyProfile/MyProfile';
 import HeaderLeft from '../../routes/Headers/HeaderLeft';
 import { View } from 'react-native';
+import ProfileEdit from '../Settings/ProfileEdit/ProfileEdit';
 export type BottomNavTabsProps = {
   navigation: NavigationProp<ParamListBase>;
 };
@@ -43,6 +44,23 @@ function MyProfileStack() {
         name="My Profile"
         component={MyProfile}
         options={{
+          headerBackground: () => <View style={{ flex: 1, backgroundColor: '#F7F8FA' }} />,
+          headerLeft: () => <HeaderLeft />,
+          headerRight: () => (
+            <HeaderRight
+              showNotification={true}
+              showShare={false}
+              showWhiteNotify
+              showHeaderForPadding
+            />
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="MyProfileEdit"
+        component={ProfileEdit}
+        options={{
+          title: 'My Profile',
           headerBackground: () => <View style={{ flex: 1, backgroundColor: '#F7F8FA' }} />,
           headerLeft: () => <HeaderLeft />,
           headerRight: () => (

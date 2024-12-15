@@ -22,7 +22,7 @@ function Settings() {
           <Text style={styles.profileNumberText}>+91 9958 454 589</Text>
         </View>
         <View style={styles.optionContainer}>
-          <TouchableOpacity style={styles.option}>
+          <TouchableOpacity style={styles.option} onPress={() => navigate('MyProfileEdit')}>
             <Feather name="user" size={22} color={'#50C878'} />
             <Text style={styles.optionText}>Profile Setting</Text>
           </TouchableOpacity>
