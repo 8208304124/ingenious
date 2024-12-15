@@ -4,6 +4,7 @@ import { styles } from './Styles';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import TutorialCard from './Components/TutorialCard';
+import { navigate } from '../../routes/RootNavigation';
 function CourseDetails() {
   const learnPoints = [
     'Corporate Restructure',
@@ -167,7 +168,7 @@ function CourseDetails() {
               Add to wishlist
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.primaryButton}>
+          <TouchableOpacity style={styles.primaryButton} onPress={() => navigate('Checkout')}>
             <Text style={{ fontSize: 14, color: 'white', fontWeight: '500' }}>Enroll Now</Text>
           </TouchableOpacity>
         </View>
@@ -214,7 +215,7 @@ function CourseDetails() {
           </Text>
         </View>
         <View style={{ marginTop: 20, marginBottom: 20 }}>
-          <TouchableOpacity style={styles.primaryButton}>
+          <TouchableOpacity style={styles.primaryButton} onPress={() => navigate('Checkout')}>
             <Text style={{ fontSize: 14, color: 'white', fontWeight: '500' }}>Enroll Now</Text>
           </TouchableOpacity>
         </View>

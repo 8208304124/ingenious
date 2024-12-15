@@ -6,6 +6,7 @@ import SignUp from '../screens/login/SignUp';
 import OTPScreen from '../screens/login/OTPScreen';
 import BottomNavTabs from '../screens/BottomNavTabs/BottomNavTabs';
 import CourseDetails from '../screens/CourseDetails/CourseDetails';
+import Checkout from '../screens/CheckoutFlow/Checkout';
 
 // const screenOptions: NativeStackNavigationOptions = {
 //   headerShadowVisible: false,
@@ -47,7 +48,6 @@ const routes = [
       title: 'OTPScreen',
     },
   },
-
   {
     key: 'CourseDetails',
     name: 'CourseDetails',
@@ -59,6 +59,19 @@ const routes = [
       showShare: true,
       showHeaderRight: true,
       title: 'Course',
+    },
+  },
+  {
+    key: 'Checkout',
+    name: 'Checkout',
+    component: Checkout,
+    options: {
+      headerShadowVisible: false,
+      headerShown: true,
+      showNotification: true,
+      showShare: false,
+      showHeaderRight: true,
+      title: 'Checkout',
     },
   },
 ];

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableHighlight, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
 import { scale } from 'react-native-size-matters';
 import Feather from 'react-native-vector-icons/Feather';
 import { navigate } from '../../../routes/RootNavigation';
@@ -49,9 +49,9 @@ function CoursesCard({ course }: CoursesCardMain) {
         </View>
         <View style={styles.bottomContainer}>
           <Text style={{ color: '#4169E1', fontSize: 18, fontWeight: '500' }}>₹{course.price}</Text>
-          <TouchableHighlight style={styles.enrollButton}>
+          <TouchableOpacity style={styles.enrollButton} onPress={() => navigate('Checkout')}>
             <Text style={{ color: 'white', fontSize: 12 }}>Enroll Now</Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
       </>
     </TouchableHighlight>

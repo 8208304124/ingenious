@@ -74,9 +74,13 @@ export default function BottomNavTabs() {
         }}
       />
       <Tab.Screen
-        name="Video"
+        name="My Learning"
         component={Video}
         options={{
+          headerBackgroundContainerStyle: { backgroundColor: '#F7F8FA' },
+          headerRight: () => (
+            <HeaderRight showNotification={true} showShare={false} showWhiteNotify />
+          ),
           tabBarIcon: ({ color, size }) => (
             <EntypoWithBack
               name={'play'}
@@ -88,9 +92,13 @@ export default function BottomNavTabs() {
         }}
       />
       <Tab.Screen
-        name="Favourite"
+        name="My Wishlist"
         component={Favourite}
         options={{
+          headerBackgroundContainerStyle: { backgroundColor: '#F7F8FA' },
+          headerRight: () => (
+            <HeaderRight showNotification={true} showShare={false} showWhiteNotify />
+          ),
           tabBarIcon: ({ color, size }) => (
             <HeartBackgroundIcon
               size={size}
@@ -102,9 +110,13 @@ export default function BottomNavTabs() {
         }}
       />
       <Tab.Screen
-        name="Settings"
+        name="My Profile"
         component={Settings}
         options={{
+          headerBackgroundContainerStyle: { backgroundColor: '#F7F8FA' },
+          headerRight: () => (
+            <HeaderRight showNotification={true} showShare={false} showWhiteNotify />
+          ),
           tabBarIcon: ({ color }) => (color == '#50C878' ? <ColorPerson /> : <Person />),
         }}
       />

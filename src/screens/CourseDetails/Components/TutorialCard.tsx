@@ -24,10 +24,17 @@ function TutorialCard({ tutorial }: TutorialCardType) {
   return (
     <View style={{ flex: 1, backgroundColor: '#E9EEFF', borderRadius: 13 }}>
       {/* Touchable Area */}
-      <TouchableOpacity style={[styles.container]} onPress={() => setBottomOpen(!bottomOpen)}>
+      <View style={[styles.container]}>
         <Text style={styles.title}>{tutorial.title}:</Text>
         <Text style={styles.subtitle}>{tutorial.subTitle}</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={{ marginTop: 10 }} onPress={() => setBottomOpen(!bottomOpen)}>
+          {!bottomOpen ? (
+            <Feather name="arrow-up" size={20} color={'#50C878'} />
+          ) : (
+            <Feather name="arrow-down" size={20} color={'#50C878'} />
+          )}
+        </TouchableOpacity>
+      </View>
 
       {/* Tooltip */}
       {bottomOpen && (
