@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   inputSearch: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#eaeaea',
+    backgroundColor: '#F7F7F7',
     borderRadius: 17,
     paddingHorizontal: 20,
     paddingVertical: 3,

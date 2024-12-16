@@ -38,7 +38,19 @@ function MyProfileStack() {
       <Stack.Screen
         name="MyProfileMain"
         component={Settings}
-        options={{ headerBackVisible: true }}
+        options={{
+          headerBackVisible: true,
+          title: 'My Profile',
+          headerLeft: () => <View style={{ paddingLeft: 10 }}></View>,
+          headerRight: () => (
+            <HeaderRight
+              showNotification={true}
+              showShare={false}
+              showWhiteNotify
+              showHeaderForPadding
+            />
+          ),
+        }}
       />
       <Stack.Screen
         name="My Profile"
@@ -164,7 +176,7 @@ export default function BottomNavTabs() {
         }}
       />
       <Tab.Screen
-        name="My Profile"
+        name="My Profiles"
         component={MyProfileStack}
         options={{
           headerShown: false,

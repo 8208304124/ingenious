@@ -63,13 +63,13 @@ export default CoursesCard;
 const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
-    backgroundColor: '#F9F9F9',
+    backgroundColor: '#F7F7F7',
     width: scale(225),
     padding: 13,
     borderRadius: 12,
     gap: 10,
     borderWidth: 3,
-    borderColor: '#f5f5f5',
+    borderColor: '#f9f9f9',
   },
   imageStyle: {
     borderRadius: 12,
