@@ -25,7 +25,7 @@ const post = async (
     });
 
     setLoading(false);
-    return response.data;
+    return { data: response.data, status: response.status };
   } catch (error) {
     setLoading(false);
 

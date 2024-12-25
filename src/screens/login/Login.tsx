@@ -1,9 +1,7 @@
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles';
-import { loginValidation } from '../../utility/validations/Validations';
 import Text from '../../components/elements/text';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import useThemedStyles from '../../utility/hooks/useThemedStyles';
@@ -14,7 +12,7 @@ import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
 import { useDispatch } from 'react-redux';
-import { callLogin, loginPayloadType } from '../../store/reducers/authReducer';
+import { ApiResponseType, callLogin } from '../../store/reducers/authReducer';
 import { ThunkDispatch } from 'redux-thunk';
 import { RootState } from '../../store/reducers';
 import { UnknownAction } from 'redux';
@@ -29,7 +27,6 @@ const Login = ({ navigation }: LoginProps) => {
   const dispatch: ThunkDispatch<RootState, void, UnknownAction> = useDispatch();
   const [FormDataInfo, setFormDataInfo] = useState({
     userName: '',
-    password: '',
   });
 
   const [alertOptions, setAlertOptions] = useState<AlertOptionsType>({
@@ -46,32 +43,15 @@ const Login = ({ navigation }: LoginProps) => {
   };
 
   const handleLogin = async () => {
-    setShowLoader(true);
-
-    if (!loginValidation(FormDataInfo.userName, FormDataInfo.password, setAlertOptions)) {
-      // Validation failed, return early
-      setShowLoader(false);
-      return;
-    }
-    try {
-      setShowLoader(true);
-      const requestBody = {
-        username: FormDataInfo.userName,
-        password: FormDataInfo.password,
-      };
-      const payload: loginPayloadType = {
-        requestBody: requestBody,
-        setLoading: setShowLoader,
-        setAlertOptions: setAlertOptions,
-      };
-      const response = (await dispatch(callLogin(payload))).payload;
-      setShowLoader(false);
-      if (response && response?.token) {
-        await AsyncStorage.setItem('token', response.token);
-        navigation.navigate('DrawerNavigation');
-      }
-    } catch (error) {
-      setShowLoader(false);
+    const requestFormdata = {
+      phoneNumber: FormDataInfo.userName,
+    };
+    const res = await dispatch(
+      callLogin({ requestBody: requestFormdata, setAlertOptions, setLoading: setShowLoader })
+    );
+    const { status } = res?.payload as ApiResponseType<{ Message: string }>;
+    if (status == 200) {
+      navigation.navigate('OTPScreen', { phoneNumber: FormDataInfo.userName });
     }
   };
 

@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux';
 import { UnknownAction } from 'redux';
 import { RootState } from '../../store/reducers';
 import { ThunkDispatch } from 'redux-thunk';
-import { ApiResponseType, callLogin } from '../../store/reducers/authReducer';
+import { ApiResponseType, callSignup } from '../../store/reducers/authReducer';
 import Loader from '../../components/elements/loader';
 export type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
@@ -40,18 +40,20 @@ function SignUp({ navigation }: LoginProps) {
       [key]: text,
     }));
   };
+
   const handleContinue = async () => {
     const requestFormdata = {
       ...FormDataInfo,
     };
     const res = await dispatch(
-      callLogin({ requestBody: requestFormdata, setAlertOptions, setLoading })
+      callSignup({ requestBody: requestFormdata, setAlertOptions, setLoading })
     );
     const { data } = res?.payload as ApiResponseType<{ Message: string }>;
-    if (data && data.length > 0 && data[0].Message) {
-      navigation.navigate('OTPScreen');
+    if (data && data.Message) {
+      navigation.navigate('OTPScreen', { phoneNumber: FormDataInfo.phoneNumber });
     }
   };
+
   return (
     <SafeAreaView style={[commonStyles.Flex1]}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -115,7 +117,6 @@ function SignUp({ navigation }: LoginProps) {
           </View>
         </View>
       </ScrollView>
-      {/* <Loader loading={showLoader} /> */}
       {loading && <Loader loading={loading} />}
       <Alert options={alertOptions} setOptions={setAlertOptions} />
     </SafeAreaView>

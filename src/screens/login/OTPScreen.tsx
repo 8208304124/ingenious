@@ -4,15 +4,34 @@ import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import HeadLogo from '../../assets/images/headLogo.svg';
-import { navigate } from '../../routes/RootNavigation';
-const OTPScreen = () => {
+import { NavigationProp, ParamListBase } from '@react-navigation/native';
+import { ApiResponseType, callOtpVerify } from '../../store/reducers/authReducer';
+import Alert, { AlertOptionsType } from '../../components/elements/alert/Alert';
+import { UnknownAction } from 'redux';
+import { RootState } from '../../store/reducers';
+import { ThunkDispatch } from 'redux-thunk';
+import { useDispatch } from 'react-redux';
+import Loader from '../../components/elements/loader';
+
+export type OtpScreenProps = {
+  navigation: NavigationProp<ParamListBase>;
+};
+
+const OTPScreen = ({ navigation }: OtpScreenProps) => {
   const [otp, setOtp] = useState(['', '', '', '']);
   const inputRefs = useRef<Array<TextInput | null>>(Array(4).fill(null));
   const style = useThemedStyles(styles);
+  const dispatch: ThunkDispatch<RootState, void, UnknownAction> = useDispatch();
+  const [alertOptions, setAlertOptions] = useState<AlertOptionsType>({
+    visible: false,
+    title: '',
+    message: '',
+  });
+  const [loading, setLoading] = useState<boolean>(false);
+
   const handleChange = (index: number, value: string) => {
     const newOtp = [...otp];
     newOtp[index] = value;
-
     setOtp(newOtp);
     if (value.length === 1 && index < otp.length - 1) {
       inputRefs.current[index + 1]?.focus();
@@ -27,7 +46,18 @@ const OTPScreen = () => {
       inputRefs.current[index - 1]?.focus();
     }
   };
-
+  const handleVerify = async () => {
+    const requestFormdata = {
+      phoneNumber: otp.join('').trim(),
+    };
+    const res = await dispatch(
+      callOtpVerify({ requestBody: requestFormdata, setAlertOptions, setLoading })
+    );
+    const { status } = res?.payload as ApiResponseType<{ Message: string }>;
+    if (status == 200) {
+      navigation.navigate('MainDashboard');
+    }
+  };
   return (
     <View style={style.otpMain}>
       <View style={{ alignItems: 'center' }}>
@@ -57,12 +87,7 @@ const OTPScreen = () => {
             />
           ))}
         </View>
-        <Pressable
-          style={style.button}
-          onPress={() => {
-            navigate('MainDashboard');
-          }}
-        >
+        <Pressable style={style.button} onPress={handleVerify}>
           <Text style={style.buttonText}>Verify</Text>
         </Pressable>
         <View style={{ flexDirection: 'row', gap: 5, paddingBottom: 25 }}>
@@ -71,6 +96,8 @@ const OTPScreen = () => {
         </View>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 3 }}></View>
+      {loading && <Loader loading={loading} />}
+      <Alert options={alertOptions} setOptions={setAlertOptions} />
     </View>
   );
 };

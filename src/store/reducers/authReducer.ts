@@ -20,7 +20,8 @@ interface AuthStateType {
   token: string | null;
 }
 export interface ApiResponseType<T> {
-  data: T[];
+  data: T;
+  status: number;
 }
 export const initialState: AuthStateType = {
   isAuthenticated: false,
@@ -34,6 +35,19 @@ export const callLogin = createAsyncThunk('user/login', async (payload: loginPay
   try {
     const resData = await post(
       payload.requestBody,
+      'api/auth/login',
+      payload.setLoading,
+      payload.setAlertOptions
+    );
+    return resData;
+  } catch (error: unknown) {
+    return error;
+  }
+});
+export const callSignup = createAsyncThunk('user/callSignup', async (payload: loginPayloadType) => {
+  try {
+    const resData = await post(
+      payload.requestBody,
       'api/auth/admin-register',
       payload.setLoading,
       payload.setAlertOptions
@@ -43,7 +57,22 @@ export const callLogin = createAsyncThunk('user/login', async (payload: loginPay
     return error;
   }
 });
-
+export const callOtpVerify = createAsyncThunk(
+  'user/callOtpVerify',
+  async (payload: loginPayloadType) => {
+    try {
+      const resData = await post(
+        payload.requestBody,
+        'api/auth/verify-otp',
+        payload.setLoading,
+        payload.setAlertOptions
+      );
+      return resData;
+    } catch (error: unknown) {
+      return error;
+    }
+  }
+);
 const authSlice = createSlice({
   name: 'auth',
   initialState,
