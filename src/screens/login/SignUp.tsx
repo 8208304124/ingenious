@@ -7,34 +7,51 @@ import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import { commonStyles } from '../../assets/commonStyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import TextInput from '../../components/elements/input/TextInput';
-// import Loader from '../../components/elements/loader';
 import Alert from '../../components/elements/alert';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
-
 import HeadLogo from '../../assets/images/headLogo.svg';
+import { useDispatch } from 'react-redux';
+import { UnknownAction } from 'redux';
+import { RootState } from '../../store/reducers';
+import { ThunkDispatch } from 'redux-thunk';
+import { ApiResponseType, callLogin } from '../../store/reducers/authReducer';
+import Loader from '../../components/elements/loader';
 export type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
 };
 function SignUp({ navigation }: LoginProps) {
   const style = useThemedStyles(styles);
   const [FormDataInfo, setFormDataInfo] = useState({
-    userName: '',
-    password: '',
+    fullName: '',
+    email: '',
+    phoneNumber: '',
+    company: '',
   });
-
+  const dispatch: ThunkDispatch<RootState, void, UnknownAction> = useDispatch();
   const [alertOptions, setAlertOptions] = useState<AlertOptionsType>({
     visible: false,
     title: '',
     message: '',
   });
-
+  const [loading, setLoading] = useState<boolean>(false);
   const onLoginInfoChange = (text: string, key: string) => {
     setFormDataInfo((prevState) => ({
       ...prevState,
       [key]: text,
     }));
   };
-
+  const handleContinue = async () => {
+    const requestFormdata = {
+      ...FormDataInfo,
+    };
+    const res = await dispatch(
+      callLogin({ requestBody: requestFormdata, setAlertOptions, setLoading })
+    );
+    const { data } = res?.payload as ApiResponseType<{ Message: string }>;
+    if (data && data.length > 0 && data[0].Message) {
+      navigation.navigate('OTPScreen');
+    }
+  };
   return (
     <SafeAreaView style={[commonStyles.Flex1]}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
@@ -58,8 +75,8 @@ function SignUp({ navigation }: LoginProps) {
                 placeholder={'Enter your Full name'}
                 icon={'person'}
                 iconAlling="left"
-                onChangeText={(text) => onLoginInfoChange(text, 'userName')}
-                value={FormDataInfo?.userName}
+                onChangeText={(text) => onLoginInfoChange(text, 'fullName')}
+                value={FormDataInfo?.fullName}
               />
             </View>
             <View style={style.input}>
@@ -69,8 +86,8 @@ function SignUp({ navigation }: LoginProps) {
                 placeholder={'Enter your Email'}
                 icon={'person'}
                 iconAlling="left"
-                onChangeText={(text) => onLoginInfoChange(text, 'userName')}
-                value={FormDataInfo?.userName}
+                onChangeText={(text) => onLoginInfoChange(text, 'email')}
+                value={FormDataInfo?.email}
               />
             </View>
             <View style={style.input}>
@@ -80,12 +97,12 @@ function SignUp({ navigation }: LoginProps) {
                 placeholder={'Enter your mobile no.'}
                 icon={'person'}
                 iconAlling="left"
-                onChangeText={(text) => onLoginInfoChange(text, 'userName')}
-                value={FormDataInfo?.userName}
+                onChangeText={(text) => onLoginInfoChange(text, 'phoneNumber')}
+                value={FormDataInfo?.phoneNumber}
               />
             </View>
             <View style={style.ButtonContainer}>
-              <Pressable style={style.button} onPress={() => navigation.navigate('OTPScreen')}>
+              <Pressable style={style.button} onPress={handleContinue}>
                 <Text style={style.buttonText}>Continue</Text>
               </Pressable>
             </View>
@@ -99,6 +116,7 @@ function SignUp({ navigation }: LoginProps) {
         </View>
       </ScrollView>
       {/* <Loader loading={showLoader} /> */}
+      {loading && <Loader loading={loading} />}
       <Alert options={alertOptions} setOptions={setAlertOptions} />
     </SafeAreaView>
   );

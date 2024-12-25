@@ -18,7 +18,7 @@ const FeatherIconwithBack: React.FC<FeatherIconwithBackProps> = ({
 }) => (
   <View style={{ width: size, height: size }}>
     <Svg width={size} height={size}>
-      <Circle cx={size / 1.8} cy={size / 1.6} r={size / 2.3} fill={backgroundColor} />
+      <Circle cx={size / 1.8} cy={size / 1.6} r={size / 2.4} fill={backgroundColor} />
     </Svg>
     <Feather
       name={name}

@@ -10,6 +10,7 @@ import i18next from 'i18next';
 import Alert, { AlertOptionsType } from '../components/elements/alert/Alert';
 import HeaderLeft from './Headers/HeaderLeft';
 import HeaderRight from '../screens/BottomNavTabs/Headers/HeaderRight';
+import { Text, View } from 'react-native';
 
 const Stack = createNativeStackNavigator();
 const defaultOptions = {
@@ -66,7 +67,13 @@ export const RouteNavigater = () => {
       }}
       ref={navigationRef}
     >
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+          headerTitleAlign: 'left',
+          headerLeft: () => <HeaderLeft />,
+        }}
+      >
         {routes.map((route) => (
           <Stack.Screen
             key={route.name}
@@ -79,6 +86,22 @@ export const RouteNavigater = () => {
                 headerStyle: {
                   backgroundColor: '#F7F8FA',
                 },
+                headerTitleAlign: 'left',
+                headerTitle: () => (
+                  <View
+                    style={{
+                      marginLeft: 15,
+                      justifyContent: 'flex-start',
+                      alignItems: 'flex-start',
+                      flexDirection: 'row',
+                      flex: 1,
+                    }}
+                  >
+                    <Text style={{ color: '#4169E1', fontSize: 24, fontWeight: '700' }}>
+                      {mergedOptions.title}
+                    </Text>
+                  </View>
+                ),
                 headerRight: () =>
                   mergedOptions.showHeaderRight && (
                     <HeaderRight
@@ -88,7 +111,6 @@ export const RouteNavigater = () => {
                       showShare={mergedOptions.showShare}
                     />
                   ),
-                headerLeft: () => <HeaderLeft />,
                 headerTitleStyle: { fontSize: 24, fontWeight: '700' },
                 headerTintColor: '#4169E1',
               };

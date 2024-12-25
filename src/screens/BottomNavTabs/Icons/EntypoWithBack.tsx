@@ -1,6 +1,5 @@
 import React from 'react';
 import { View } from 'react-native';
-import { Svg, Circle } from 'react-native-svg';
 import Feather from 'react-native-vector-icons/EvilIcons';
 
 interface FeatherIconwithBackProps {
@@ -20,11 +19,10 @@ const EntypoWithBack: React.FC<FeatherIconwithBackProps> = ({
     style={{
       width: size,
       height: size,
+      backgroundColor: backgroundColor,
+      borderRadius: 20,
     }}
   >
-    <Svg width={size * 1.4} height={size * 1.4}>
-      <Circle cx={size / 1.89} cy={size / 1.7} r={size / 2} fill={backgroundColor} />
-    </Svg>
     <Feather
       name={name}
       size={size * 0.7}

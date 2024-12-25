@@ -95,6 +95,7 @@ export default function BottomNavTabs() {
         tabBarActiveTintColor: '#50C878',
         tabBarInactiveTintColor: 'white',
         tabBarShowLabel: false,
+        headerTitleAlign: 'left',
         headerTitleContainerStyle: { paddingHorizontal: 10 },
         headerTintColor: '#4169E1',
         headerTitleStyle: { fontSize: 24, fontWeight: '700' },

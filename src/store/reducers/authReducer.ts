@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { AlertOptionsType } from '../../components/elements/alert/Alert';
 import { post } from '../../Services/HttpServices';
 import { UserInfo } from '../../utility/interfaces/CommonInterfaces';
@@ -19,7 +19,9 @@ interface AuthStateType {
   error: string | null;
   token: string | null;
 }
-
+export interface ApiResponseType<T> {
+  data: T[];
+}
 export const initialState: AuthStateType = {
   isAuthenticated: false,
   Userdata: [],
@@ -28,23 +30,19 @@ export const initialState: AuthStateType = {
   token: '',
 };
 
-export const callLogin = createAsyncThunk(
-  'user/login',
-  async (payload: loginPayloadType, { rejectWithValue }) => {
-    try {
-      const resData = await post(payload.requestBody, payload.setLoading, payload.setAlertOptions);
-      return resData;
-    } catch (error: any) {
-      if (error.response && error.response.data) {
-        // If error response from server
-        return rejectWithValue(error.response.data);
-      } else {
-        // If other type of error (network, etc.)
-        return rejectWithValue('An error occurred during login.');
-      }
-    }
+export const callLogin = createAsyncThunk('user/login', async (payload: loginPayloadType) => {
+  try {
+    const resData = await post(
+      payload.requestBody,
+      'api/auth/admin-register',
+      payload.setLoading,
+      payload.setAlertOptions
+    );
+    return resData;
+  } catch (error: unknown) {
+    return error;
   }
-);
+});
 
 const authSlice = createSlice({
   name: 'auth',
@@ -54,27 +52,6 @@ const authSlice = createSlice({
       const token = action.payload;
       state.token = token;
     },
-  },
-  extraReducers: (builder) => {
-    builder
-      .addCase(callLogin.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(callLogin.fulfilled, (state, action: PayloadAction<UserInfo>) => {
-        const response = action.payload;
-        const token = response.token;
-        state.loading = false;
-        state.Userdata.push(response);
-        state.token = token;
-        if (token) {
-          state.isAuthenticated = true;
-        }
-      })
-      .addCase(callLogin.rejected, (state, action) => {
-        state.loading = false;
-        state.error = (action.payload as string) || 'Failed to fetch the User data.';
-      });
   },
 });
 
