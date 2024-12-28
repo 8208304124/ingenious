@@ -7,6 +7,12 @@ export const styles = StyleSheet.create({
     backgroundColor: '#F7F8FA',
     paddingHorizontal: 25,
   },
+  video: {
+    width: '100%',
+    borderRadius: 15,
+    overflow: 'hidden',
+    height: scale(170),
+  },
   homeHeaderSearchText: {
     fontFamily: 'Merriweather-Black',
     color: '#616161',
@@ -30,14 +36,14 @@ export const styles = StyleSheet.create({
     top: 0,
     zIndex: 10,
     borderRadius: 12,
-    height: scale(202),
+    height: scale(170),
     width: '100%',
     resizeMode: 'cover',
   },
   imageStyle: {
     borderRadius: 12,
     overflow: 'hidden',
-    height: scale(202),
+    height: scale(170),
     width: '100%',
   },
   profileImage: {

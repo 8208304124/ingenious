@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { styles } from './Styles';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import TutorialCard from './Components/TutorialCard';
 import { navigate } from '../../routes/RootNavigation';
+import Video from 'react-native-video';
+
 function CourseDetails() {
+  const [play, setPlay] = useState(false);
   const learnPoints = [
     'Corporate Restructure',
     'Provisions relating to Compromise and Arrangements',
@@ -105,31 +108,45 @@ function CourseDetails() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.safeContainer}>
-        <View style={{ marginTop: 20 }}>
-          <Image
-            source={require('../../assets/images/GradientLight.png')}
-            style={styles.shadowContainer}
-          />
-          <Feather
-            size={45}
-            name="play-circle"
-            color={'white'}
-            style={{
-              position: 'absolute',
-              top: '50%',
-              left: '50%',
-              transform: [{ translateX: -20 }, { translateY: -15 }],
-              zIndex: 10,
-            }}
-          />
-          <Image
-            resizeMode="cover"
-            style={styles.imageStyle}
-            source={{
-              uri: 'https://img.freepik.com/premium-vector/abstract-white-landscape-background-template_469489-1272.jpg?w=1480',
-            }}
-          />
-        </View>
+        {play ? (
+          <View style={{ marginTop: 10 }}>
+            <Video
+              source={{
+                uri: 'https://d1c9r6dlt2rggt.cloudfront.net/pradip_sable-b9d1f626-be4f-40e1-9e67-3f86a7d5f396/file/1faabb5c-c835-4a5e-b912-1aaaf552ce35-acuqa-1.mov',
+              }}
+              style={styles.video}
+              controls={true}
+              resizeMode="contain"
+              paused={false}
+            />
+          </View>
+        ) : (
+          <TouchableOpacity style={{ marginTop: 20 }} onPress={() => setPlay(true)}>
+            <Image
+              source={require('../../assets/images/GradientLight.png')}
+              style={styles.shadowContainer}
+            />
+            <Feather
+              size={45}
+              name="play-circle"
+              color={'white'}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: [{ translateX: -20 }, { translateY: -15 }],
+                zIndex: 10,
+              }}
+            />
+            <Image
+              resizeMode="cover"
+              style={styles.imageStyle}
+              source={{
+                uri: 'https://img.freepik.com/premium-vector/abstract-white-landscape-background-template_469489-1272.jpg?w=1480',
+              }}
+            />
+          </TouchableOpacity>
+        )}
         <View style={{ marginTop: 15, gap: 10 }}>
           <Text style={styles.homeHeaderSearchText}>
             Advanced Training Program on Mergers and Acquisition Law

@@ -150,7 +150,7 @@ export default function BottomNavTabs() {
           ),
           tabBarIcon: ({ color, size }) => (
             <EntypoWithBack
-              name={'play'}
+              name={'play-circle'}
               size={size + 15}
               color={'white'}
               backgroundColor={color == '#50C878' ? color : '#4169E1'}

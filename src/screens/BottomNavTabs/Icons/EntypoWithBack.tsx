@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import Feather from 'react-native-vector-icons/EvilIcons';
+import Feather from 'react-native-vector-icons/Feather';
 
 interface FeatherIconwithBackProps {
   name: string;
@@ -21,19 +21,11 @@ const EntypoWithBack: React.FC<FeatherIconwithBackProps> = ({
       height: size,
       backgroundColor: backgroundColor,
       borderRadius: 20,
+      justifyContent: 'center',
+      alignItems: 'center',
     }}
   >
-    <Feather
-      name={name}
-      size={size * 0.7}
-      color={color}
-      style={{
-        position: 'absolute',
-        top: size * 0.2,
-        height: size,
-        left: size * 0.17,
-      }}
-    />
+    <Feather name={name} size={size * 0.6} color={color} style={{ top: 0 }} />
   </View>
 );
 

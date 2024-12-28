@@ -1,5 +1,6 @@
 import axios, { AxiosError } from 'axios';
 import { AlertOptionsType } from '../components/elements/alert/Alert';
+import { getStoreLoginUser } from '../utility/localStorage/localStorage';
 
 const baseUrl = 'http://3.110.33.185';
 
@@ -16,11 +17,13 @@ const post = async (
 ) => {
   try {
     setLoading(true);
-
+    const userLogin = await getStoreLoginUser();
+    const headers = {
+      'Content-Type': 'application/json',
+      ...(userLogin?.token ? { Authorization: `Bearer ${userLogin?.token}` } : {}), // Add Authorization header if token is provided
+    };
     const response = await axios.post(`${baseUrl}/${endPoint}`, requestBody, {
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers,
       timeout: 1000 * 30,
     });
 

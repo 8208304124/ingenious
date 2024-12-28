@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Modal } from 'react-native';
-import Text from '../text';
+import { View, Modal, Text } from 'react-native';
 import Button from '../button/Button';
 import { styles } from './styles';
 import i18next from 'i18next';
@@ -73,7 +72,7 @@ const Alert: React.FC<AlertProps> = ({ options, setOptions }) => {
           <View style={style.modalContainer}>
             <View style={style.horizontalPadding}>
               <Text style={style.title}>{i18next.t(title)}</Text>
-              <Text>{filterMsg}</Text>
+              <Text style={{ color: 'black' }}>{filterMsg}</Text>
             </View>
             <View
               style={{

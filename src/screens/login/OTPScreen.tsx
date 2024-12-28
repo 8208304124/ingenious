@@ -4,22 +4,24 @@ import useThemedStyles from '../../utility/hooks/useThemedStyles';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import HeadLogo from '../../assets/images/headLogo.svg';
-import { NavigationProp, ParamListBase } from '@react-navigation/native';
-import { ApiResponseType, callOtpVerify } from '../../store/reducers/authReducer';
+import { NavigationProp, ParamListBase, RouteProp } from '@react-navigation/native';
+import { ApiResponseType, callLogin, callOtpVerify } from '../../store/reducers/authReducer';
 import Alert, { AlertOptionsType } from '../../components/elements/alert/Alert';
 import { UnknownAction } from 'redux';
 import { RootState } from '../../store/reducers';
 import { ThunkDispatch } from 'redux-thunk';
 import { useDispatch } from 'react-redux';
 import Loader from '../../components/elements/loader';
+import { AuthUserResponse, storeLoginUser } from '../../utility/localStorage/localStorage';
 
 export type OtpScreenProps = {
   navigation: NavigationProp<ParamListBase>;
+  route: RouteProp<{ params: { phoneNumber: string } }, 'params'>;
 };
 
-const OTPScreen = ({ navigation }: OtpScreenProps) => {
-  const [otp, setOtp] = useState(['', '', '', '']);
-  const inputRefs = useRef<Array<TextInput | null>>(Array(4).fill(null));
+const OTPScreen = ({ navigation, route }: OtpScreenProps) => {
+  const [otp, setOtp] = useState(['', '', '', '', '', '']);
+  const inputRefs = useRef<Array<TextInput | null>>(Array(6).fill(null));
   const style = useThemedStyles(styles);
   const dispatch: ThunkDispatch<RootState, void, UnknownAction> = useDispatch();
   const [alertOptions, setAlertOptions] = useState<AlertOptionsType>({
@@ -28,6 +30,7 @@ const OTPScreen = ({ navigation }: OtpScreenProps) => {
     message: '',
   });
   const [loading, setLoading] = useState<boolean>(false);
+  const { phoneNumber } = route.params;
 
   const handleChange = (index: number, value: string) => {
     const newOtp = [...otp];
@@ -46,16 +49,31 @@ const OTPScreen = ({ navigation }: OtpScreenProps) => {
       inputRefs.current[index - 1]?.focus();
     }
   };
+
   const handleVerify = async () => {
     const requestFormdata = {
-      phoneNumber: otp.join('').trim(),
+      otp: otp.join('').trim(),
+      phoneNumber: phoneNumber,
     };
     const res = await dispatch(
       callOtpVerify({ requestBody: requestFormdata, setAlertOptions, setLoading })
     );
+    const { status, data } = res?.payload as ApiResponseType<AuthUserResponse>;
+    if (status == 200) {
+      await storeLoginUser(data);
+      navigation.navigate('MainDashboard');
+    }
+  };
+  const handleOtpsendAgain = async () => {
+    const requestFormdata = {
+      phoneNumber: phoneNumber,
+    };
+    const res = await dispatch(
+      callLogin({ requestBody: requestFormdata, setAlertOptions, setLoading: setLoading })
+    );
     const { status } = res?.payload as ApiResponseType<{ Message: string }>;
     if (status == 200) {
-      navigation.navigate('MainDashboard');
+      setAlertOptions({ title: 'Success', message: 'Otp sent successfully', visible: true });
     }
   };
   return (
@@ -92,7 +110,9 @@ const OTPScreen = ({ navigation }: OtpScreenProps) => {
         </Pressable>
         <View style={{ flexDirection: 'row', gap: 5, paddingBottom: 25 }}>
           <Text style={{ color: '#7F8C8D' }}>Didn’t received OTP?</Text>
-          <Text style={{ color: '#4169E1', fontWeight: '600' }}>Send OTP again</Text>
+          <Text style={{ color: '#4169E1', fontWeight: '600' }} onPress={handleOtpsendAgain}>
+            Send OTP again
+          </Text>
         </View>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'center', gap: 3 }}></View>

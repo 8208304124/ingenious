@@ -11,10 +11,9 @@ export const styles = (theme: ThemeType) =>
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: theme.colors.MODALBG,
     },
     modalContainer: {
-      backgroundColor: theme.colors.BACKGROUND,
+      backgroundColor: 'white',
       borderRadius: theme.shape.borderRadius.L,
       paddingVertical: 20,
       maxWidth,
@@ -32,6 +31,7 @@ export const styles = (theme: ThemeType) =>
       fontWeight: 'bold',
       fontSize: 17,
       marginBottom: 20,
+      color: 'black',
     },
     horizontalPadding: {
       paddingHorizontal: 30,

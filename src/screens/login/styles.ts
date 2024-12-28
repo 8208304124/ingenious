@@ -100,15 +100,15 @@ const styles = (theme: ThemeType) =>
     otpBox: {
       flexDirection: 'row',
       justifyContent: 'space-around',
-      gap: 10,
+      gap: 20,
     },
     inputText: {
       color: 'black',
-      width: scale(43),
+      width: scale(35),
       borderColor: '#50C878',
       backgroundColor: '#F9F9F9',
       paddingHorizontal: 10,
-      height: scale(44),
+      height: scale(35),
       borderWidth: 0.5,
       borderRadius: 7,
       textAlign: 'center',

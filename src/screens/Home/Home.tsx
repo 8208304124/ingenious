@@ -28,6 +28,8 @@ function Home() {
       headerSubTitle:
         'Essential insights into the legal, regulatory, and practical aspects of Mergers and Acquisitions (M&A)',
       price: 1200,
+      video:
+        'https://d1c9r6dlt2rggt.cloudfront.net/pradip_sable-b9d1f626-be4f-40e1-9e67-3f86a7d5f396/file/1faabb5c-c835-4a5e-b912-1aaaf552ce35-acuqa-1.mov',
       image:
         'https://img.freepik.com/premium-vector/abstract-white-landscape-background-template_469489-1272.jpg?w=1480',
     },
@@ -37,6 +39,8 @@ function Home() {
       headerSubTitle:
         'Essential insights into the legal, regulatory, and practical aspects of Mergers and Acquisitions (M&A)',
       price: 1200,
+      video:
+        'https://d1c9r6dlt2rggt.cloudfront.net/pradip_sable-b9d1f626-be4f-40e1-9e67-3f86a7d5f396/file/1faabb5c-c835-4a5e-b912-1aaaf552ce35-acuqa-1.mov',
       image:
         'https://img.freepik.com/premium-vector/gradient-abstract-background_23-2149154566.jpg?w=1480',
     },
@@ -46,6 +50,8 @@ function Home() {
       headerSubTitle:
         'Essential insights into the legal, regulatory, and practical aspects of Mergers and Acquisitions (M&A)',
       price: 1200,
+      video:
+        'https://d1c9r6dlt2rggt.cloudfront.net/pradip_sable-b9d1f626-be4f-40e1-9e67-3f86a7d5f396/file/1faabb5c-c835-4a5e-b912-1aaaf552ce35-acuqa-1.mov',
       image:
         'https://img.freepik.com/free-vector/paper-style-white-monochrome-background_52683-66443.jpg?t=st=1734161079~exp=1734164679~hmac=553b9e5a44f98f5a9051d19bf17fcfe16dcfab3e08608bea245294df8e605eea&w=1480',
     },
@@ -55,6 +61,8 @@ function Home() {
       headerSubTitle:
         'Essential insights into the legal, regulatory, and practical aspects of Mergers and Acquisitions (M&A)',
       price: 1200,
+      video:
+        'https://d1c9r6dlt2rggt.cloudfront.net/pradip_sable-b9d1f626-be4f-40e1-9e67-3f86a7d5f396/file/1faabb5c-c835-4a5e-b912-1aaaf552ce35-acuqa-1.mov',
       image:
         'https://img.freepik.com/premium-vector/abstract-white-landscape-background-template_469489-1272.jpg?w=1480',
     },
