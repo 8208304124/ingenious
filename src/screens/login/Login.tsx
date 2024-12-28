@@ -1,5 +1,5 @@
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Pressable, ScrollView, View } from 'react-native';
 import styles from './styles';
 import Text from '../../components/elements/text';
@@ -17,6 +17,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { RootState } from '../../store/reducers';
 import { UnknownAction } from 'redux';
 import HeadLogo from '../../assets/images/headLogo.svg';
+import { getStoreLoginUser } from '../../utility/localStorage/localStorage';
 export type LoginProps = {
   navigation: NavigationProp<ParamListBase>;
 };
@@ -49,12 +50,21 @@ const Login = ({ navigation }: LoginProps) => {
     const res = await dispatch(
       callLogin({ requestBody: requestFormdata, setAlertOptions, setLoading: setShowLoader })
     );
-    const { status } = res?.payload as ApiResponseType<{ Message: string }>;
-    if (status == 200) {
+    const { status, data } = res?.payload as ApiResponseType<{ message: string }>;
+    if (status == 200 && data) {
       navigation.navigate('OTPScreen', { phoneNumber: FormDataInfo.userName });
     }
   };
+  useEffect(() => {
+    const checkLoggedInUser = async () => {
+      const loggedInUserDetails = await getStoreLoginUser();
+      if (loggedInUserDetails) {
+        navigation.navigate('MainDashboard');
+      }
+    };
 
+    checkLoggedInUser();
+  }, [dispatch, navigation]);
   return (
     <GestureHandlerRootView style={commonStyles.Flex1}>
       <SafeAreaView style={[commonStyles.Flex1]}>

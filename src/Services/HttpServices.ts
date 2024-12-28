@@ -26,7 +26,7 @@ const post = async (
       headers,
       timeout: 1000 * 30,
     });
-
+    // console.log('response--------------------------------', response.data);
     setLoading(false);
     return { data: response.data, status: response.status };
   } catch (error) {

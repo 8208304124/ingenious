@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   input: {
     flex: 1,
     paddingHorizontal: 10,
+    height: 52,
   },
   inputSearch: {
     flexDirection: 'row',

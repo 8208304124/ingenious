@@ -26,8 +26,8 @@ const FeatherIconwithBack: React.FC<FeatherIconwithBackProps> = ({
       color={color}
       style={{
         position: 'absolute',
-        top: size * 0.01,
-        left: size * 0.01,
+        top: size * 0.05,
+        left: size * 0.06,
       }}
     />
   </View>

@@ -68,13 +68,9 @@ const OTPScreen = ({ navigation, route }: OtpScreenProps) => {
     const requestFormdata = {
       phoneNumber: phoneNumber,
     };
-    const res = await dispatch(
+    await dispatch(
       callLogin({ requestBody: requestFormdata, setAlertOptions, setLoading: setLoading })
     );
-    const { status } = res?.payload as ApiResponseType<{ Message: string }>;
-    if (status == 200) {
-      setAlertOptions({ title: 'Success', message: 'Otp sent successfully', visible: true });
-    }
   };
   return (
     <View style={style.otpMain}>

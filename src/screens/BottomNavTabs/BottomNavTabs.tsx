@@ -17,7 +17,7 @@ import HeaderRight from './Headers/HeaderRight';
 import Home from '../Home/Home';
 import MyProfile from '../Settings/MyProfile/MyProfile';
 import HeaderLeft from '../../routes/Headers/HeaderLeft';
-import { View } from 'react-native';
+import { Platform, StyleSheet, Text, View } from 'react-native';
 import ProfileEdit from '../Settings/ProfileEdit/ProfileEdit';
 export type BottomNavTabsProps = {
   navigation: NavigationProp<ParamListBase>;
@@ -39,8 +39,8 @@ function MyProfileStack() {
         name="MyProfileMain"
         component={Settings}
         options={{
+          headerBackground: () => <View style={{ flex: 1, backgroundColor: '#F7F8FA' }} />,
           headerBackVisible: true,
-          title: 'My Profile',
           headerLeft: () => <View style={{ paddingLeft: 10 }}></View>,
           headerRight: () => (
             <HeaderRight
@@ -49,6 +49,11 @@ function MyProfileStack() {
               showWhiteNotify
               showHeaderForPadding
             />
+          ),
+          headerTitle: () => (
+            <View style={styles.headerTitleContainer}>
+              <Text style={styles.headerTitleText}>My Profile</Text>
+            </View>
           ),
         }}
       />
@@ -66,13 +71,19 @@ function MyProfileStack() {
               showHeaderForPadding
             />
           ),
+          headerTitle: () => (
+            <View
+              style={[styles.headerTitleContainer, { marginLeft: Platform.OS == 'ios' ? 15 : 25 }]}
+            >
+              <Text style={styles.headerTitleText}>My Profile</Text>
+            </View>
+          ),
         }}
       />
       <Stack.Screen
         name="MyProfileEdit"
         component={ProfileEdit}
         options={{
-          title: 'My Profile',
           headerBackground: () => <View style={{ flex: 1, backgroundColor: '#F7F8FA' }} />,
           headerLeft: () => <HeaderLeft />,
           headerRight: () => (
@@ -82,6 +93,13 @@ function MyProfileStack() {
               showWhiteNotify
               showHeaderForPadding
             />
+          ),
+          headerTitle: () => (
+            <View
+              style={[styles.headerTitleContainer, { marginLeft: Platform.OS == 'ios' ? 15 : 25 }]}
+            >
+              <Text style={styles.headerTitleText}>My Profile</Text>
+            </View>
           ),
         }}
       />
@@ -187,3 +205,13 @@ export default function BottomNavTabs() {
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  headerTitleContainer: {
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    flexDirection: 'row',
+    flex: 1,
+  },
+  headerTitleText: { color: '#4169E1', fontSize: 24, fontWeight: '700' },
+});

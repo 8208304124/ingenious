@@ -40,7 +40,7 @@
 		00E356EE1AD99517003FC87E /* ingeniousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ingeniousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* ingeniousTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ingeniousTests.m; sourceTree = "<group>"; };
-		0788553191F84181B21E9D2C /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Regular.ttf"; path = "../src/assets/fonts/Merriweather-Regular.ttf"; sourceTree = "<group>"; };
+		0788553191F84181B21E9D2C /* Merriweather-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Regular.ttf"; path = "../src/assets/fonts/Merriweather-Regular.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* ingenious.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ingenious.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ingenious/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = ingenious/AppDelegate.mm; sourceTree = "<group>"; };
@@ -48,21 +48,21 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ingenious/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ingenious/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ingenious/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		169E1D4007E647A084BCE3A4 /* Merriweather-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Bold.ttf"; path = "../src/assets/fonts/Merriweather-Bold.ttf"; sourceTree = "<group>"; };
-		2795670E799142D6947BBBB7 /* Merriweather-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-BlackItalic.ttf"; path = "../src/assets/fonts/Merriweather-BlackItalic.ttf"; sourceTree = "<group>"; };
+		169E1D4007E647A084BCE3A4 /* Merriweather-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Bold.ttf"; path = "../src/assets/fonts/Merriweather-Bold.ttf"; sourceTree = "<group>"; };
+		2795670E799142D6947BBBB7 /* Merriweather-BlackItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-BlackItalic.ttf"; path = "../src/assets/fonts/Merriweather-BlackItalic.ttf"; sourceTree = "<group>"; };
 		3C9C12388E13A98BF8BE1533 /* libPods-ingenious.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ingenious.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6CA438A9AB101A0D23C402 /* Pods-ingenious.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ingenious.release.xcconfig"; path = "Target Support Files/Pods-ingenious/Pods-ingenious.release.xcconfig"; sourceTree = "<group>"; };
-		41C2A83536514BAF9E0F6C08 /* Merriweather-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Black.ttf"; path = "../src/assets/fonts/Merriweather-Black.ttf"; sourceTree = "<group>"; };
-		534DE78738D04148ABFA4C53 /* OFL.txt */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = OFL.txt; path = ../src/assets/fonts/OFL.txt; sourceTree = "<group>"; };
+		41C2A83536514BAF9E0F6C08 /* Merriweather-Black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Black.ttf"; path = "../src/assets/fonts/Merriweather-Black.ttf"; sourceTree = "<group>"; };
+		534DE78738D04148ABFA4C53 /* OFL.txt */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = OFL.txt; path = ../src/assets/fonts/OFL.txt; sourceTree = "<group>"; };
 		55A22FEE8A7AFCD1C624FAB6 /* libPods-ingenious-ingeniousTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ingenious-ingeniousTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		573C41603FAB428A8A95BC67 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-LightItalic.ttf"; path = "../src/assets/fonts/Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
+		573C41603FAB428A8A95BC67 /* Merriweather-LightItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-LightItalic.ttf"; path = "../src/assets/fonts/Merriweather-LightItalic.ttf"; sourceTree = "<group>"; };
 		6881C78F50F1A503665CDD77 /* Pods-ingenious.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ingenious.debug.xcconfig"; path = "Target Support Files/Pods-ingenious/Pods-ingenious.debug.xcconfig"; sourceTree = "<group>"; };
-		7D0FEC9DBFBA4E4EA56CB971 /* Merriweather-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Italic.ttf"; path = "../src/assets/fonts/Merriweather-Italic.ttf"; sourceTree = "<group>"; };
+		7D0FEC9DBFBA4E4EA56CB971 /* Merriweather-Italic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Italic.ttf"; path = "../src/assets/fonts/Merriweather-Italic.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ingenious/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		BBA1341DACDE4744BC5B365E /* Merriweather-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Light.ttf"; path = "../src/assets/fonts/Merriweather-Light.ttf"; sourceTree = "<group>"; };
+		BBA1341DACDE4744BC5B365E /* Merriweather-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-Light.ttf"; path = "../src/assets/fonts/Merriweather-Light.ttf"; sourceTree = "<group>"; };
 		C6CA77E89AAC8D7CA77EDF27 /* Pods-ingenious-ingeniousTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ingenious-ingeniousTests.release.xcconfig"; path = "Target Support Files/Pods-ingenious-ingeniousTests/Pods-ingenious-ingeniousTests.release.xcconfig"; sourceTree = "<group>"; };
 		DC11A4203255926B28063878 /* Pods-ingenious-ingeniousTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ingenious-ingeniousTests.debug.xcconfig"; path = "Target Support Files/Pods-ingenious-ingeniousTests/Pods-ingenious-ingeniousTests.debug.xcconfig"; sourceTree = "<group>"; };
-		E9715006A6DC4722A2E99038 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-BoldItalic.ttf"; path = "../src/assets/fonts/Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
+		E9715006A6DC4722A2E99038 /* Merriweather-BoldItalic.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Merriweather-BoldItalic.ttf"; path = "../src/assets/fonts/Merriweather-BoldItalic.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -173,7 +173,6 @@
 				534DE78738D04148ABFA4C53 /* OFL.txt */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -515,6 +514,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F687X55F72;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ingenious/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
@@ -530,8 +530,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ingenious;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -543,6 +546,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = F687X55F72;
 				INFOPLIST_FILE = ingenious/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -557,7 +561,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ingenious;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -632,10 +639,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) DEBUG";
@@ -705,10 +709,7 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
-				OTHER_LDFLAGS = (
-					"$(inherited)",
-					" ",
-				);
+				OTHER_LDFLAGS = "$(inherited)  ";
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
